@@ -1,0 +1,20 @@
+<!-- @dsCard group="Navegación" height=440 width=640 subtitle="Carpetas que reparten experiencia y conocimiento; pasa el cursor por un archivo" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Explorer</title>
+<style>#root { position: relative; height: 430px; } #root .vs-side { height: 430px; }</style>
+</head>
+<body>
+<div id="root" class="vs vs-solo">
+  <aside class="vs-side" style="--side-cur: 280px">
+    <div class="vs-side-head"><span class="vs-side-title">Explorador</span></div>
+    <div class="vs-side-body"><div class="vs-sect">alberto-lopez</div><div class="vs-tree" id="tree"></div></div>
+  </aside>
+</div>
+<script>
+  var P = window.Portfolio, root = document.getElementById('root');
+  P.explorer(document.getElementById('tree'), { open: { experiencia: true, 'experiencia/hp': true, conocimiento: true, 'conocimiento/lenguajes': true }, active: 'experiencia/hp/README.md', onOpen: function () {} });
+  P.hover(root);
+</script>
+</body>
+</html>

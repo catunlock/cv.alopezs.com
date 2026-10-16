@@ -1,0 +1,13 @@
+<!-- @dsCard group="Documento" height=200 subtitle="Cinco niveles, siempre con palabra" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>LevelMeter</title><style>.list { display: grid; gap: 10px; padding: 16px; }</style></head>
+<body>
+<div class="vs vs-solo"><div class="list" id="levels"></div></div>
+<script>
+  var P = window.Portfolio, html = '';
+  for (var i = 1; i <= 5; i++) html += '<div>' + P.level(i) + '</div>';
+  document.getElementById('levels').innerHTML = html;
+</script>
+</body>
+</html>

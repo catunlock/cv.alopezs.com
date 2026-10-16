@@ -1,0 +1,18 @@
+<!-- @dsCard group="Navegación" height=400 width=640 subtitle="Ctrl+P abre archivos; con > delante, comandos" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>CommandPalette</title><style>#root { padding: 16px; }</style></head>
+<body>
+<div class="vs vs-solo" id="root"></div>
+<script>
+  var P = window.Portfolio, root = document.getElementById('root');
+  root.innerHTML = P.paletteHTML();
+  var cmds = ['Ver: Alternar terminal|Ctrl+ñ', 'Ver: Explorador|Ctrl+Shift+E', 'Ver: Buscar en archivos|Ctrl+Shift+F', 'Ver: Trayectoria (historial)|Ctrl+Shift+G', 'Preferencias: Tema de color|', 'Contacto: Escribirme|', 'CV: Descargar|', 'Café: Preparar|'];
+  var pal = P.palette(root.querySelector('.vs-palette'), { close: function () {} });
+  pal.open(function (q) {
+    if (q.charAt(0) === '>') return { query: q.slice(1).trim(), items: cmds.map(function (c) { c = c.split('|'); return { label: c[0], kbd: c[1], keep: true, run: function () {} }; }) };
+    return { query: q, items: Object.keys(P.files).filter(function (p) { return p.charAt(0) !== '.'; }).map(function (p) { return { label: p.split('/').pop(), desc: p.slice(0, Math.max(0, p.lastIndexOf('/'))), icon: P.icon(p), keep: true, run: function () {} }; }) };
+  }, '>', '');
+</script>
+</body>
+</html>

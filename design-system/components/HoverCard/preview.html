@@ -1,0 +1,12 @@
+<!-- @dsCard group="Documento" height=230 width=980 subtitle="La ficha que sale al pasar el cursor por un archivo, una carpeta o un enlace" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>HoverCard</title><style>.demo { display: flex; gap: 20px; align-items: flex-start; padding: 16px; } .demo > div { width: 300px; }</style></head>
+<body>
+<div class="vs vs-solo"><div class="demo" id="demo"></div></div>
+<script>
+  var P = window.Portfolio;
+  document.getElementById('demo').innerHTML = ['conocimiento/lenguajes/rust.rs', 'experiencia/hp/README.md', 'taller'].map(function (p) { return '<div>' + P.cardHTML(p) + '</div>'; }).join('');
+</script>
+</body>
+</html>

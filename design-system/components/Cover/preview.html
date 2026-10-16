@@ -1,0 +1,59 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Alberto López</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg-editor); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; height: 288px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; overflow: hidden; }
+  .art svg { display: block; }
+  .slab { fill: var(--status-bg); rx: var(--radius-sm); }
+  .accent { fill: var(--accent); rx: var(--radius-sm); }
+  .pill.kw { fill: var(--syn-keyword); }
+  .pill.fn { fill: var(--syn-func); }
+  .pill.str { fill: var(--syn-string); }
+  .words { position: absolute; left: var(--space-12); bottom: 40px; max-width: 440px; }
+  .name { margin: 0; font-size: 96px; line-height: .95; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+  .tagline { margin: var(--space-3) 0 0 4px; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      status-bg 120×224 bleeding off the top (the status bar, the band people remember an editor by) · accent 72×72 (the active-tab / prompt colour) · syntax pills in syn-keyword, syn-func, syn-string — 5 colours, ≈30% of 960×288
+  arrangement one tall slab on the left, the code beside it as a minimap, the accent block sitting on the slab's baseline (y 216) to the right
+  pattern     minimap code lines, from "a literal motif": an editor is read as lines of coloured code; row-h-like pitch of 16px (space-4), 8px pills, indents in space-4 steps, 16 pills
+  scales      slab 120 = 5×space-6, accent 72 = 3×space-6, pitch space-4, indents space-4, corners radius-sm, pills rx = half their height
+-->
+<rect class="slab" x="24" y="-8" width="120" height="224" rx="3"/>
+<rect class="pill kw" x="168" y="24" width="32" height="8" rx="4"/>
+<rect class="pill fn" x="208" y="24" width="88" height="8" rx="4"/>
+<rect class="pill str" x="184" y="40" width="48" height="8" rx="4"/>
+<rect class="pill kw" x="240" y="40" width="64" height="8" rx="4"/>
+<rect class="pill fn" x="312" y="40" width="40" height="8" rx="4"/>
+<rect class="pill fn" x="184" y="56" width="120" height="8" rx="4"/>
+<rect class="pill kw" x="200" y="72" width="56" height="8" rx="4"/>
+<rect class="pill str" x="264" y="72" width="96" height="8" rx="4"/>
+<rect class="pill str" x="200" y="88" width="72" height="8" rx="4"/>
+<rect class="pill kw" x="184" y="104" width="24" height="8" rx="4"/>
+<rect class="pill kw" x="168" y="136" width="48" height="8" rx="4"/>
+<rect class="pill fn" x="224" y="136" width="72" height="8" rx="4"/>
+<rect class="pill str" x="184" y="152" width="88" height="8" rx="4"/>
+<rect class="pill kw" x="280" y="152" width="56" height="8" rx="4"/>
+<rect class="pill fn" x="184" y="168" width="64" height="8" rx="4"/>
+<rect class="pill kw" x="168" y="184" width="16" height="8" rx="4"/>
+<rect class="accent" x="384" y="144" width="72" height="72" rx="3"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Alberto López</h1>
+<p class="tagline">Software, firmware y herramientas. Abre la terminal.</p>
+</div>
+</div>
+</body>
+</html>

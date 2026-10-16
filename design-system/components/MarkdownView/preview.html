@@ -1,0 +1,15 @@
+<!-- @dsCard group="Documento" height=470 width=900 subtitle="Así se lee la experiencia; los enlaces abren el archivo" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>MarkdownView</title><style>#doc { height: auto; overflow: visible; }</style></head>
+<body>
+<div class="vs vs-solo" id="root"><div class="vs-editor" id="doc"></div></div>
+<script>
+  var P = window.Portfolio, doc = document.getElementById('doc');
+  function show(p) { doc.innerHTML = P.docHTML(p); }
+  doc.addEventListener('click', function (e) { var a = e.target.closest('[data-open]'); if (a && P.files[a.getAttribute('data-open')]) { e.preventDefault(); show(a.getAttribute('data-open')); } });
+  show('experiencia/hp/README.md');
+  P.hover(document.getElementById('root'));
+</script>
+</body>
+</html>

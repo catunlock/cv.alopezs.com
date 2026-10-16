@@ -1,0 +1,25 @@
+{
+  "v": 3,
+  "assetGroups": {},
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-16T17:46:05Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [],
+  "lastChange": {
+    "at": "2026-10-16T21:12:03Z",
+    "by": "Alberto López",
+    "note": "Niveles revisados por Alberto (Python, Firmware, Docker y Virtualización a 5) y arreglos para móvil.",
+    "via": "Claude Code"
+  },
+  "layout": "files",
+  "libraries": [],
+  "namespace": "Portfolio",
+  "sections": {},
+  "title": "Alberto López — portfolio"
+}

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Navegación" height=40 width=900 subtitle="Arrástrala hacia arriba para abrir la terminal" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>StatusBar</title><style>.vs-status { height: var(--status-h); }</style></head>
+<body>
+<div class="vs vs-solo"><footer class="vs-status" id="bar"></footer></div>
+<script>
+  var I = window.Portfolio.ico;
+  document.getElementById('bar').innerHTML = '<button>' + I('branch', 14) + 'main</button><button>' + I('err', 14) + '0 ' + I('warn', 14) + '1</button><span class="vs-status-fill" title="Arrastra hacia arriba para abrir la terminal"></span><span>Ln 1, Col 1</span><span>UTF-8</span><span>LF</span><button>Markdown</button><button>◐ Noche</button><button>' + I('term', 14) + 'Terminal</button><button aria-label="Notificaciones">' + I('bell', 14) + '</button>';
+</script>
+</body>
+</html>
