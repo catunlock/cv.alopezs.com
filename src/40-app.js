@@ -241,7 +241,7 @@
       var t = sideBody.querySelector('[data-commit]'), msg = t ? t.value.trim() : '';
       if (!msg) return toast('No hay mensaje. Ni cambios. Ni prisa.');
       t.value = '';
-      toast('Commit «' + esc(msg) + '» creado… en tu imaginación. Si va en serio, mándamelo por el formulario.', [{ label: 'Abrir contacto', run: function () { openFile('contacto.json'); } }]);
+      toast('Commit «' + esc(msg) + '» creado… en tu imaginación. Si va en serio, escríbeme.', [{ label: 'Abrir contacto', run: function () { openFile('contacto.json'); } }]);
     }
 
     // —— panel ——
@@ -323,7 +323,7 @@
         { label: 'Preferencias: Tema de color', keep: true, run: themePicker },
         { label: 'Archivo: Abrir README', run: function () { openFile('README.md'); } },
         { label: 'Contacto: Escribirme', run: function () { openFile('contacto.json'); } },
-        { label: 'CV: Descargar', run: function () { toast('Descargando <b>cv.pdf</b>… (en la web real).'); } },
+        { label: 'CV: Ver en LinkedIn', run: openCV },
         { label: 'Terminal: Ejecutar «neofetch»', run: function () { openPanel('terminal', true); term.run('neofetch'); } },
         { label: 'Café: Preparar', run: function () { toast('<b>HTTP 418</b>: soy una tetera.'); } },
         { label: 'Ayuda: Atajos de teclado', run: shortcuts }
@@ -340,13 +340,14 @@
         return { query: q, items: fileItems(), empty: 'Ningún archivo coincide' };
       }, cmd ? '>' : '', cmd ? '' : 'Buscar archivos por nombre (escribe > para comandos)');
     }
+    function openCV() { window.open(LINKEDIN, '_blank', 'noopener'); }
     function shortcuts() {
       dialog('Atajos de teclado', 'Ctrl+Shift+P paleta de comandos · Ctrl+P abrir archivo · Ctrl+ñ terminal · Ctrl+B barra lateral · Ctrl+Shift+E/F/G/X vistas · Esc cierra lo que flota. Y un código que quizá conozcas.', [{ label: 'Entendido', primary: true }]);
     }
 
     // —— menús ——
     var MENUS = {
-      archivo: [['Abrir archivo…', 'Ctrl+P', function () { openPalette(false); }], ['Abrir README', '', function () { openFile('README.md'); }], ['Contacto', '', function () { openFile('contacto.json'); }], ['Descargar CV', '', function () { toast('Descargando <b>cv.pdf</b>… (en la web real).'); }], null, ['Cerrar ventana', '', closeWindow]],
+      archivo: [['Abrir archivo…', 'Ctrl+P', function () { openPalette(false); }], ['Abrir README', '', function () { openFile('README.md'); }], ['Contacto', '', function () { openFile('contacto.json'); }], ['Ver CV en LinkedIn', '', openCV], null, ['Cerrar ventana', '', closeWindow]],
       ver: [['Paleta de comandos…', 'Ctrl+Shift+P', function () { openPalette(true); }], null, ['Explorador', 'Ctrl+Shift+E', function () { setView('explorer', true); }], ['Buscar', 'Ctrl+Shift+F', function () { setView('search', true); }], ['Trayectoria', 'Ctrl+Shift+G', function () { setView('scm', true); }], ['Conocimiento', 'Ctrl+Shift+X', function () { setView('ext', true); }], null, ['Terminal', 'Ctrl+ñ', toggleTerminal], ['Barra lateral', 'Ctrl+B', function () { S.sideOpen = !S.sideOpen; layout(); }], ['Tema de color…', '', function () { themePicker(); }]],
       terminal: [['Nueva terminal', '', function () { openPanel('terminal', true); term.reset(); }], ['Limpiar terminal', '', function () { term.clear(); }], ['Ejecutar «help»', '', function () { openPanel('terminal', true); term.run('help'); }]],
       ayuda: [['Atajos de teclado', '', shortcuts], ['Acerca de', '', function () { dialog('Acerca de', SITE + ' — el portfolio de Alberto López Sánchez. Versión 1.0 · Hecho a mano, sin frameworks. Inspirado en los editores de código de toda la vida.', [{ label: 'Cerrar', primary: true }]); }]]

@@ -23,6 +23,7 @@
     function setPs() { ps.innerHTML = mode === 'vim' ? '<span class="c-dim">:</span>' : mode === 'busy' ? '' : promptHTML(); el.classList.toggle('is-busy', mode === 'busy'); }
     function print(html) { var dv = document.createElement('div'); dv.innerHTML = html; out.appendChild(dv); el.scrollTop = el.scrollHeight; return dv; }
     function line(text, cls) { return print(cls ? '<span class="' + cls + '">' + esc(text) + '</span>' : esc(text)); }
+    function ext(url, label) { return '<a class="c-file" href="' + url + '" target="_blank" rel="noopener">' + esc(label || url.replace(/^https?:\/\/(www\.)?/, '')) + '</a>'; }
     function link(p, label) { return '<a href="#" class="c-file" data-open="' + esc(p) + '">' + esc(label || baseOf(p)) + '</a>'; }
     function nameHTML(c) { return c.dir ? '<span class="c-path">' + esc(c.name) + '/</span>' : link(c.path, c.name); }
     function target(arg) { return resolve(cwd, arg || '.'); }
@@ -34,7 +35,7 @@
       ['help', 'esta ayuda'], ['ls [-a] [ruta]', 'lista una carpeta'], ['cd <ruta>', 'cambia de carpeta'], ['cat <archivo>', 'muestra un archivo'],
       ['open <archivo>', 'lo abre en el editor (también: code)'], ['tree [ruta]', 'árbol de carpetas'], ['grep <texto>', 'busca en todos los archivos'],
       ['skills', 'conocimiento y taller con su nivel'], ['git log', 'la trayectoria, como historial'], ['neofetch', 'resumen del sistema'],
-      ['contacto', 'cómo escribirme'], ['theme [nombre]', 'cambia el tema'], ['clear', 'limpia la terminal (Ctrl+L)'], ['exit', 'cierra el panel']
+      ['contacto', 'cómo escribirme'], ['cv', 'el CV completo'], ['theme [nombre]', 'cambia el tema'], ['clear', 'limpia la terminal (Ctrl+L)'], ['exit', 'cierra el panel']
     ];
     var C = {
       help: function () { print(HELP.map(function (h) { return '<span class="c-ok">' + esc(pad(h[0], 18)) + '</span>' + esc(h[1]); }).join('\n') + '\n<span class="c-dim">Tab completa, ↑ ↓ recorren el historial. Hay más comandos de los que salen aquí.</span>'); },
@@ -115,8 +116,8 @@
           '<span class="c-warn">Lenguajes</span>: C++, Rust, Python, C#', '<span class="c-warn">Formación</span>: Máster en IA (UPC)', '<span class="c-warn">Taller</span>: IoT, PCB, impresión 3D', '<span class="c-warn">Idiomas</span>: es, ca, en (C1)', '<span class="c-warn">Tema</span>: ' + esc(api.theme ? api.theme() : 'noche')];
         print(art.map(function (r, i) { return '<span class="c-ok">' + esc(r) + '</span>  ' + (info[i] || ''); }).join('\n'));
       },
-      contacto: function () { if (api.open) api.open('contacto.json'); print('Lo más rápido es el formulario: <span class="c-path">' + SITE + '/contacto</span>\nTambién: GitHub (catunlock), LinkedIn y el CV, en ' + link('contacto.json')); },
-      cv: function () { line('Descargando cv.pdf… (en la web real, aquí empieza la descarga)', 'c-dim'); },
+      contacto: function () { if (api.open) api.open('contacto.json'); print('Escríbeme por LinkedIn: ' + ext(LINKEDIN) + '\nEl código, en GitHub: ' + ext(GITHUB)); },
+      cv: function () { print('El CV completo está en LinkedIn: ' + ext(LINKEDIN)); },
       theme: function (a) {
         var list = api.themes || ['noche', 'dia'];
         if (!a[0]) return print(list.filter(function (t) { return t !== 'placa'; }).map(function (t) { return (api.theme && api.theme() === t ? '<span class="c-ok">● ' : '  ') + t + (api.theme && api.theme() === t ? '</span>' : ''); }).join('\n') + '\n<span class="c-dim">Uso: theme dia</span>');
@@ -167,7 +168,7 @@
         mode = 'busy'; setPs();
         setTimeout(function () { dv.remove(); line('(querías decir ls)', 'c-dim'); mode = 'sh'; setPs(); input.focus({ preventScroll: true }); }, 2600);
       },
-      ping: function (a) { var h = a[0] || 'alberto'; print('PING ' + esc(h) + ': 56 bytes de datos.\n64 bytes de ' + esc(h) + ': icmp_seq=1 tiempo=un café\n64 bytes de ' + esc(h) + ': icmp_seq=2 tiempo=un café y medio\n<span class="c-dim">--- respuesta media: 1–2 días por ' + link('contacto.json', 'el formulario') + ' ---</span>'); },
+      ping: function (a) { var h = a[0] || 'alberto'; print('PING ' + esc(h) + ': 56 bytes de datos.\n64 bytes de ' + esc(h) + ': icmp_seq=1 tiempo=un café\n64 bytes de ' + esc(h) + ': icmp_seq=2 tiempo=un café y medio\n<span class="c-dim">--- 2 paquetes enviados, 2 recibidos. Para hablar de verdad: ' + link('contacto.json') + ' ---</span>'); },
       pacman: function () { line('¿Arch? Respeto. Pero aquí no se instala nada.', 'c-dim'); },
       fortune: function () { line(FORTUNES[Math.floor(Math.random() * FORTUNES.length)]); },
       cowsay: function (a) {

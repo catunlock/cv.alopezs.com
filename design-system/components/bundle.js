@@ -3,7 +3,7 @@
   'use strict';
   // ================= Contenido =================
   // Datos de los CV y de github.com/catunlock. Los niveles (1–5) son una estimación inicial a revisar por Alberto.
-  var SITE = 'cv.alopezs.com';
+  var SITE = 'cv.alopezs.com', LINKEDIN = 'https://www.linkedin.com/in/alberto-lopez-sanchez', GITHUB = 'https://github.com/catunlock';
   var FILES = {}, DIRS = {};
   function f(path, meta, body) { FILES[path] = { path: path, meta: meta, body: body.replace(/^\n/, '').replace(/\s+$/, '') + '\n' }; }
   function d(path, text) { DIRS[path] = text; }
@@ -65,7 +65,7 @@ Español y catalán nativos · inglés C1.
 - **Explorador**, a la izquierda: experiencia, conocimiento, proyectos, formación y taller, cada cosa en su carpeta. Pasa el cursor por un archivo para ver su resumen.
 - **Terminal**, abajo: arrastra hacia arriba la barra de estado o pulsa \`Ctrl+ñ\`. Empieza por \`help\`.
 - **Paleta de comandos**: \`Ctrl+Shift+P\`. Para abrir un archivo por su nombre, \`Ctrl+P\`.
-- [Contacto](contacto.json), cuando quieras.
+- **Contacto**: [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock).
 `);
 
   var KN = '../../../conocimiento/';
@@ -322,6 +322,7 @@ QEMU y VMware para emular el dispositivo y probar el firmware sin depender del h
   f('conocimiento/herramientas/Dockerfile', { kind: 'skill', title: 'Docker', level: 5, text: 'Entornos reproducibles para compilar e integrar firmware y para desplegar servicios.' }, `
 # Docker — nivel 5/5 · Experto
 # Entornos reproducibles para compilar e integrar firmware (HP) y para servicios (Nuclia).
+# Ejemplo ilustrativo: no es la configuración real de ningún proyecto.
 
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y build-essential cmake
@@ -332,6 +333,7 @@ ENTRYPOINT ["make", "integracion"]
   f('conocimiento/herramientas/ci.yml', { kind: 'skill', title: 'CI/CD', level: 4, text: 'Workflows de integración continua para el firmware de varias plataformas de producto.' }, `
 # CI/CD — nivel 4/5 · Avanzado
 # Workflows de integración continua para firmware de varias plataformas (HP).
+# Ejemplo ilustrativo: no es la configuración real de ningún proyecto.
 
 name: integracion-firmware
 on: [push, pull_request]
@@ -503,13 +505,11 @@ impresora = "proyectos/linux/brother-archlinux.md"
 terminado = false
 `);
 
-  f('contacto.json', { kind: 'contact', title: 'Contacto', text: 'Formulario, GitHub, LinkedIn y CV.' }, `
+  f('contacto.json', { kind: 'contact', title: 'Contacto', text: 'LinkedIn (con el CV completo) y GitHub.' }, `
 {
-  "web": "${SITE}",
-  "formulario": "/contacto",
-  "github": "github.com/catunlock",
-  "linkedin": "linkedin.com/in/alberto-lopez-sanchez",
-  "cv": "/cv.pdf"
+  "web": "https://${SITE}",
+  "linkedin": "${LINKEDIN}",
+  "github": "${GITHUB}"
 }
 `);
   f('.secreto', { kind: 'secret', title: '.secreto', text: 'Si estás leyendo esto, ya lo has encontrado.' }, `
@@ -826,6 +826,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     function setPs() { ps.innerHTML = mode === 'vim' ? '<span class="c-dim">:</span>' : mode === 'busy' ? '' : promptHTML(); el.classList.toggle('is-busy', mode === 'busy'); }
     function print(html) { var dv = document.createElement('div'); dv.innerHTML = html; out.appendChild(dv); el.scrollTop = el.scrollHeight; return dv; }
     function line(text, cls) { return print(cls ? '<span class="' + cls + '">' + esc(text) + '</span>' : esc(text)); }
+    function ext(url, label) { return '<a class="c-file" href="' + url + '" target="_blank" rel="noopener">' + esc(label || url.replace(/^https?:\/\/(www\.)?/, '')) + '</a>'; }
     function link(p, label) { return '<a href="#" class="c-file" data-open="' + esc(p) + '">' + esc(label || baseOf(p)) + '</a>'; }
     function nameHTML(c) { return c.dir ? '<span class="c-path">' + esc(c.name) + '/</span>' : link(c.path, c.name); }
     function target(arg) { return resolve(cwd, arg || '.'); }
@@ -837,7 +838,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       ['help', 'esta ayuda'], ['ls [-a] [ruta]', 'lista una carpeta'], ['cd <ruta>', 'cambia de carpeta'], ['cat <archivo>', 'muestra un archivo'],
       ['open <archivo>', 'lo abre en el editor (también: code)'], ['tree [ruta]', 'árbol de carpetas'], ['grep <texto>', 'busca en todos los archivos'],
       ['skills', 'conocimiento y taller con su nivel'], ['git log', 'la trayectoria, como historial'], ['neofetch', 'resumen del sistema'],
-      ['contacto', 'cómo escribirme'], ['theme [nombre]', 'cambia el tema'], ['clear', 'limpia la terminal (Ctrl+L)'], ['exit', 'cierra el panel']
+      ['contacto', 'cómo escribirme'], ['cv', 'el CV completo'], ['theme [nombre]', 'cambia el tema'], ['clear', 'limpia la terminal (Ctrl+L)'], ['exit', 'cierra el panel']
     ];
     var C = {
       help: function () { print(HELP.map(function (h) { return '<span class="c-ok">' + esc(pad(h[0], 18)) + '</span>' + esc(h[1]); }).join('\n') + '\n<span class="c-dim">Tab completa, ↑ ↓ recorren el historial. Hay más comandos de los que salen aquí.</span>'); },
@@ -918,8 +919,8 @@ No hay premio, pero hay truco. En cualquier parte de la página:
           '<span class="c-warn">Lenguajes</span>: C++, Rust, Python, C#', '<span class="c-warn">Formación</span>: Máster en IA (UPC)', '<span class="c-warn">Taller</span>: IoT, PCB, impresión 3D', '<span class="c-warn">Idiomas</span>: es, ca, en (C1)', '<span class="c-warn">Tema</span>: ' + esc(api.theme ? api.theme() : 'noche')];
         print(art.map(function (r, i) { return '<span class="c-ok">' + esc(r) + '</span>  ' + (info[i] || ''); }).join('\n'));
       },
-      contacto: function () { if (api.open) api.open('contacto.json'); print('Lo más rápido es el formulario: <span class="c-path">' + SITE + '/contacto</span>\nTambién: GitHub (catunlock), LinkedIn y el CV, en ' + link('contacto.json')); },
-      cv: function () { line('Descargando cv.pdf… (en la web real, aquí empieza la descarga)', 'c-dim'); },
+      contacto: function () { if (api.open) api.open('contacto.json'); print('Escríbeme por LinkedIn: ' + ext(LINKEDIN) + '\nEl código, en GitHub: ' + ext(GITHUB)); },
+      cv: function () { print('El CV completo está en LinkedIn: ' + ext(LINKEDIN)); },
       theme: function (a) {
         var list = api.themes || ['noche', 'dia'];
         if (!a[0]) return print(list.filter(function (t) { return t !== 'placa'; }).map(function (t) { return (api.theme && api.theme() === t ? '<span class="c-ok">● ' : '  ') + t + (api.theme && api.theme() === t ? '</span>' : ''); }).join('\n') + '\n<span class="c-dim">Uso: theme dia</span>');
@@ -970,7 +971,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
         mode = 'busy'; setPs();
         setTimeout(function () { dv.remove(); line('(querías decir ls)', 'c-dim'); mode = 'sh'; setPs(); input.focus({ preventScroll: true }); }, 2600);
       },
-      ping: function (a) { var h = a[0] || 'alberto'; print('PING ' + esc(h) + ': 56 bytes de datos.\n64 bytes de ' + esc(h) + ': icmp_seq=1 tiempo=un café\n64 bytes de ' + esc(h) + ': icmp_seq=2 tiempo=un café y medio\n<span class="c-dim">--- respuesta media: 1–2 días por ' + link('contacto.json', 'el formulario') + ' ---</span>'); },
+      ping: function (a) { var h = a[0] || 'alberto'; print('PING ' + esc(h) + ': 56 bytes de datos.\n64 bytes de ' + esc(h) + ': icmp_seq=1 tiempo=un café\n64 bytes de ' + esc(h) + ': icmp_seq=2 tiempo=un café y medio\n<span class="c-dim">--- 2 paquetes enviados, 2 recibidos. Para hablar de verdad: ' + link('contacto.json') + ' ---</span>'); },
       pacman: function () { line('¿Arch? Respeto. Pero aquí no se instala nada.', 'c-dim'); },
       fortune: function () { line(FORTUNES[Math.floor(Math.random() * FORTUNES.length)]); },
       cowsay: function (a) {
@@ -1280,7 +1281,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       var t = sideBody.querySelector('[data-commit]'), msg = t ? t.value.trim() : '';
       if (!msg) return toast('No hay mensaje. Ni cambios. Ni prisa.');
       t.value = '';
-      toast('Commit «' + esc(msg) + '» creado… en tu imaginación. Si va en serio, mándamelo por el formulario.', [{ label: 'Abrir contacto', run: function () { openFile('contacto.json'); } }]);
+      toast('Commit «' + esc(msg) + '» creado… en tu imaginación. Si va en serio, escríbeme.', [{ label: 'Abrir contacto', run: function () { openFile('contacto.json'); } }]);
     }
 
     // —— panel ——
@@ -1362,7 +1363,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
         { label: 'Preferencias: Tema de color', keep: true, run: themePicker },
         { label: 'Archivo: Abrir README', run: function () { openFile('README.md'); } },
         { label: 'Contacto: Escribirme', run: function () { openFile('contacto.json'); } },
-        { label: 'CV: Descargar', run: function () { toast('Descargando <b>cv.pdf</b>… (en la web real).'); } },
+        { label: 'CV: Ver en LinkedIn', run: openCV },
         { label: 'Terminal: Ejecutar «neofetch»', run: function () { openPanel('terminal', true); term.run('neofetch'); } },
         { label: 'Café: Preparar', run: function () { toast('<b>HTTP 418</b>: soy una tetera.'); } },
         { label: 'Ayuda: Atajos de teclado', run: shortcuts }
@@ -1379,13 +1380,14 @@ No hay premio, pero hay truco. En cualquier parte de la página:
         return { query: q, items: fileItems(), empty: 'Ningún archivo coincide' };
       }, cmd ? '>' : '', cmd ? '' : 'Buscar archivos por nombre (escribe > para comandos)');
     }
+    function openCV() { window.open(LINKEDIN, '_blank', 'noopener'); }
     function shortcuts() {
       dialog('Atajos de teclado', 'Ctrl+Shift+P paleta de comandos · Ctrl+P abrir archivo · Ctrl+ñ terminal · Ctrl+B barra lateral · Ctrl+Shift+E/F/G/X vistas · Esc cierra lo que flota. Y un código que quizá conozcas.', [{ label: 'Entendido', primary: true }]);
     }
 
     // —— menús ——
     var MENUS = {
-      archivo: [['Abrir archivo…', 'Ctrl+P', function () { openPalette(false); }], ['Abrir README', '', function () { openFile('README.md'); }], ['Contacto', '', function () { openFile('contacto.json'); }], ['Descargar CV', '', function () { toast('Descargando <b>cv.pdf</b>… (en la web real).'); }], null, ['Cerrar ventana', '', closeWindow]],
+      archivo: [['Abrir archivo…', 'Ctrl+P', function () { openPalette(false); }], ['Abrir README', '', function () { openFile('README.md'); }], ['Contacto', '', function () { openFile('contacto.json'); }], ['Ver CV en LinkedIn', '', openCV], null, ['Cerrar ventana', '', closeWindow]],
       ver: [['Paleta de comandos…', 'Ctrl+Shift+P', function () { openPalette(true); }], null, ['Explorador', 'Ctrl+Shift+E', function () { setView('explorer', true); }], ['Buscar', 'Ctrl+Shift+F', function () { setView('search', true); }], ['Trayectoria', 'Ctrl+Shift+G', function () { setView('scm', true); }], ['Conocimiento', 'Ctrl+Shift+X', function () { setView('ext', true); }], null, ['Terminal', 'Ctrl+ñ', toggleTerminal], ['Barra lateral', 'Ctrl+B', function () { S.sideOpen = !S.sideOpen; layout(); }], ['Tema de color…', '', function () { themePicker(); }]],
       terminal: [['Nueva terminal', '', function () { openPanel('terminal', true); term.reset(); }], ['Limpiar terminal', '', function () { term.clear(); }], ['Ejecutar «help»', '', function () { openPanel('terminal', true); term.run('help'); }]],
       ayuda: [['Atajos de teclado', '', shortcuts], ['Acerca de', '', function () { dialog('Acerca de', SITE + ' — el portfolio de Alberto López Sánchez. Versión 1.0 · Hecho a mano, sin frameworks. Inspirado en los editores de código de toda la vida.', [{ label: 'Cerrar', primary: true }]); }]]

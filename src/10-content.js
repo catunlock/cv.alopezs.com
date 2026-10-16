@@ -1,6 +1,6 @@
   // ================= Contenido =================
   // Datos de los CV y de github.com/catunlock. Los niveles (1–5) son una estimación inicial a revisar por Alberto.
-  var SITE = 'cv.alopezs.com';
+  var SITE = 'cv.alopezs.com', LINKEDIN = 'https://www.linkedin.com/in/alberto-lopez-sanchez', GITHUB = 'https://github.com/catunlock';
   var FILES = {}, DIRS = {};
   function f(path, meta, body) { FILES[path] = { path: path, meta: meta, body: body.replace(/^\n/, '').replace(/\s+$/, '') + '\n' }; }
   function d(path, text) { DIRS[path] = text; }
@@ -62,7 +62,7 @@ Español y catalán nativos · inglés C1.
 - **Explorador**, a la izquierda: experiencia, conocimiento, proyectos, formación y taller, cada cosa en su carpeta. Pasa el cursor por un archivo para ver su resumen.
 - **Terminal**, abajo: arrastra hacia arriba la barra de estado o pulsa \`Ctrl+ñ\`. Empieza por \`help\`.
 - **Paleta de comandos**: \`Ctrl+Shift+P\`. Para abrir un archivo por su nombre, \`Ctrl+P\`.
-- [Contacto](contacto.json), cuando quieras.
+- **Contacto**: [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock).
 `);
 
   var KN = '../../../conocimiento/';
@@ -319,6 +319,7 @@ QEMU y VMware para emular el dispositivo y probar el firmware sin depender del h
   f('conocimiento/herramientas/Dockerfile', { kind: 'skill', title: 'Docker', level: 5, text: 'Entornos reproducibles para compilar e integrar firmware y para desplegar servicios.' }, `
 # Docker — nivel 5/5 · Experto
 # Entornos reproducibles para compilar e integrar firmware (HP) y para servicios (Nuclia).
+# Ejemplo ilustrativo: no es la configuración real de ningún proyecto.
 
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y build-essential cmake
@@ -329,6 +330,7 @@ ENTRYPOINT ["make", "integracion"]
   f('conocimiento/herramientas/ci.yml', { kind: 'skill', title: 'CI/CD', level: 4, text: 'Workflows de integración continua para el firmware de varias plataformas de producto.' }, `
 # CI/CD — nivel 4/5 · Avanzado
 # Workflows de integración continua para firmware de varias plataformas (HP).
+# Ejemplo ilustrativo: no es la configuración real de ningún proyecto.
 
 name: integracion-firmware
 on: [push, pull_request]
@@ -500,13 +502,11 @@ impresora = "proyectos/linux/brother-archlinux.md"
 terminado = false
 `);
 
-  f('contacto.json', { kind: 'contact', title: 'Contacto', text: 'Formulario, GitHub, LinkedIn y CV.' }, `
+  f('contacto.json', { kind: 'contact', title: 'Contacto', text: 'LinkedIn (con el CV completo) y GitHub.' }, `
 {
-  "web": "${SITE}",
-  "formulario": "/contacto",
-  "github": "github.com/catunlock",
-  "linkedin": "linkedin.com/in/alberto-lopez-sanchez",
-  "cv": "/cv.pdf"
+  "web": "https://${SITE}",
+  "linkedin": "${LINKEDIN}",
+  "github": "${GITHUB}"
 }
 `);
   f('.secreto', { kind: 'secret', title: '.secreto', text: 'Si estás leyendo esto, ya lo has encontrado.' }, `

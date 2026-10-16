@@ -15,7 +15,7 @@ Es un editor *inspirado* en los de toda la vida, con identidad propia: sin logot
 | `proyectos/<área>/<repo>.md` | Una selección de github.com/catunlock por áreas (embebido, herramientas, linux, juegos): qué es, lenguaje, año, enlace y con qué. | Markdown |
 | `formacion/` | Máster en IA y grado en Informática (UPC) con sus trabajos finales, y certificaciones. | Markdown |
 | `taller/` | Aficiones con nivel: Home Assistant, PCB, CAD e impresión 3D, el escritorio. | Varios |
-| `contacto.json` | Formulario, GitHub, LinkedIn y CV. | JSON |
+| `contacto.json` | Web, LinkedIn (con el CV completo) y GitHub. Sin teléfono ni email. | JSON |
 | `.secreto` | Oculto. Solo aparece con `ls -a` o el botón de archivos ocultos. | Texto |
 
 - Cada archivo de conocimiento o taller lleva su **nivel 1–5 con palabra** (Explorando, Básico, Competente, Avanzado, Experto): en markdown con una línea `Nivel: 4/5 · Avanzado` justo bajo el título; en código, en el primer comentario. La web lo pinta con `LevelMeter`.

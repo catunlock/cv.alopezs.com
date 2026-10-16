@@ -13,9 +13,9 @@ La web completa: un editor de código cuyo proyecto abierto es la carrera de Alb
 - `sudo …` → «alberto no está en el archivo sudoers». `sudo make me a sandwich` → «Vale.»
 - `rm -rf /` → borra la carrera carpeta a carpeta… y era broma.
 - `vim`, `vi`, `nvim`, `emacs` → atrapado en vim hasta escribir `:q` (o `Ctrl+C`).
-- `coffee`, `make coffee` y «Café: Preparar» en la paleta → HTTP 418.
+- `coffee`, `make coffee` y «Café: Preparar» en la paleta → HTTP 418. `cv` y «CV: Ver en LinkedIn» llevan al CV completo.
 - `sl` → un tren cruza la terminal.
-- `git push`, `git checkout <rama>` y el botón «Confirmar» de Trayectoria → acaban en el formulario de contacto. `git blame` → culpa al compilador.
+- `git push`, `git checkout <rama>` y el botón «Confirmar» de Trayectoria → acaban en el contacto (LinkedIn). `git blame` → culpa al compilador.
 - `cowsay`, `fortune`, `ping`, `42`, `pacman`, `apt`, `hola`, `contratar`.
 - Botón cerrar de la ventana → «Hay cambios sin guardar en tu carrera: todavía no me has escrito». Minimizar se niega; maximizar pone la web a pantalla completa.
 - Problemas: «El café se está acabando». Campana: «Disfruta del silencio».
