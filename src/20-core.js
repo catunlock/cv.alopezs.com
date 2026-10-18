@@ -120,7 +120,7 @@
     s = esc(s).replace(/`([^`]+)`/g, function (_, c) { codes.push(c); return '\u0000' + (codes.length - 1) + '\u0000'; });
     s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
     s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (_, t, h) {
-      if (/^https?:/.test(h)) return '<a class="vs-link" href="' + h + '" target="_blank" rel="noopener">' + t + '</a>';
+      if (/^(https?|mailto):/.test(h)) return '<a class="vs-link" href="' + h + '"' + (/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : '') + '>' + t + '</a>';
       return '<a class="vs-link" href="#" data-open="' + esc(resolve(base, h.replace(/&amp;/g, '&'))) + '">' + t + '</a>';
     });
     return s.replace(/\u0000(\d+)\u0000/g, function (_, i) { return '<code>' + codes[+i] + '</code>'; });

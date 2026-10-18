@@ -4,6 +4,9 @@
   // ================= Content =================
   // From Alberto's CVs and github.com/catunlock. Skill levels (1–5) set by Alberto.
   var SITE = 'cv.alopezs.com', NAME = 'Alberto López Sánchez', LINKEDIN = 'https://www.linkedin.com/in/alberto-lopez-sanchez', GITHUB = 'https://github.com/catunlock';
+  // Email aliases on alopezs.com (Cloudflare Email Routing), assembled at runtime so the full address never appears in the source.
+  var MAIL_DOMAIN = ['alopezs', 'com'].join('.');
+  function mail(user) { return user + '@' + MAIL_DOMAIN; }
   var FILES = {}, DIRS = {};
   function f(path, meta, body) { FILES[path] = { path: path, meta: meta, body: body.replace(/^\n/, '').replace(/\s+$/, '') + '\n' }; }
   function d(path, text) { DIRS[path] = text; }
@@ -65,7 +68,13 @@ Spanish and Catalan (native) · English (C1).
 - **Explorer**, on the left: experience, skills, projects, education and lab, each in its own folder. Hover over a file to see a summary.
 - **Terminal**, at the bottom: drag the status bar up, or press Ctrl + backtick. Start with **help**.
 - **Command palette**: \`Ctrl+Shift+P\`. To open a file by name, \`Ctrl+P\`.
-- **Contact**: [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock).
+
+## Contact
+
+- Email: [${mail('hello')}](mailto:${mail('hello')})
+- Hiring? [${mail('hire')}](mailto:${mail('hire')})
+- ¿Prefieres escribir en español? [${mail('hola')}](mailto:${mail('hola')})
+- [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock)
 `);
 
   var KN = '../../../skills/';
@@ -505,9 +514,12 @@ printer = "projects/linux/brother-archlinux.md"
 finished = false
 `);
 
-  f('contact.json', { kind: 'contact', title: 'Contact', text: 'LinkedIn (with the full CV) and GitHub.' }, `
+  f('contact.json', { kind: 'contact', title: 'Contact', text: 'Email, LinkedIn (with the full CV) and GitHub.' }, `
 {
   "web": "https://${SITE}",
+  "email": "${mail('hello')}",
+  "hiring": "${mail('hire')}",
+  "en_español": "${mail('hola')}",
   "linkedin": "${LINKEDIN}",
   "github": "${GITHUB}"
 }
@@ -653,7 +665,7 @@ No prize, but there is a trick. Anywhere on the page:
     s = esc(s).replace(/`([^`]+)`/g, function (_, c) { codes.push(c); return '\u0000' + (codes.length - 1) + '\u0000'; });
     s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
     s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (_, t, h) {
-      if (/^https?:/.test(h)) return '<a class="vs-link" href="' + h + '" target="_blank" rel="noopener">' + t + '</a>';
+      if (/^(https?|mailto):/.test(h)) return '<a class="vs-link" href="' + h + '"' + (/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : '') + '>' + t + '</a>';
       return '<a class="vs-link" href="#" data-open="' + esc(resolve(base, h.replace(/&amp;/g, '&'))) + '">' + t + '</a>';
     });
     return s.replace(/\u0000(\d+)\u0000/g, function (_, i) { return '<code>' + codes[+i] + '</code>'; });
@@ -836,7 +848,8 @@ No prize, but there is a trick. Anywhere on the page:
     function setPs() { ps.innerHTML = mode === 'vim' ? '<span class="c-dim">:</span>' : mode === 'busy' ? '' : promptHTML(); el.classList.toggle('is-busy', mode === 'busy'); }
     function print(html) { var dv = document.createElement('div'); dv.innerHTML = html; out.appendChild(dv); el.scrollTop = el.scrollHeight; return dv; }
     function line(text, cls) { return print(cls ? '<span class="' + cls + '">' + esc(text) + '</span>' : esc(text)); }
-    function ext(url, label) { return '<a class="c-file" href="' + url + '" target="_blank" rel="noopener">' + esc(label || url.replace(/^https?:\/\/(www\.)?/, '')) + '</a>'; }
+    function ext(url, label) { return '<a class="c-file" href="' + url + '"' + (/^mailto:/.test(url) ? '' : ' target="_blank" rel="noopener"') + '>' + esc(label || url.replace(/^(https?:\/\/(www\.)?|mailto:)/, '')) + '</a>'; }
+    function email(u) { return ext('mailto:' + mail(u)); }
     function link(p, label) { return '<a href="#" class="c-file" data-open="' + esc(p) + '">' + esc(label || baseOf(p)) + '</a>'; }
     function nameHTML(c) { return c.dir ? '<span class="c-path">' + esc(c.name) + '/</span>' : link(c.path, c.name); }
     function target(arg) { return resolve(cwd, arg || '.'); }
@@ -934,7 +947,8 @@ No prize, but there is a trick. Anywhere on the page:
           '<span class="c-warn">Languages</span>: C++, Rust, Python, C#', '<span class="c-warn">Education</span>: M.S. in AI (UPC)', '<span class="c-warn">Lab</span>: IoT, PCB, 3D printing', '<span class="c-warn">Speaks</span>: es, ca, en (C1)', '<span class="c-warn">Theme</span>: ' + esc(api.theme ? api.theme() : 'night')];
         print(art.map(function (r, i) { return '<span class="c-ok">' + esc(r) + '</span>  ' + (info[i] || ''); }).join('\n'));
       },
-      contact: function () { if (api.open) api.open('contact.json'); print('Write to me on LinkedIn: ' + ext(LINKEDIN) + '\nThe code, on GitHub: ' + ext(GITHUB)); },
+      contact: function () { if (api.open) api.open('contact.json'); print('Email:     ' + email('hello') + '\nHiring:    ' + email('hire') + '\nEspañol:   ' + email('hola') + '\nLinkedIn:  ' + ext(LINKEDIN) + '\nGitHub:    ' + ext(GITHUB)); },
+      mail: function () { print('Write to me: ' + email('hello') + '<span class="c-dim">  (hiring? ' + '</span>' + email('hire') + '<span class="c-dim">)</span>'); },
       cv: function () { print('The full CV is on LinkedIn: ' + ext(LINKEDIN)); },
       theme: function (a) {
         var list = api.themes || ['night', 'day'];
@@ -967,7 +981,7 @@ No prize, but there is a trick. Anywhere on the page:
       // —— not listed in help ——
       sudo: function (a) {
         if (a.join(' ') === 'make me a sandwich') return line('Okay.', 'c-ok');
-        print('[sudo] password for ' + esc(user) + ': \n<span class="c-err">' + esc(user) + ' is not in the sudoers file. This incident will be reported.</span>\n<span class="c-dim">…but you can still type</span> <span class="c-ok">hire</span><span class="c-dim">.</span>');
+        print('[sudo] password for ' + esc(user) + ': \n<span class="c-err">' + esc(user) + ' is not in the sudoers file. This incident will be reported.</span>\n<span class="c-dim">…but you can still type</span> <span class="c-ok">hire</span><span class="c-dim">, or write to</span> ' + email('hire') + '<span class="c-dim">.</span>');
       },
       rm: function (a) {
         if (a.indexOf('-rf') < 0 && a.indexOf('-fr') < 0) return line('rm: nothing gets deleted here; this is my career.', 'c-err');
@@ -1004,11 +1018,12 @@ No prize, but there is a trick. Anywhere on the page:
       },
       42: function () { line('The answer. Now we need the question.', 'c-dim'); },
       hello: function () { line('Hi! Type help to get started, or contact to talk.'); },
-      hire: function () { line('Good idea.', 'c-ok'); C.contact(); }
+      hire: function () { print('<span class="c-ok">Good idea.</span> Write to ' + email('hire') + ' <span class="c-dim">— that one is the fast lane.</span>\n<span class="c-dim">Everything else:</span> ' + link('contact.json')); },
+      hola: function () { print('¡Hola! Si prefieres escribirme en español: ' + email('hola')); }
     };
     C.code = C.open; C.vi = C.nvim = C.vim; C.fastfetch = C.neofetch; C.hi = C.hello;
     C.apt = C['apt-get'] = C.dnf = function () { line('E: You need to be root to install packages. And you are not.', 'c-err'); };
-    C.ll = function (a) { C.ls(['-la'].concat(a)); }; C.logout = C.exit;
+    C.ll = function (a) { C.ls(['-la'].concat(a)); }; C.logout = C.exit; C.email = C.mail;
 
     function run(raw) {
       var text = raw.trim();
@@ -1388,7 +1403,9 @@ No prize, but there is a trick. Anywhere on the page:
         { label: 'View: Toggle Sidebar', kbd: 'Ctrl+B', run: function () { S.sideOpen = !S.sideOpen; layout(); } },
         { label: 'Preferences: Color Theme', keep: true, run: themePicker },
         { label: 'File: Open README', run: function () { openFile('README.md'); } },
-        { label: 'Contact: Write to Me', run: function () { openFile('contact.json'); } },
+        { label: 'Contact: Email Me', run: function () { mailTo('hello'); } },
+        { label: 'Contact: Hiring? Email Me', run: function () { mailTo('hire'); } },
+        { label: 'Contact: Open contact.json', run: function () { openFile('contact.json'); } },
         { label: 'CV: View on LinkedIn', run: openCV },
         { label: 'Terminal: Run “neofetch”', run: function () { openPanel('terminal', true); term.run('neofetch'); } },
         { label: 'Coffee: Brew', run: function () { toast("<b>HTTP 418</b>: I'm a teapot."); } },
@@ -1407,13 +1424,14 @@ No prize, but there is a trick. Anywhere on the page:
       }, cmd ? '>' : '', cmd ? '' : 'Search files by name (type > for commands)');
     }
     function openCV() { window.open(LINKEDIN, '_blank', 'noopener'); }
+    function mailTo(u) { window.location.href = 'mailto:' + mail(u); }
     function shortcuts() {
       dialog('Keyboard shortcuts', 'Ctrl+Shift+P command palette · Ctrl+P open file · Ctrl+` terminal · Ctrl+B sidebar · Ctrl+Shift+E/F/G/X views · Esc closes anything floating. And a code you might know.', [{ label: 'Got it', primary: true }]);
     }
 
     // —— menús ——
     var MENUS = {
-      file: [['Open File…', 'Ctrl+P', function () { openPalette(false); }], ['Open README', '', function () { openFile('README.md'); }], ['Contact', '', function () { openFile('contact.json'); }], ['View CV on LinkedIn', '', openCV], null, ['Close Window', '', closeWindow]],
+      file: [['Open File…', 'Ctrl+P', function () { openPalette(false); }], ['Open README', '', function () { openFile('README.md'); }], ['Contact', '', function () { openFile('contact.json'); }], ['Email Me', '', function () { mailTo('hello'); }], ['View CV on LinkedIn', '', openCV], null, ['Close Window', '', closeWindow]],
       view: [['Command Palette…', 'Ctrl+Shift+P', function () { openPalette(true); }], null, ['Explorer', 'Ctrl+Shift+E', function () { setView('explorer', true); }], ['Search', 'Ctrl+Shift+F', function () { setView('search', true); }], ['Career', 'Ctrl+Shift+G', function () { setView('scm', true); }], ['Skills', 'Ctrl+Shift+X', function () { setView('ext', true); }], null, ['Terminal', 'Ctrl+`', toggleTerminal], ['Sidebar', 'Ctrl+B', function () { S.sideOpen = !S.sideOpen; layout(); }], ['Color Theme…', '', function () { themePicker(); }]],
       terminal: [['New Terminal', '', function () { openPanel('terminal', true); term.reset(); }], ['Clear Terminal', '', function () { term.clear(); }], ['Run “help”', '', function () { openPanel('terminal', true); term.run('help'); }]],
       help: [['Keyboard Shortcuts', '', shortcuts], ['About', '', function () { dialog('About', SITE + ' — the portfolio of ' + NAME + '. Version 1.0 · Handmade, no frameworks. Inspired by the code editors we all know.', [{ label: 'Close', primary: true }]); }]]
@@ -1435,7 +1453,7 @@ No prize, but there is a trick. Anywhere on the page:
     });
     function closeWindow() {
       dialog('Close the portfolio?', 'You have unsaved changes in your career: you have not written to me yet.', [
-        { label: 'Write to me', primary: true, run: function () { openFile('contact.json'); } },
+        { label: 'Write to me', primary: true, run: function () { mailTo('hello'); } },
         { label: 'Close anyway', run: function () { toast('Websites don’t close from the inside. But thanks for trying.'); } },
         { label: 'Cancel' }]);
     }

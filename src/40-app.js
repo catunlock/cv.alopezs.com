@@ -322,7 +322,9 @@
         { label: 'View: Toggle Sidebar', kbd: 'Ctrl+B', run: function () { S.sideOpen = !S.sideOpen; layout(); } },
         { label: 'Preferences: Color Theme', keep: true, run: themePicker },
         { label: 'File: Open README', run: function () { openFile('README.md'); } },
-        { label: 'Contact: Write to Me', run: function () { openFile('contact.json'); } },
+        { label: 'Contact: Email Me', run: function () { mailTo('hello'); } },
+        { label: 'Contact: Hiring? Email Me', run: function () { mailTo('hire'); } },
+        { label: 'Contact: Open contact.json', run: function () { openFile('contact.json'); } },
         { label: 'CV: View on LinkedIn', run: openCV },
         { label: 'Terminal: Run “neofetch”', run: function () { openPanel('terminal', true); term.run('neofetch'); } },
         { label: 'Coffee: Brew', run: function () { toast("<b>HTTP 418</b>: I'm a teapot."); } },
@@ -341,13 +343,14 @@
       }, cmd ? '>' : '', cmd ? '' : 'Search files by name (type > for commands)');
     }
     function openCV() { window.open(LINKEDIN, '_blank', 'noopener'); }
+    function mailTo(u) { window.location.href = 'mailto:' + mail(u); }
     function shortcuts() {
       dialog('Keyboard shortcuts', 'Ctrl+Shift+P command palette · Ctrl+P open file · Ctrl+` terminal · Ctrl+B sidebar · Ctrl+Shift+E/F/G/X views · Esc closes anything floating. And a code you might know.', [{ label: 'Got it', primary: true }]);
     }
 
     // —— menús ——
     var MENUS = {
-      file: [['Open File…', 'Ctrl+P', function () { openPalette(false); }], ['Open README', '', function () { openFile('README.md'); }], ['Contact', '', function () { openFile('contact.json'); }], ['View CV on LinkedIn', '', openCV], null, ['Close Window', '', closeWindow]],
+      file: [['Open File…', 'Ctrl+P', function () { openPalette(false); }], ['Open README', '', function () { openFile('README.md'); }], ['Contact', '', function () { openFile('contact.json'); }], ['Email Me', '', function () { mailTo('hello'); }], ['View CV on LinkedIn', '', openCV], null, ['Close Window', '', closeWindow]],
       view: [['Command Palette…', 'Ctrl+Shift+P', function () { openPalette(true); }], null, ['Explorer', 'Ctrl+Shift+E', function () { setView('explorer', true); }], ['Search', 'Ctrl+Shift+F', function () { setView('search', true); }], ['Career', 'Ctrl+Shift+G', function () { setView('scm', true); }], ['Skills', 'Ctrl+Shift+X', function () { setView('ext', true); }], null, ['Terminal', 'Ctrl+`', toggleTerminal], ['Sidebar', 'Ctrl+B', function () { S.sideOpen = !S.sideOpen; layout(); }], ['Color Theme…', '', function () { themePicker(); }]],
       terminal: [['New Terminal', '', function () { openPanel('terminal', true); term.reset(); }], ['Clear Terminal', '', function () { term.clear(); }], ['Run “help”', '', function () { openPanel('terminal', true); term.run('help'); }]],
       help: [['Keyboard Shortcuts', '', shortcuts], ['About', '', function () { dialog('About', SITE + ' — the portfolio of ' + NAME + '. Version 1.0 · Handmade, no frameworks. Inspired by the code editors we all know.', [{ label: 'Close', primary: true }]); }]]
@@ -369,7 +372,7 @@
     });
     function closeWindow() {
       dialog('Close the portfolio?', 'You have unsaved changes in your career: you have not written to me yet.', [
-        { label: 'Write to me', primary: true, run: function () { openFile('contact.json'); } },
+        { label: 'Write to me', primary: true, run: function () { mailTo('hello'); } },
         { label: 'Close anyway', run: function () { toast('Websites don’t close from the inside. But thanks for trying.'); } },
         { label: 'Cancel' }]);
     }

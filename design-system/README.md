@@ -15,7 +15,7 @@ Es un editor *inspirado* en los de toda la vida, con identidad propia: sin logot
 | `projects/<área>/<repo>.md` | Una selección de github.com/catunlock por áreas (embedded, tools, linux, games): qué es, lenguaje, año, enlace y con qué. | Markdown |
 | `education/` | Máster en IA y grado en Informática (UPC) con sus trabajos finales, y certificaciones. | Markdown |
 | `lab/` | Aficiones con nivel: Home Assistant, PCB, CAD e impresión 3D, el escritorio. | Varios |
-| `contact.json` | Web, LinkedIn (con el CV completo) y GitHub. Sin teléfono ni email. | JSON |
+| `contact.json` | Web, los alias de correo de alopezs.com (`hello@` principal, `hire@` para ofertas, `hola@` en español), LinkedIn (con el CV completo) y GitHub. Sin teléfono ni correo personal. El README de la web los repite con enlaces `mailto:`. | JSON |
 | `.secret` | Oculto. Solo aparece con `ls -a` o el botón de archivos ocultos. | Texto |
 
 - Cada archivo de conocimiento o taller lleva su **nivel 1–5 con palabra** (Exploring, Basic, Competent, Advanced, Expert): en markdown con una línea `Level: 4/5 · Advanced` justo bajo el título; en código, en el primer comentario. La web lo pinta con `LevelMeter`.
@@ -31,6 +31,7 @@ Es un editor *inspirado* en los de toda la vida, con identidad propia: sin logot
 - Sin emoji, sin exclamaciones, sin superlativos. El nivel lo dice `LevelMeter`, no los adjetivos.
 - El humor vive solo en los bordes —la terminal, los avisos, los diálogos— y siempre acaba devolviendo a algo útil (`git push` → «Write to me»).
 - Fechas, rutas y comandos en mono (`code`); nombres de empresa en texto, sin logotipos.
+- Los correos se montan en tiempo de ejecución (`mail('hello')` en `src/10-content.js`): la dirección completa no aparece escrita en el código, para ponérselo difícil a los bots.
 
 ## Fundamentos visuales
 

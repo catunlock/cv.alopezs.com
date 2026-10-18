@@ -33,7 +33,8 @@
     function setPs() { ps.innerHTML = mode === 'vim' ? '<span class="c-dim">:</span>' : mode === 'busy' ? '' : promptHTML(); el.classList.toggle('is-busy', mode === 'busy'); }
     function print(html) { var dv = document.createElement('div'); dv.innerHTML = html; out.appendChild(dv); el.scrollTop = el.scrollHeight; return dv; }
     function line(text, cls) { return print(cls ? '<span class="' + cls + '">' + esc(text) + '</span>' : esc(text)); }
-    function ext(url, label) { return '<a class="c-file" href="' + url + '" target="_blank" rel="noopener">' + esc(label || url.replace(/^https?:\/\/(www\.)?/, '')) + '</a>'; }
+    function ext(url, label) { return '<a class="c-file" href="' + url + '"' + (/^mailto:/.test(url) ? '' : ' target="_blank" rel="noopener"') + '>' + esc(label || url.replace(/^(https?:\/\/(www\.)?|mailto:)/, '')) + '</a>'; }
+    function email(u) { return ext('mailto:' + mail(u)); }
     function link(p, label) { return '<a href="#" class="c-file" data-open="' + esc(p) + '">' + esc(label || baseOf(p)) + '</a>'; }
     function nameHTML(c) { return c.dir ? '<span class="c-path">' + esc(c.name) + '/</span>' : link(c.path, c.name); }
     function target(arg) { return resolve(cwd, arg || '.'); }
@@ -131,7 +132,8 @@
           '<span class="c-warn">Languages</span>: C++, Rust, Python, C#', '<span class="c-warn">Education</span>: M.S. in AI (UPC)', '<span class="c-warn">Lab</span>: IoT, PCB, 3D printing', '<span class="c-warn">Speaks</span>: es, ca, en (C1)', '<span class="c-warn">Theme</span>: ' + esc(api.theme ? api.theme() : 'night')];
         print(art.map(function (r, i) { return '<span class="c-ok">' + esc(r) + '</span>  ' + (info[i] || ''); }).join('\n'));
       },
-      contact: function () { if (api.open) api.open('contact.json'); print('Write to me on LinkedIn: ' + ext(LINKEDIN) + '\nThe code, on GitHub: ' + ext(GITHUB)); },
+      contact: function () { if (api.open) api.open('contact.json'); print('Email:     ' + email('hello') + '\nHiring:    ' + email('hire') + '\nEspañol:   ' + email('hola') + '\nLinkedIn:  ' + ext(LINKEDIN) + '\nGitHub:    ' + ext(GITHUB)); },
+      mail: function () { print('Write to me: ' + email('hello') + '<span class="c-dim">  (hiring? ' + '</span>' + email('hire') + '<span class="c-dim">)</span>'); },
       cv: function () { print('The full CV is on LinkedIn: ' + ext(LINKEDIN)); },
       theme: function (a) {
         var list = api.themes || ['night', 'day'];
@@ -164,7 +166,7 @@
       // —— not listed in help ——
       sudo: function (a) {
         if (a.join(' ') === 'make me a sandwich') return line('Okay.', 'c-ok');
-        print('[sudo] password for ' + esc(user) + ': \n<span class="c-err">' + esc(user) + ' is not in the sudoers file. This incident will be reported.</span>\n<span class="c-dim">…but you can still type</span> <span class="c-ok">hire</span><span class="c-dim">.</span>');
+        print('[sudo] password for ' + esc(user) + ': \n<span class="c-err">' + esc(user) + ' is not in the sudoers file. This incident will be reported.</span>\n<span class="c-dim">…but you can still type</span> <span class="c-ok">hire</span><span class="c-dim">, or write to</span> ' + email('hire') + '<span class="c-dim">.</span>');
       },
       rm: function (a) {
         if (a.indexOf('-rf') < 0 && a.indexOf('-fr') < 0) return line('rm: nothing gets deleted here; this is my career.', 'c-err');
@@ -201,11 +203,12 @@
       },
       42: function () { line('The answer. Now we need the question.', 'c-dim'); },
       hello: function () { line('Hi! Type help to get started, or contact to talk.'); },
-      hire: function () { line('Good idea.', 'c-ok'); C.contact(); }
+      hire: function () { print('<span class="c-ok">Good idea.</span> Write to ' + email('hire') + ' <span class="c-dim">— that one is the fast lane.</span>\n<span class="c-dim">Everything else:</span> ' + link('contact.json')); },
+      hola: function () { print('¡Hola! Si prefieres escribirme en español: ' + email('hola')); }
     };
     C.code = C.open; C.vi = C.nvim = C.vim; C.fastfetch = C.neofetch; C.hi = C.hello;
     C.apt = C['apt-get'] = C.dnf = function () { line('E: You need to be root to install packages. And you are not.', 'c-err'); };
-    C.ll = function (a) { C.ls(['-la'].concat(a)); }; C.logout = C.exit;
+    C.ll = function (a) { C.ls(['-la'].concat(a)); }; C.logout = C.exit; C.email = C.mail;
 
     function run(raw) {
       var text = raw.trim();

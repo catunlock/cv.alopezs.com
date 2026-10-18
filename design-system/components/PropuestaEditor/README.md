@@ -18,7 +18,7 @@ La web completa: un editor de código cuyo proyecto abierto es la carrera de Alb
 - `coffee`, `make coffee` y «Coffee: Brew» en la paleta → HTTP 418. `cv` y «CV: View on LinkedIn» llevan al CV completo.
 - `sl` → un tren cruza la terminal.
 - `git push`, `git checkout <rama>` y el botón «Commit» de Career → acaban en el contacto (LinkedIn). `git blame` → culpa al compilador.
-- `cowsay`, `fortune`, `ping`, `42`, `pacman`, `apt`, `hello`, `hire`.
+- `cowsay`, `fortune`, `ping`, `42`, `pacman`, `apt`, `hello`. `hire` da `hire@alopezs.com` («the fast lane»); `hola` responde en español con `hola@alopezs.com`, lo único en español de la web; `mail` / `email` dan `hello@`.
 - Botón cerrar de la ventana → «Hay cambios sin guardar en tu carrera: todavía no me has escrito». Minimizar se niega; maximizar pone la web a pantalla completa.
 - Problems: «Running low on coffee». Campana: «Enjoy the silence».
 

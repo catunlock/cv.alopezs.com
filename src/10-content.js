@@ -1,6 +1,9 @@
   // ================= Content =================
   // From Alberto's CVs and github.com/catunlock. Skill levels (1–5) set by Alberto.
   var SITE = 'cv.alopezs.com', NAME = 'Alberto López Sánchez', LINKEDIN = 'https://www.linkedin.com/in/alberto-lopez-sanchez', GITHUB = 'https://github.com/catunlock';
+  // Email aliases on alopezs.com (Cloudflare Email Routing), assembled at runtime so the full address never appears in the source.
+  var MAIL_DOMAIN = ['alopezs', 'com'].join('.');
+  function mail(user) { return user + '@' + MAIL_DOMAIN; }
   var FILES = {}, DIRS = {};
   function f(path, meta, body) { FILES[path] = { path: path, meta: meta, body: body.replace(/^\n/, '').replace(/\s+$/, '') + '\n' }; }
   function d(path, text) { DIRS[path] = text; }
@@ -62,7 +65,13 @@ Spanish and Catalan (native) · English (C1).
 - **Explorer**, on the left: experience, skills, projects, education and lab, each in its own folder. Hover over a file to see a summary.
 - **Terminal**, at the bottom: drag the status bar up, or press Ctrl + backtick. Start with **help**.
 - **Command palette**: \`Ctrl+Shift+P\`. To open a file by name, \`Ctrl+P\`.
-- **Contact**: [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock).
+
+## Contact
+
+- Email: [${mail('hello')}](mailto:${mail('hello')})
+- Hiring? [${mail('hire')}](mailto:${mail('hire')})
+- ¿Prefieres escribir en español? [${mail('hola')}](mailto:${mail('hola')})
+- [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock)
 `);
 
   var KN = '../../../skills/';
@@ -502,9 +511,12 @@ printer = "projects/linux/brother-archlinux.md"
 finished = false
 `);
 
-  f('contact.json', { kind: 'contact', title: 'Contact', text: 'LinkedIn (with the full CV) and GitHub.' }, `
+  f('contact.json', { kind: 'contact', title: 'Contact', text: 'Email, LinkedIn (with the full CV) and GitHub.' }, `
 {
   "web": "https://${SITE}",
+  "email": "${mail('hello')}",
+  "hiring": "${mail('hire')}",
+  "en_español": "${mail('hola')}",
   "linkedin": "${LINKEDIN}",
   "github": "${GITHUB}"
 }
