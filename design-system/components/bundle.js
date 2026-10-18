@@ -816,13 +816,23 @@ No prize, but there is a trick. Anywhere on the page:
     for (i = 0; i <= a.length; i++) { m[i] = [i]; for (j = 1; j <= b.length; j++) m[i][j] = i ? Math.min(m[i - 1][j] + 1, m[i][j - 1] + 1, m[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)) : j; }
     return m[a.length][b.length];
   }
+  // Who the visitor is: `su <role>` switches, `exit` goes back. Any lowercase name works; these have their own lines.
+  var DEFAULT_USER = 'recruiter';
+  var ROLES = {
+    recruiter: { hello: 'Signed in as recruiter. Start with README.md, or type hire if you are hiring.', whoami: "recruiter — and Alberto hopes you're hiring." },
+    'hiring-manager': { hello: 'Welcome. The short version: git log. The long one: open experience/hp/README.md.', whoami: 'hiring-manager — the one who decides. No pressure.' },
+    engineer: { hello: 'Welcome, fellow engineer. Try cat skills/languages/rust.rs or tree projects.', whoami: 'engineer — you have probably tried rm -rf / already.' },
+    friend: { hello: 'Hey! Make yourself at home: the lab/ folder has the fun stuff.', whoami: 'friend — always welcome.' },
+    'future-boss': { hello: 'Hello, boss. Shall we talk? Type hire.', whoami: 'future-boss — Alberto likes the sound of that.' },
+    guest: { hello: 'Signed in as guest. Look around; nothing breaks.', whoami: 'guest' }
+  };
   function terminal(el, api) {
     api = api || {};
-    var cwd = '', hist = [], hi = 0, mode = 'sh';
+    var cwd = '', hist = [], hi = 0, mode = 'sh', user = DEFAULT_USER, users = [];
     el.classList.add('vs-term');
     el.innerHTML = '<div class="vs-term-out" role="log" aria-live="polite"></div><div class="vs-term-line"><span class="vs-term-ps"></span><input class="vs-term-in" aria-label="Terminal: type a command" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></div>';
     var out = el.querySelector('.vs-term-out'), input = el.querySelector('.vs-term-in'), ps = el.querySelector('.vs-term-ps');
-    function promptHTML() { return '<span class="c-ok">alberto@alopezs</span>:<span class="c-path">' + (cwd ? '~/' + esc(cwd) : '~') + '</span>$ '; }
+    function promptHTML() { return '<span class="c-ok">' + esc(user) + '@alopezs</span>:<span class="c-path">' + (cwd ? '~/' + esc(cwd) : '~') + '</span>$ '; }
     function setPs() { ps.innerHTML = mode === 'vim' ? '<span class="c-dim">:</span>' : mode === 'busy' ? '' : promptHTML(); el.classList.toggle('is-busy', mode === 'busy'); }
     function print(html) { var dv = document.createElement('div'); dv.innerHTML = html; out.appendChild(dv); el.scrollTop = el.scrollHeight; return dv; }
     function line(text, cls) { return print(cls ? '<span class="' + cls + '">' + esc(text) + '</span>' : esc(text)); }
@@ -833,12 +843,17 @@ No prize, but there is a trick. Anywhere on the page:
     function exists(p) { return isFile(p) || isDir(p); }
     function pips(n) { var s = ''; for (var i = 1; i <= 5; i++) s += i <= n ? '■' : '□'; return s; }
     function pad(s, n) { s = String(s); while (s.length < n) s += ' '; return s; }
+    function home() { return '/home/' + user; }
+    function setUser(u) { user = u; setPs(); if (api.onUser) api.onUser(u); }
+    function welcome() {
+      print('<span class="c-dim">portfolio-sh 1.0 — signed in as</span> <span class="c-ok">' + esc(user) + '</span><span class="c-dim">. Type</span> <span class="c-ok">help</span> <span class="c-dim">to look around, or</span> <span class="c-ok">hire</span> <span class="c-dim">if you are hiring.</span>\n<span class="c-dim">Not a recruiter? Try</span> <span class="c-ok">su engineer</span><span class="c-dim">,</span> <span class="c-ok">su friend</span><span class="c-dim">…</span>');
+    }
 
     var HELP = [
       ['help', 'this help'], ['ls [-a] [path]', 'list a folder'], ['cd <path>', 'change folder'], ['cat <file>', 'print a file'],
       ['open <file>', 'open it in the editor (also: code)'], ['tree [path]', 'folder tree'], ['grep <text>', 'search every file'],
       ['skills', 'skills and lab, with their levels'], ['git log', 'my career, as a commit history'], ['neofetch', 'system summary'],
-      ['contact', 'how to reach me'], ['cv', 'the full CV'], ['theme [name]', 'change the theme'], ['clear', 'clear the terminal (Ctrl+L)'], ['exit', 'close the panel']
+      ['contact', 'how to reach me'], ['cv', 'the full CV'], ['su <role>', 'sign in as someone else (recruiter, engineer, friend…)'], ['theme [name]', 'change the theme'], ['clear', 'clear the terminal (Ctrl+L)'], ['exit', 'close the panel']
     ];
     var C = {
       help: function () { print(HELP.map(function (h) { return '<span class="c-ok">' + esc(pad(h[0], 18)) + '</span>' + esc(h[1]); }).join('\n') + '\n<span class="c-dim">Tab completes, ↑ ↓ walk the history. There are more commands than the ones listed here.</span>'); },
@@ -856,7 +871,7 @@ No prize, but there is a trick. Anywhere on the page:
         if (!isDir(p)) return line('cd: no such file or directory: ' + a[0], 'c-err');
         cwd = p;
       },
-      pwd: function () { line('/home/alberto' + (cwd ? '/' + cwd : '')); },
+      pwd: function () { line(home() + (cwd ? '/' + cwd : '')); },
       cat: function (a) {
         if (!a[0]) return line('cat: missing file. Try: cat README.md', 'c-err');
         var p = target(a[0]);
@@ -931,11 +946,20 @@ No prize, but there is a trick. Anywhere on the page:
       history: function () { print(hist.map(function (h, i) { return '<span class="c-dim">' + pad(String(i + 1), 4) + '</span>' + esc(h); }).join('\n')); },
       echo: function (a) { line(a.join(' ')); },
       date: function () { line(new Date().toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' })); },
-      whoami: function () { line('alberto'); },
+      whoami: function () { line(ROLES[user] ? ROLES[user].whoami : user); },
+      su: function (a) {
+        var name = a.filter(function (x) { return x !== '-' && x !== '-l' && x !== '--login'; })[0] || 'root';
+        if (name === 'root') return line('su: Authentication failure — nice try, root stays with Alberto.', 'c-err');
+        if (name === 'alberto') return line('su: Authentication failure — only Alberto gets to be Alberto.', 'c-err');
+        if (!/^[a-z][a-z0-9_-]{0,19}$/.test(name)) return line("su: user '" + name + "' does not exist. Try: su " + Object.keys(ROLES).join(', su '), 'c-err');
+        if (name === user) return line('Already signed in as ' + user + '.', 'c-dim');
+        users.push(user); setUser(name);
+        line(ROLES[name] ? ROLES[name].hello : 'Welcome, ' + name + '. Type help to look around.', 'c-dim');
+      },
       hostname: function () { line(SITE); },
       uname: function (a) { line(a[0] === '-a' ? 'PortfolioOS 1.0 alopezs 6.0.0-alberto x86_64 GNU/Linux' : 'PortfolioOS'); },
       clear: function () { out.innerHTML = ''; },
-      exit: function () { if (api.close) { api.close(); line('logout', 'c-dim'); } else line('logout (there is no panel to close here)', 'c-dim'); },
+      exit: function () { if (users.length) { setUser(users.pop()); return line('logout — back to ' + user + '.', 'c-dim'); } if (api.close) { api.close(); line('logout', 'c-dim'); } else line('logout (there is no panel to close here)', 'c-dim'); },
       man: function (a) {
         var h = HELP.filter(function (x) { return x[0].split(' ')[0] === a[0]; })[0];
         line(h ? a[0] + ' — ' + h[1] : 'No manual entry for ' + (a[0] || 'that') + '. Try help.', h ? '' : 'c-dim');
@@ -943,14 +967,14 @@ No prize, but there is a trick. Anywhere on the page:
       // —— not listed in help ——
       sudo: function (a) {
         if (a.join(' ') === 'make me a sandwich') return line('Okay.', 'c-ok');
-        print('[sudo] password for alberto: \n<span class="c-err">alberto is not in the sudoers file. This incident will be reported.</span>');
+        print('[sudo] password for ' + esc(user) + ': \n<span class="c-err">' + esc(user) + ' is not in the sudoers file. This incident will be reported.</span>\n<span class="c-dim">…but you can still type</span> <span class="c-ok">hire</span><span class="c-dim">.</span>');
       },
       rm: function (a) {
         if (a.indexOf('-rf') < 0 && a.indexOf('-fr') < 0) return line('rm: nothing gets deleted here; this is my career.', 'c-err');
         mode = 'busy'; setPs();
         var steps = ['experience', 'skills', 'projects', 'lab'], k = 0;
         (function next() {
-          if (k < steps.length) { line("rm: removing '/home/alberto/" + steps[k++] + "'…", 'c-err'); return setTimeout(next, REDUCED ? 0 : 420); }
+          if (k < steps.length) { line("rm: removing '" + home() + '/' + steps[k++] + "'…", 'c-err'); return setTimeout(next, REDUCED ? 0 : 420); }
           line('Just kidding: this is a static site. Everything is still in place.', 'c-ok'); mode = 'sh'; setPs(); input.focus({ preventScroll: true });
         })();
       },
@@ -984,7 +1008,7 @@ No prize, but there is a trick. Anywhere on the page:
     };
     C.code = C.open; C.vi = C.nvim = C.vim; C.fastfetch = C.neofetch; C.hi = C.hello;
     C.apt = C['apt-get'] = C.dnf = function () { line('E: You need to be root to install packages. And you are not.', 'c-err'); };
-    C.ll = function (a) { C.ls(['-la'].concat(a)); };
+    C.ll = function (a) { C.ls(['-la'].concat(a)); }; C.logout = C.exit;
 
     function run(raw) {
       var text = raw.trim();
@@ -1005,6 +1029,7 @@ No prize, but there is a trick. Anywhere on the page:
     function complete() {
       var v = input.value, parts = v.split(' '), last = parts[parts.length - 1], cands;
       if (parts.length === 1) cands = Object.keys(C).filter(function (k) { return C[k] && k.indexOf(last) === 0; });
+      else if (parts[0] === 'su' && parts.length === 2) cands = Object.keys(ROLES).filter(function (k) { return k.indexOf(last) === 0; });
       else {
         var cut = last.lastIndexOf('/'), dirPart = cut >= 0 ? last.slice(0, cut + 1) : '', pre = last.slice(cut + 1), dir = target(dirPart || '.');
         cands = isDir(dir) ? children(dir, pre.charAt(0) === '.').filter(function (c) { return c.name.indexOf(pre) === 0; }).map(function (c) { return dirPart + c.name + (c.dir ? '/' : ''); }) : [];
@@ -1031,10 +1056,11 @@ No prize, but there is a trick. Anywhere on the page:
       if (!window.getSelection().toString()) input.focus({ preventScroll: true });
     });
     setPs();
-    print('<span class="c-dim">portfolio-sh 1.0 — type</span> <span class="c-ok">help</span> <span class="c-dim">to see the commands.</span>');
+    welcome();
     return {
       run: function (t) { run(t); setPs(); }, focus: function () { input.focus({ preventScroll: true }); }, print: print,
-      clear: function () { out.innerHTML = ''; }, reset: function () { out.innerHTML = ''; cwd = ''; mode = 'sh'; setPs(); print('<span class="c-dim">New terminal.</span>'); },
+      clear: function () { out.innerHTML = ''; }, reset: function () { out.innerHTML = ''; cwd = ''; mode = 'sh'; users = []; setUser(DEFAULT_USER); welcome(); },
+      user: function () { return user; },
       typeAndRun: function (t) { run(t); setPs(); }
     };
   }
@@ -1440,7 +1466,7 @@ No prize, but there is a trick. Anywhere on the page:
         case 'problems': return openPanel('problems');
         case 'lang': return toast('Language mode: <b>' + esc(LANG_NAME[langOf(S.active)]) + '</b>. Detected automatically, nothing to change.');
         case 'settings': return themePicker();
-        case 'account': return toast('Signed in as <b>guest</b>. For anything else, <a href="#" class="vs-link" data-open="contact.json">write to me</a>.');
+        case 'account': return toast('Signed in as <b>' + esc(term.user()) + '</b>. Not you? Try <code>su engineer</code> in the terminal. For anything else, <a href="#" class="vs-link" data-open="contact.json">write to me</a>.');
         case 'bell': return toast('No new notifications. Enjoy the silence.');
         case 'md-toggle': S.source[S.active] = !S.source[S.active]; renderTabs(); return renderEditor();
         case 'toggle-hidden': S.hidden = !S.hidden; exp.setHidden(S.hidden); return renderSide();

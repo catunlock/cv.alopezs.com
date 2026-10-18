@@ -400,7 +400,7 @@
         case 'problems': return openPanel('problems');
         case 'lang': return toast('Language mode: <b>' + esc(LANG_NAME[langOf(S.active)]) + '</b>. Detected automatically, nothing to change.');
         case 'settings': return themePicker();
-        case 'account': return toast('Signed in as <b>guest</b>. For anything else, <a href="#" class="vs-link" data-open="contact.json">write to me</a>.');
+        case 'account': return toast('Signed in as <b>' + esc(term.user()) + '</b>. Not you? Try <code>su engineer</code> in the terminal. For anything else, <a href="#" class="vs-link" data-open="contact.json">write to me</a>.');
         case 'bell': return toast('No new notifications. Enjoy the silence.');
         case 'md-toggle': S.source[S.active] = !S.source[S.active]; renderTabs(); return renderEditor();
         case 'toggle-hidden': S.hidden = !S.hidden; exp.setHidden(S.hidden); return renderSide();

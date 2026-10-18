@@ -8,9 +8,11 @@ La web completa: un editor de código cuyo proyecto abierto es la carrera de Alb
 
 **Terminal.** `help`, `ls [-a|-l]`, `cd`, `pwd`, `cat`, `open`/`code`, `tree`, `grep`, `skills`, `git log [--oneline]`, `git status`, `neofetch`, `contacto`, `cv`, `theme`, `history`, `echo`, `date`, `whoami`, `uname -a`, `man`, `clear`, `exit`. Completa con Tab, recuerda con ↑ ↓, `Ctrl+L` limpia, `Ctrl+C` cancela, y sugiere el comando parecido cuando te equivocas.
 
+**Usuario de la terminal:** el visitante entra como `recruiter`; con `su engineer`, `su friend`, `su future-boss`… cambia de papel y cada uno tiene su bienvenida y su `whoami`. `exit` vuelve al anterior.
+
 **Easter eggs** (para el dueño; en la web no se listan):
 - Código Konami (↑ ↑ ↓ ↓ ← → ← → B A) en cualquier parte: tema secreto `pcb`. La pista está en `.secret`, que solo aparece con `ls -a` o el botón del ojo.
-- `sudo …` → «alberto no está en el archivo sudoers». `sudo make me a sandwich` → «Vale.»
+- `sudo …` → «recruiter is not in the sudoers file… but you can still type hire». `sudo make me a sandwich` → «Okay.» `su root` / `su alberto` → «Authentication failure».
 - `rm -rf /` → borra la carrera carpeta a carpeta… y era broma.
 - `vim`, `vi`, `nvim`, `emacs` → atrapado en vim hasta escribir `:q` (o `Ctrl+C`).
 - `coffee`, `make coffee` y «Coffee: Brew» en la paleta → HTTP 418. `cv` y «CV: View on LinkedIn» llevan al CV completo.
