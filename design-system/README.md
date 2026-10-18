@@ -1,4 +1,4 @@
-Web personal de Alberto López Sánchez (cv.alopezs.com) con forma de editor de código. La experiencia y el conocimiento viven en carpetas del explorador, cada documento se lee como una vista previa limpia, la terminal de abajo funciona de verdad y hay algún secreto para quien lo busque. Es seria por dentro y juguetona en los bordes: lo que importa —puesto, logros, nivel con cada tecnología— se lee sin tocar nada; lo demás premia a quien curiosea.
+Web personal de Alberto López Sánchez (cv.alopezs.com) con forma de editor de código, **en inglés**. La experiencia y el conocimiento viven en carpetas del explorador, cada documento se lee como una vista previa limpia, la terminal de abajo funciona de verdad y hay algún secreto para quien lo busque. Es seria por dentro y juguetona en los bordes: lo que importa —puesto, logros, nivel con cada tecnología— se lee sin tocar nada; lo demás premia a quien curiosea.
 
 Es un editor *inspirado* en los de toda la vida, con identidad propia: sin logotipos, iconos ni colores de ningún producto. La marca es el cuadrado **AL**.
 
@@ -7,33 +7,34 @@ Es un editor *inspirado* en los de toda la vida, con identidad propia: sin logot
 | Carpeta | Qué va dentro | Formato |
 | --- | --- | --- |
 | `README.md` | Quién soy, a qué me dedico y cómo moverse por la web. Se abre al entrar. | Markdown |
-| `experiencia/hp/README.md` | El puesto actual: fechas, equipo, resumen y la lista de logros enlazados. | Markdown |
-| `experiencia/hp/logros/NN-nombre.md` | Un logro por archivo: qué y con qué (enlaces a conocimiento). | Markdown |
-| `experiencia/<empresa>.md` | Puestos anteriores en un solo archivo: Nuclia, ALBA Synchrotron, JEDI. | Markdown |
-| `experiencia/startups/` | Proxishop y Quokka: qué eran, mi papel y con qué. | Markdown |
-| `conocimiento/<área>/` | Una tecnología o habilidad por archivo, con nivel y descripción. Los lenguajes se escriben en sí mismos (`rust.rs`, `c.c`, `python.py`); lo demás, en su formato natural (`Dockerfile`, `ci.yml`, `linux.sh`) o en markdown. | Varios |
-| `proyectos/<área>/<repo>.md` | Una selección de github.com/catunlock por áreas (embebido, herramientas, linux, juegos): qué es, lenguaje, año, enlace y con qué. | Markdown |
-| `formacion/` | Máster en IA y grado en Informática (UPC) con sus trabajos finales, y certificaciones. | Markdown |
-| `taller/` | Aficiones con nivel: Home Assistant, PCB, CAD e impresión 3D, el escritorio. | Varios |
-| `contacto.json` | Web, LinkedIn (con el CV completo) y GitHub. Sin teléfono ni email. | JSON |
-| `.secreto` | Oculto. Solo aparece con `ls -a` o el botón de archivos ocultos. | Texto |
+| `experience/hp/README.md` | El puesto actual: fechas, equipo, resumen y la lista de logros enlazados. | Markdown |
+| `experience/hp/achievements/NN-name.md` | Un logro por archivo: qué y con qué (enlaces a skills). | Markdown |
+| `experience/<empresa>.md` | Puestos anteriores en un solo archivo: Nuclia, ALBA Synchrotron, JEDI. | Markdown |
+| `experience/startups/` | Proxishop y Quokka: qué eran, mi papel y con qué. | Markdown |
+| `skills/<área>/` | Una tecnología o habilidad por archivo, con nivel y descripción. Los lenguajes se escriben en sí mismos (`rust.rs`, `c.c`, `python.py`); lo demás, en su formato natural (`Dockerfile`, `ci.yml`, `linux.sh`) o en markdown. | Varios |
+| `projects/<área>/<repo>.md` | Una selección de github.com/catunlock por áreas (embedded, tools, linux, games): qué es, lenguaje, año, enlace y con qué. | Markdown |
+| `education/` | Máster en IA y grado en Informática (UPC) con sus trabajos finales, y certificaciones. | Markdown |
+| `lab/` | Aficiones con nivel: Home Assistant, PCB, CAD e impresión 3D, el escritorio. | Varios |
+| `contact.json` | Web, LinkedIn (con el CV completo) y GitHub. Sin teléfono ni email. | JSON |
+| `.secret` | Oculto. Solo aparece con `ls -a` o el botón de archivos ocultos. | Texto |
 
-- Cada archivo de conocimiento o taller lleva su **nivel 1–5 con palabra** (Explorando, Básico, Competente, Avanzado, Experto): en markdown con una línea `Nivel: 4/5 · Avanzado` justo bajo el título; en código, en el primer comentario. La web lo pinta con `LevelMeter`.
-- Lo que se hizo con una tecnología se cuenta con **enlaces normales**: el logro enlaza a `ci.yml` y `Dockerfile`; `firmware.md` enlaza, en «Dónde», a los puestos y proyectos. No hay grafo: hay carpetas y enlaces.
+- Cada archivo de conocimiento o taller lleva su **nivel 1–5 con palabra** (Exploring, Basic, Competent, Advanced, Expert): en markdown con una línea `Level: 4/5 · Advanced` justo bajo el título; en código, en el primer comentario. La web lo pinta con `LevelMeter`.
+- Lo que se hizo con una tecnología se cuenta con **enlaces normales**: el logro enlaza a `ci.yml` y `Dockerfile`; `firmware.md` enlaza, en «Where», a los puestos y proyectos. No hay grafo: hay carpetas y enlaces.
 - Los nombres de archivo van en minúsculas y con guiones; los logros se numeran (`01-`, `02-`…) para que el orden lo decida el autor.
 - Cada archivo tiene una ficha para el hover: tipo, título, subtítulo, nivel y una frase.
 
 ## Voz
 
-- Seria y clara. Primera persona sin adornos, frases cortas, verbo o resultado al principio: «Workflows de CI y tooling basado en Docker para automatizar la integración de firmware en varias plataformas de producto».
-- Los comentarios del código son texto de verdad, en español y legibles: aquí cuentan cosas.
+- Todo el texto visible de la web va en **inglés** (contenido, interfaz y terminal); esta documentación sigue en español.
+- Seria y clara. Primera persona sin adornos, frases cortas, verbo o resultado al principio: «Built CI workflows and Docker-based tooling to automate firmware integration across multiple product platforms.»
+- Los comentarios de los archivos de skills son texto de verdad, en inglés y legibles: aquí cuentan cosas.
 - Sin emoji, sin exclamaciones, sin superlativos. El nivel lo dice `LevelMeter`, no los adjetivos.
-- El humor vive solo en los bordes —la terminal, los avisos, los diálogos— y siempre acaba devolviendo a algo útil (`git push` → «escríbeme»).
+- El humor vive solo en los bordes —la terminal, los avisos, los diálogos— y siempre acaba devolviendo a algo útil (`git push` → «Write to me»).
 - Fechas, rutas y comandos en mono (`code`); nombres de empresa en texto, sin logotipos.
 
 ## Fundamentos visuales
 
-**Temas.** `noche` es el tema por defecto, `dia` su versión clara y `placa` un tema secreto (el verde de la PCB con cobre) que se activa con el código Konami o con `theme placa`. Los tres comparten los mismos 29 tokens de color.
+**Temas.** `night` es el tema por defecto, `day` su versión clara y `pcb` un tema secreto (el verde de la PCB con cobre) que se activa con el código Konami o con `theme pcb`. Los tres comparten los mismos 29 tokens de color.
 
 **Color.** Fondos por zona (`bg-title`, `bg-activity`, `bg-side`, `bg-editor`, `bg-panel`) para separar el marco sin sombras. Texto en `ink` y `ink-muted`, que pasan 4.5:1 sobre todos los fondos y en los tres temas. `accent` marca lo activo: vista, pestaña, enlaces, pips de nivel y el cursor de la terminal. La barra de estado es `status-bg` con `on-status`. El resaltado (`syn-*`) y la terminal (`term-*`) también pasan 4.5:1 sobre sus fondos.
 
@@ -53,7 +54,7 @@ Iconos de trazo de 1,5px dibujados en SVG dentro del propio bundle (`Portfolio.i
 
 ## Interacción y accesibilidad
 
-- **Terminal:** se abre arrastrando hacia arriba la barra de estado o el borde del panel, con el botón «Terminal» de la barra de estado o con `Ctrl+ñ`. Por debajo de 64px se cierra; doble clic en el borde la alterna.
+- **Terminal:** se abre arrastrando hacia arriba la barra de estado o el borde del panel, con el botón «Terminal» de la barra de estado o con Ctrl + acento grave (también `Ctrl+ñ` en teclado español). Por debajo de 64px se cierra; doble clic en el borde la alterna.
 - **Teclado:** `Ctrl+Shift+P` comandos, `Ctrl+P` archivos, `Ctrl+B` barra lateral, `Ctrl+Shift+E/F/G/X` vistas, `Esc` cierra lo que flota. El árbol se recorre con flechas, Intro abre.
 - Todo lo que tiene hover tiene su equivalente sin hover: la ficha resume, el archivo cuenta lo mismo y más.
 - En pantallas estrechas (menos de 720px) la barra lateral flota sobre el editor y se ocultan menús y botones de ventana; la terminal sigue arrastrándose desde abajo.

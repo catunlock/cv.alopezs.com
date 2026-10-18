@@ -1,6 +1,6 @@
 # cv.alopezs.com
 
-Web personal de Alberto López Sánchez con forma de editor de código: la experiencia y el conocimiento viven en carpetas del explorador, cada documento se lee como una vista previa, la terminal de abajo funciona de verdad y hay algún easter egg.
+Web personal de Alberto López Sánchez, en inglés y con forma de editor de código: la experiencia y el conocimiento viven en carpetas del explorador, cada documento se lee como una vista previa, la terminal de abajo funciona de verdad y hay algún easter egg.
 
 Sin frameworks ni dependencias: HTML, CSS y un único `bundle.js`.
 
@@ -38,4 +38,8 @@ Para cambiar colores, edita `tools/palette.py` y ejecuta `tools/build.sh --token
 
 ## Temas
 
-`noche` (por defecto), `dia` (claro) y `placa`, el secreto: código Konami o `theme placa` en la terminal.
+`night` (por defecto), `day` (claro) y `pcb`, el secreto: código Konami o `theme pcb` en la terminal.
+
+## Idioma
+
+Toda la web (contenido, interfaz y terminal) está en inglés. La documentación del repositorio y del sistema de diseño sigue en español.

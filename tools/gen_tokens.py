@@ -1,9 +1,9 @@
 import json, sys, os
 P = json.load(open(os.path.join(os.path.dirname(__file__), 'palette.json')))
-order = ["noche", "dia", "placa"]
-names = {"noche": "Noche", "dia": "Día", "placa": "Placa (secreto)"}
+order = ["night", "day", "pcb"]
+names = {"night": "Night", "day": "Day", "pcb": "PCB (secreto)"}
 usage = {
- "bg_editor": "Fondo del editor: donde se leen los archivos. También el del panel inferior en Noche y Día.",
+ "bg_editor": "Fondo del editor: donde se leen los archivos. También el del panel inferior en Night y Day.",
  "bg_side": "Barra lateral (explorador, búsqueda, historial, conocimiento), barra de pestañas y bloques de código en la vista previa.",
  "bg_activity": "Barra de actividad (iconos de la izquierda).",
  "bg_title": "Barra de título con menús y el buscador central.",
@@ -36,7 +36,7 @@ usage = {
 toks = [{"name": k.replace('_', '-'), "value": {t: P[t][k] for t in order}, "usage": usage[k]} for k in usage]
 tokens = {
  "name": "Alberto López", "version": 2,
- "color": {"note": "Noche es el tema por defecto y Día su versión clara. Placa es un tema secreto: se activa con el código Konami o con «theme placa» en la terminal.",
+ "color": {"note": "Night es el tema por defecto y Day su versión clara. PCB es un tema secreto: se activa con el código Konami o con «theme pcb» en la terminal.",
    "themes": [{"id": t, "name": names[t]} for t in order], "tokens": toks},
  "type": {
    "fonts": [
@@ -51,17 +51,17 @@ tokens = {
      {"name": "Documento", "family": "sans", "note": "La vista previa de markdown: donde se lee la experiencia. Sans y generosa.",
       "styles": [
         {"name": "display", "fontSize": "36px", "lineHeight": "44px", "fontWeight": 600, "letterSpacing": "-0.02em", "sample": "Alberto López", "usage": "El # de cada documento."},
-        {"name": "title", "fontSize": "22px", "lineHeight": "30px", "fontWeight": 600, "letterSpacing": "-0.01em", "sample": "Logros", "usage": "## de un documento, con filete inferior."},
-        {"name": "heading", "fontSize": "17px", "lineHeight": "26px", "fontWeight": 600, "sample": "Dónde", "usage": "### de un documento."},
-        {"name": "body", "fontSize": "15px", "lineHeight": "26px", "fontWeight": 400, "sample": "Desarrollo software, firmware y herramientas para plataformas de producto embebido.", "usage": "Párrafos y listas de un documento."}]},
+        {"name": "title", "fontSize": "22px", "lineHeight": "30px", "fontWeight": 600, "letterSpacing": "-0.01em", "sample": "Achievements", "usage": "## de un documento, con filete inferior."},
+        {"name": "heading", "fontSize": "17px", "lineHeight": "26px", "fontWeight": 600, "sample": "Where", "usage": "### de un documento."},
+        {"name": "body", "fontSize": "15px", "lineHeight": "26px", "fontWeight": 400, "sample": "I develop software, firmware and development tools for embedded product platforms.", "usage": "Párrafos y listas de un documento."}]},
      {"name": "Interfaz", "family": "sans", "note": "El marco del editor: listas, pestañas, menús, barra de estado.",
       "styles": [
         {"name": "ui", "fontSize": "13px", "lineHeight": "22px", "fontWeight": 400, "sample": "software-engineer.md", "usage": "Filas del explorador, pestañas, menús, paleta."},
         {"name": "small", "fontSize": "12px", "lineHeight": "18px", "fontWeight": 400, "sample": "Ln 1, Col 1   UTF-8   Markdown", "usage": "Barra de estado, migas de pan, descripciones en listas."},
-        {"name": "label", "fontSize": "11px", "lineHeight": "16px", "fontWeight": 600, "letterSpacing": "0.06em", "sample": "EXPLORADOR", "usage": "Cabeceras de vista y de sección, en mayúsculas."}]},
+        {"name": "label", "fontSize": "11px", "lineHeight": "16px", "fontWeight": 600, "letterSpacing": "0.06em", "sample": "EXPLORER", "usage": "Cabeceras de vista y de sección, en mayúsculas."}]},
      {"name": "Código", "family": "mono", "note": "Mono solo dentro del editor de código y la terminal.",
       "styles": [
-        {"name": "code", "fontSize": "13px", "lineHeight": "20px", "fontWeight": 400, "sample": "pub const USOS: [Uso; 2] = [", "usage": "Código, terminal, código en línea."}]}]},
+        {"name": "code", "fontSize": "13px", "lineHeight": "20px", "fontWeight": 400, "sample": "pub const USES: [Use; 4] = [", "usage": "Código, terminal, código en línea."}]}]},
  "spacing": {"note": "Base de 4px.", "tokens": [
    {"name": "space-1", "value": "4px", "usage": "Icono ↔ texto en filas y pestañas."},
    {"name": "space-2", "value": "8px", "usage": "Relleno horizontal de filas, botones de la barra de estado."},
@@ -83,7 +83,7 @@ tokens = {
    {"name": "panel-h", "value": "220px", "usage": "Alto inicial del panel inferior (se arrastra; por debajo de 64px se cierra)."},
    {"name": "status-h", "value": "24px", "usage": "Alto de la barra de estado."}]},
  "shadow": {"note": "Solo para lo que flota sobre el editor.", "tokens": [
-   {"name": "shadow-pop", "value": {"noche": "0 8px 24px #000000b3", "dia": "0 1px 2px #1d1f2214, 0 8px 24px #1d1f2229", "placa": "0 8px 24px #000000a6"}, "usage": "Paleta, menús, ficha flotante, diálogos y avisos."},
+   {"name": "shadow-pop", "value": {"night": "0 8px 24px #000000b3", "day": "0 1px 2px #1d1f2214, 0 8px 24px #1d1f2229", "pcb": "0 8px 24px #000000a6"}, "usage": "Paleta, menús, ficha flotante, diálogos y avisos."},
    {"name": "focus-ring", "value": {t: "0 0 0 2px %s, 0 0 0 3px %s" % (P[t]['bg_editor'], P[t]['focus']) for t in order}, "usage": "Foco de elementos sueltos (enlaces, botones de diálogo): 2px de separación y 1px sólido de focus."}]}
 }
 json.dump(tokens, open(sys.argv[1], 'w'), ensure_ascii=False, indent=2)

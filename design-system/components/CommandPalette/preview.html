@@ -7,7 +7,7 @@
 <script>
   var P = window.Portfolio, root = document.getElementById('root');
   root.innerHTML = P.paletteHTML();
-  var cmds = ['Ver: Alternar terminal|Ctrl+ñ', 'Ver: Explorador|Ctrl+Shift+E', 'Ver: Buscar en archivos|Ctrl+Shift+F', 'Ver: Trayectoria (historial)|Ctrl+Shift+G', 'Preferencias: Tema de color|', 'Contacto: Escribirme|', 'CV: Descargar|', 'Café: Preparar|'];
+  var cmds = ['View: Toggle Terminal|Ctrl+`', 'View: Explorer|Ctrl+Shift+E', 'View: Search Files|Ctrl+Shift+F', 'View: Career (History)|Ctrl+Shift+G', 'Preferences: Color Theme|', 'Contact: Write to Me|', 'CV: View on LinkedIn|', 'Coffee: Brew|'];
   var pal = P.palette(root.querySelector('.vs-palette'), { close: function () {} });
   pal.open(function (q) {
     if (q.charAt(0) === '>') return { query: q.slice(1).trim(), items: cmds.map(function (c) { c = c.split('|'); return { label: c[0], kbd: c[1], keep: true, run: function () {} }; }) };

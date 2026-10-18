@@ -1,338 +1,338 @@
-  // ================= Contenido =================
-  // Datos de los CV y de github.com/catunlock. Los niveles (1–5) son una estimación inicial a revisar por Alberto.
-  var SITE = 'cv.alopezs.com', LINKEDIN = 'https://www.linkedin.com/in/alberto-lopez-sanchez', GITHUB = 'https://github.com/catunlock';
+  // ================= Content =================
+  // From Alberto's CVs and github.com/catunlock. Skill levels (1–5) set by Alberto.
+  var SITE = 'cv.alopezs.com', NAME = 'Alberto López Sánchez', LINKEDIN = 'https://www.linkedin.com/in/alberto-lopez-sanchez', GITHUB = 'https://github.com/catunlock';
   var FILES = {}, DIRS = {};
   function f(path, meta, body) { FILES[path] = { path: path, meta: meta, body: body.replace(/^\n/, '').replace(/\s+$/, '') + '\n' }; }
   function d(path, text) { DIRS[path] = text; }
 
-  var HP_SUMMARY = 'Desarrollo software, firmware y herramientas de desarrollo para plataformas de producto embebido, combinando ingeniería práctica con liderazgo técnico entre equipos y partners externos.';
+  var HP_SUMMARY = 'I develop software, firmware and development tools for embedded product platforms, combining hands-on engineering with technical leadership across teams and external partners.';
   var GH = 'https://github.com/catunlock/';
 
-  d('experiencia', 'Dónde he trabajado: HP, Nuclia, ALBA Synchrotron y JEDI, más dos startups propias.');
-  d('experiencia/hp', 'Software Engineer · mar 2022 – hoy. Un archivo por logro.');
-  d('experiencia/hp/logros', 'Un archivo por logro: qué, con qué y qué cambió.');
-  d('experiencia/startups', 'Proyectos que arranqué y no llegaron lejos, pero enseñaron mucho.');
-  d('conocimiento', 'Lo que sé hacer, por áreas. Cada archivo lleva su nivel.');
-  d('conocimiento/lenguajes', 'Lenguajes de programación, cada uno escrito en sí mismo.');
-  d('conocimiento/sistemas', 'Firmware, seguridad y virtualización.');
-  d('conocimiento/herramientas', 'Contenedores e integración continua.');
-  d('conocimiento/datos', 'Bases de datos y búsqueda.');
-  d('conocimiento/ia', 'Machine learning: el máster y lo que vino después.');
-  d('conocimiento/web', 'Frameworks web y móvil.');
-  d('conocimiento/linux', 'Sistema de trabajo y de ocio.');
-  d('conocimiento/personas', 'Liderazgo, metodologías ágiles y docencia.');
-  d('proyectos', 'Proyectos personales en github.com/catunlock.');
-  d('proyectos/embebido', 'Firmware y dispositivos.');
-  d('proyectos/herramientas', 'Utilidades de línea de comandos, casi todas en Rust.');
-  d('proyectos/linux', 'Para que mi Linux haga lo que quiero.');
-  d('proyectos/juegos', 'Gráficos, motores y agentes.');
-  d('formacion', 'Grado y máster en la UPC, y certificaciones.');
-  d('taller', 'Lo que hago por gusto: IoT, PCB, CAD, impresión 3D y el escritorio.');
+  d('experience', 'Where I have worked: HP, Nuclia, ALBA Synchrotron and JEDI, plus two startups of my own.');
+  d('experience/hp', 'Software Engineer · Mar 2022 – present. One file per achievement.');
+  d('experience/hp/achievements', 'One file per achievement: what, with what and what changed.');
+  d('experience/startups', 'Projects I started that did not go far, but taught me a lot.');
+  d('skills', 'What I can do, by area. Every file carries its level.');
+  d('skills/languages', 'Programming languages, each one written in itself.');
+  d('skills/systems', 'Firmware, security and virtualization.');
+  d('skills/tools', 'Containers and continuous integration.');
+  d('skills/data', 'Databases and search.');
+  d('skills/ai', 'Machine learning: the master’s degree and what came after.');
+  d('skills/web', 'Web and mobile frameworks.');
+  d('skills/linux', 'My system for work and for fun.');
+  d('skills/people', 'Leadership, agile and teaching.');
+  d('projects', 'Personal projects on github.com/catunlock.');
+  d('projects/embedded', 'Firmware and devices.');
+  d('projects/tools', 'Command-line utilities, mostly in Rust.');
+  d('projects/linux', 'Making my Linux do what I want.');
+  d('projects/games', 'Graphics, engines and agents.');
+  d('education', 'Bachelor’s and master’s degrees at UPC, and certifications.');
+  d('lab', 'What I do for fun: IoT, PCBs, CAD, 3D printing and the desktop.');
 
-  f('README.md', { kind: 'about', title: 'Alberto López Sánchez', sub: 'Software Engineer · HP · Barcelona', text: 'Quién soy, a qué me dedico y cómo moverte por esta web.' }, `
+  f('README.md', { kind: 'about', title: NAME, sub: 'Software Engineer · HP · Barcelona', text: 'Who I am, what I do and how to find your way around this site.' }, `
 # Alberto López Sánchez
 
-**Software Engineer en HP** · Barcelona
+**Software Engineer at HP** · Barcelona
 
-Soy ingeniero de software centrado en I+D: construyo sistemas desde cero y llevo años haciendo herramientas internas para otros desarrolladores. Trabajo con firmware, sistemas operativos (Linux), hardware y virtualización.
+I’m a software engineer focused on R&D: I build systems from the ground up and have spent years building internal tools for other developers. I work across firmware, operating systems (Linux), hardware and virtualization.
 
-He trabajado en varias startups y he arrancado proyectos propios. Me importa el producto y lo que dicen quienes lo usan; he sido Scrum Master y Technical Product Owner.
+I’ve worked at several startups and started projects of my own. I’m product-minded and put user feedback first; I’ve been a Scrum Master and a Technical Product Owner.
 
-Fuera del trabajo hago dispositivos IoT para Home Assistant, diseño placas y piezas, imprimo en 3D y mantengo un escritorio Linux que nunca está terminado. Me interesan el machine learning, los LLM y la computación acelerada.
+Outside work I build IoT devices for Home Assistant, design boards and parts, 3D print, and keep tuning a Linux desktop that is never quite finished. I’m interested in machine learning, LLMs and accelerated computing.
 
-## Ahora
+## Now
 
-- [Software Engineer · HP](experiencia/hp/README.md) — mar 2022 – hoy
+- [Software Engineer · HP](experience/hp/README.md) — Mar 2022 – present
 
-## Antes
+## Before
 
-- [Software Engineer · Nuclia](experiencia/nuclia.md) — ago 2021 – feb 2022
-- [Software Engineer · ALBA Synchrotron](experiencia/alba-synchrotron.md) — dic 2020 – ago 2021
-- [Profesor y responsable de formación · JEDI](experiencia/jedi.md) — may 2017 – sep 2020
+- [Software Engineer · Nuclia](experience/nuclia.md) — Aug 2021 – Feb 2022
+- [Software Engineer · ALBA Synchrotron](experience/alba-synchrotron.md) — Dec 2020 – Aug 2021
+- [Instructor and head of education · JEDI](experience/jedi.md) — May 2017 – Sep 2020
 
-## Formación
+## Education
 
-- [Máster en Inteligencia Artificial · UPC](formacion/master-ia.md) — 2018 – 2020
-- [Grado en Ingeniería Informática · UPC](formacion/grado-informatica.md) — 2013 – 2018
+- [M.S. in Artificial Intelligence · UPC](education/masters-ai.md) — 2018 – 2020
+- [B.S. in Computer Science and Engineering · UPC](education/bachelors-cs.md) — 2013 – 2018
 
-Español y catalán nativos · inglés C1.
+Spanish and Catalan (native) · English (C1).
 
-## Cómo moverte
+## Getting around
 
-- **Explorador**, a la izquierda: experiencia, conocimiento, proyectos, formación y taller, cada cosa en su carpeta. Pasa el cursor por un archivo para ver su resumen.
-- **Terminal**, abajo: arrastra hacia arriba la barra de estado o pulsa \`Ctrl+ñ\`. Empieza por \`help\`.
-- **Paleta de comandos**: \`Ctrl+Shift+P\`. Para abrir un archivo por su nombre, \`Ctrl+P\`.
-- **Contacto**: [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock).
+- **Explorer**, on the left: experience, skills, projects, education and lab, each in its own folder. Hover over a file to see a summary.
+- **Terminal**, at the bottom: drag the status bar up, or press Ctrl + backtick. Start with **help**.
+- **Command palette**: \`Ctrl+Shift+P\`. To open a file by name, \`Ctrl+P\`.
+- **Contact**: [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock).
 `);
 
-  var KN = '../../../conocimiento/';
-  f('experiencia/hp/README.md', { kind: 'work', title: 'Software Engineer · HP', sub: 'mar 2022 – hoy · Barcelona', text: HP_SUMMARY }, `
+  var KN = '../../../skills/';
+  f('experience/hp/README.md', { kind: 'work', title: 'Software Engineer · HP', sub: 'Mar 2022 – present · Barcelona', text: HP_SUMMARY }, `
 # Software Engineer · HP
 
-\`HP Inc · Barcelona · mar 2022 – hoy\`
+\`HP Inc · Barcelona · Mar 2022 – present\`
 
 ${HP_SUMMARY}
 
-Trabajo en el equipo Foundations de fabricación aditiva (impresión 3D): sistema operativo base, seguridad y servicios del sistema, y las herramientas internas para desarrollar, empaquetar y distribuir el software.
+I work in the Foundations team for additive manufacturing (3D printing): base OS, security and system services, plus the internal tools to develop, package and distribute the software.
 
-## Logros
+## Achievements
 
-- [Integración de firmware con CI y Docker](logros/01-ci-docker.md)
-- [Releases automáticas con visión por computador](logros/02-releases-automaticas.md)
-- [Seguridad del firmware: Secure Boot, TPM y cifrado](logros/03-seguridad.md)
-- [Modernización de una base de código C++ de más de 20 años](logros/04-modernizacion-cpp.md)
-- [Tests de integración con virtualización](logros/05-tests-virtualizacion.md)
-- [Fiabilidad en campo: backup y recuperación](logros/06-fiabilidad.md)
-- [Fabricación y reparabilidad del dispositivo](logros/07-fabricacion.md)
-- [Entrega técnica con partners externos](logros/08-partners.md)
-- [Mentoría de ingenieros y becarios](logros/09-mentoria.md)
+- [Firmware integration with CI and Docker](achievements/01-ci-docker.md)
+- [Automated releases with computer vision](achievements/02-automated-releases.md)
+- [Firmware security: Secure Boot, TPM and encryption](achievements/03-security.md)
+- [Modernizing a 20+ year-old C++ codebase](achievements/04-cpp-modernization.md)
+- [Integration testing with virtualization](achievements/05-virtualized-testing.md)
+- [Field reliability: backup and recovery](achievements/06-reliability.md)
+- [Manufacturing and repairability](achievements/07-manufacturing.md)
+- [Technical delivery with external partners](achievements/08-partners.md)
+- [Mentoring engineers and interns](achievements/09-mentoring.md)
 
-## Con qué
+## Stack
 
-[C / C++](../../conocimiento/lenguajes/cpp.cpp) · [Python](../../conocimiento/lenguajes/python.py) · [Rust](../../conocimiento/lenguajes/rust.rs) · [C#](../../conocimiento/lenguajes/csharp.cs) · [Tcl](../../conocimiento/lenguajes/tcl.tcl) · [Linux y Bash](../../conocimiento/linux/linux.sh) · [Docker](../../conocimiento/herramientas/Dockerfile) · [CI/CD](../../conocimiento/herramientas/ci.yml) · [Virtualización](../../conocimiento/sistemas/virtualizacion.md)
+[C / C++](../../skills/languages/cpp.cpp) · [Python](../../skills/languages/python.py) · [Rust](../../skills/languages/rust.rs) · [C#](../../skills/languages/csharp.cs) · [Tcl](../../skills/languages/tcl.tcl) · [Linux and Bash](../../skills/linux/linux.sh) · [Docker](../../skills/tools/Dockerfile) · [CI/CD](../../skills/tools/ci.yml) · [Virtualization](../../skills/systems/virtualization.md)
 
 [hp.com](https://www.hp.com)
 `);
   [
-    ['01-ci-docker', 'Integración de firmware con CI y Docker', 'Workflows de CI y herramientas basadas en Docker para automatizar la integración de firmware en varias plataformas de producto. Herramientas de firmware reutilizables, adoptadas por varios equipos, que simplifican el mantenimiento y el soporte.', [['CI/CD', 'herramientas/ci.yml'], ['Docker', 'herramientas/Dockerfile'], ['Firmware', 'sistemas/firmware.md']]],
-    ['02-releases-automaticas', 'Releases automáticas con visión por computador', 'Infraestructura para generar y publicar automáticamente los componentes de cada release de firmware; con visión por computador, el proceso libera varias horas de trabajo cada semana.', [['Python', 'lenguajes/python.py'], ['Machine learning', 'ia/machine-learning.md']]],
-    ['03-seguridad', 'Seguridad del firmware: Secure Boot, TPM y cifrado', 'Proyectos clave de seguridad: Secure Boot con TPM (Trusted Platform Module) y cifrado de disco, para proteger la propiedad intelectual de la empresa. También coordino la preparación de auditorías de ciberseguridad, reuniendo evidencia técnica y acciones de seguimiento entre disciplinas.', [['Seguridad', 'sistemas/seguridad.md'], ['Firmware', 'sistemas/firmware.md']]],
-    ['04-modernizacion-cpp', 'Modernización de una base de código C++ de más de 20 años', 'Diseño y modernización de componentes core en C++ de una base de código con más de 20 años, para que escale y se pueda mantener; más calidad con tests unitarios y de integración.', [['C / C++', 'lenguajes/cpp.cpp']]],
-    ['05-tests-virtualizacion', 'Tests de integración con virtualización', 'Más cobertura de tests de integración gracias a técnicas avanzadas de virtualización y emulación.', [['Virtualización', 'sistemas/virtualizacion.md'], ['Linux', 'linux/linux.sh']]],
-    ['06-fiabilidad', 'Fiabilidad en campo: backup y recuperación', 'Diseño y desarrollo de backup y recuperación del sistema; soluciones robustas a problemas aparecidos tras el lanzamiento que redujeron el coste de soporte en campo de varios productos.', [['Firmware', 'sistemas/firmware.md'], ['C / C++', 'lenguajes/cpp.cpp']]],
-    ['07-fabricacion', 'Fabricación y reparabilidad del dispositivo', 'Con otros equipos, soluciones seguras y escalables que simplificaron la fabricación del dispositivo —menos coste y más éxito— y mejoraron su reparabilidad.', [['Firmware', 'sistemas/firmware.md'], ['Liderazgo técnico', 'personas/liderazgo.md']]],
-    ['08-partners', 'Entrega técnica con partners externos', 'Liderazgo de la entrega técnica con partners externos: de los requisitos a soluciones implementables, coordinando dependencias entre equipos de ingeniería.', [['Liderazgo técnico', 'personas/liderazgo.md']]],
-    ['09-mentoria', 'Mentoría de ingenieros y becarios', 'Mentoría de ingenieros y becarios para que construyan conocimiento técnico y contribuyan de forma independiente.', [['Mentoría y docencia', 'personas/mentoria.md']]]
+    ['01-ci-docker', 'Firmware integration with CI and Docker', 'Built CI workflows and Docker-based tooling to automate firmware integration across multiple product platforms. Created reusable firmware tools, adopted across product teams, that simplify maintenance and support.', [['CI/CD', 'tools/ci.yml'], ['Docker', 'tools/Dockerfile'], ['Firmware', 'systems/firmware.md']]],
+    ['02-automated-releases', 'Automated releases with computer vision', 'Built the infrastructure to automatically generate and publish firmware release components; with computer vision, the process frees up several hours of work every week.', [['Python', 'languages/python.py'], ['Machine learning', 'ai/machine-learning.md']]],
+    ['03-security', 'Firmware security: Secure Boot, TPM and encryption', 'Led key security projects: Secure Boot with TPM (Trusted Platform Module) and disk encryption, protecting the company’s intellectual property. I also coordinate cybersecurity audit preparation, bringing together technical evidence and follow-up actions across disciplines.', [['Security', 'systems/security.md'], ['Firmware', 'systems/firmware.md']]],
+    ['04-cpp-modernization', 'Modernizing a 20+ year-old C++ codebase', 'Designed and modernized core C++ components in a codebase more than 20 years old, keeping it scalable and maintainable, and raised code quality with unit and integration tests.', [['C / C++', 'languages/cpp.cpp']]],
+    ['05-virtualized-testing', 'Integration testing with virtualization', 'Enhanced integration test coverage with advanced virtualization and emulation techniques.', [['Virtualization', 'systems/virtualization.md'], ['Linux', 'linux/linux.sh']]],
+    ['06-reliability', 'Field reliability: backup and recovery', 'Designed and developed system backup and recovery capabilities, and engineered robust fixes for issues found in the field after launch, reducing field-support costs across several products.', [['Firmware', 'systems/firmware.md'], ['C / C++', 'languages/cpp.cpp']]],
+    ['07-manufacturing', 'Manufacturing and repairability', 'Worked with other teams on secure, scalable solutions that simplified device manufacturing — lowering cost and raising the success rate — and improved repairability.', [['Firmware', 'systems/firmware.md'], ['Technical leadership', 'people/leadership.md']]],
+    ['08-partners', 'Technical delivery with external partners', 'Led technical delivery with external partners, translating requirements into implementable solutions and coordinating dependencies across engineering teams.', [['Technical leadership', 'people/leadership.md']]],
+    ['09-mentoring', 'Mentoring engineers and interns', 'Mentored engineers and interns, helping them build technical knowledge and contribute independently.', [['Mentoring and teaching', 'people/mentoring.md']]]
   ].forEach(function (l) {
-    f('experiencia/hp/logros/' + l[0] + '.md', { kind: 'achievement', title: l[1], sub: 'HP · Software Engineer', text: l[2] },
-      '# ' + l[1] + '\n\n`HP · Software Engineer · mar 2022 – hoy`\n\n' + l[2] + '\n\n**Con:** ' +
+    f('experience/hp/achievements/' + l[0] + '.md', { kind: 'achievement', title: l[1], sub: 'HP · Software Engineer', text: l[2] },
+      '# ' + l[1] + '\n\n`HP · Software Engineer · Mar 2022 – present`\n\n' + l[2] + '\n\n**Stack:** ' +
       l[3].map(function (t) { return '[' + t[0] + '](' + KN + t[1] + ')'; }).join(' · ') + '\n');
   });
 
-  f('experiencia/nuclia.md', { kind: 'work', title: 'Software Engineer · Nuclia', sub: 'ago 2021 – feb 2022 · Barcelona', text: 'NucliaDB: la base de datos distribuida de un buscador de documentos de empresa.' }, `
+  f('experience/nuclia.md', { kind: 'work', title: 'Software Engineer · Nuclia', sub: 'Aug 2021 – Feb 2022 · Barcelona', text: 'NucliaDB: the distributed database behind an enterprise search engine for business documents.' }, `
 # Software Engineer · Nuclia
 
-\`NucliaDB · Barcelona · ago 2021 – feb 2022\`
+\`NucliaDB · Barcelona · Aug 2021 – Feb 2022\`
 
-Diseñé e implementé la indexación de NucliaDB, la base de datos distribuida de un buscador para documentos de empresa: vídeos, imágenes, podcasts y texto.
+Designed and implemented the indexing of NucliaDB, the distributed database behind an enterprise search engine for business documents: videos, images, podcasts and text.
 
-- Extracción de metadatos, texto y representaciones semánticas de cada tipo de medio para que las búsquedas sean más precisas y relevantes.
-- Técnicas de procesado de datos para entender mejor el significado de los documentos.
+- Extracted metadata, text and semantic representations from each media type to improve search accuracy and relevance.
+- Applied data-processing techniques to improve the semantic understanding of documents.
 
-**Con:** [Rust](../conocimiento/lenguajes/rust.rs) · [Python](../conocimiento/lenguajes/python.py) · [Bases de datos y búsqueda](../conocimiento/datos/busqueda.sql) · [Docker](../conocimiento/herramientas/Dockerfile) · gRPC
+**Stack:** [Rust](../skills/languages/rust.rs) · [Python](../skills/languages/python.py) · [Databases and search](../skills/data/search.sql) · [Docker](../skills/tools/Dockerfile) · gRPC
 
 [nuclia.com](https://nuclia.com/)
 `);
-  f('experiencia/alba-synchrotron.md', { kind: 'work', title: 'Software Engineer · ALBA Synchrotron', sub: 'dic 2020 – ago 2021 · Barcelona', text: 'Software de control y adquisición de datos para equipos científicos de alta precisión.' }, `
+  f('experience/alba-synchrotron.md', { kind: 'work', title: 'Software Engineer · ALBA Synchrotron', sub: 'Dec 2020 – Aug 2021 · Barcelona', text: 'Data acquisition and control software for high-precision scientific equipment.' }, `
 # Software Engineer · ALBA Synchrotron
 
-\`Adquisición de datos y control · dic 2020 – ago 2021\`
+\`Data acquisition and control · Dec 2020 – Aug 2021\`
 
-Software para controlar dispositivos de alta precisión en un entorno distribuido, en una instalación de rayos X duros: operaciones precisas y fiables sin exposición a la radiación.
+Software to control high-precision devices in a distributed environment at a hard X-ray facility: accurate, reliable operation without exposure to radiation.
 
-- Responsable del software de control de la línea Minerva.
-- Integración de equipos científicos en el software de control.
-- Contribuciones a los proyectos de código abierto Sardana, PyTango y cppTango.
+- Project lead for the control software of the MINERVA beamline.
+- Integrated scientific equipment into the control software.
+- Contributor to the open-source projects Sardana, PyTango and cppTango.
 
-**Con:** [C / C++](../conocimiento/lenguajes/cpp.cpp) · [Python](../conocimiento/lenguajes/python.py) · Cython
+**Stack:** [C / C++](../skills/languages/cpp.cpp) · [Python](../skills/languages/python.py) · Cython
 
-[cells.es](https://www.cells.es/ca)
+[cells.es](https://www.cells.es/en)
 `);
-  f('experiencia/jedi.md', { kind: 'work', title: 'Profesor · JEDI', sub: 'may 2017 – sep 2020 · Barcelona', text: 'Responsable de formación de la asociación de estudiantes de informática JEDI y profesor de sus cursos de verano.' }, `
-# Profesor y responsable de formación · JEDI
+  f('experience/jedi.md', { kind: 'work', title: 'Instructor · JEDI', sub: 'May 2017 – Sep 2020 · Barcelona', text: 'Head of education at the JEDI computer science student association, and teacher of its summer courses.' }, `
+# Instructor and head of education · JEDI
 
-\`Joves Estudiants d'Informàtica · may 2017 – sep 2020\`
+\`Joves Estudiants d'Informàtica · May 2017 – Sep 2020\`
 
-- Responsable del departamento de formación.
-- Profesor de los cursos de verano de machine learning, deep learning, robótica e impresión 3D.
+- Head of the education department.
+- Taught the summer courses on machine learning, deep learning, robotics and 3D printing.
 
-**Con:** [Mentoría y docencia](../conocimiento/personas/mentoria.md) · [Machine learning](../conocimiento/ia/machine-learning.md) · [CAD e impresión 3D](../taller/cad-3d.md)
+**Stack:** [Mentoring and teaching](../skills/people/mentoring.md) · [Machine learning](../skills/ai/machine-learning.md) · [CAD and 3D printing](../lab/cad-3d.md)
 `);
-  f('experiencia/startups/proxishop.md', { kind: 'work', title: 'Proxishop', sub: 'ago 2020 · app Android e iOS', text: 'E-commerce para que agricultores y pequeños comercios de Cataluña siguieran vendiendo durante el confinamiento.' }, `
+  f('experience/startups/proxishop.md', { kind: 'work', title: 'Proxishop', sub: 'Aug 2020 · Android and iOS app', text: 'E-commerce so that farmers and small shops in Catalonia could keep selling during the lockdowns.' }, `
 # Proxishop
 
-\`App para Android e iOS · ago 2020\`
+\`Android and iOS app · Aug 2020\`
 
-Plataforma de comercio electrónico para agricultores locales y pequeños comercios de Cataluña, pensada para reactivar la economía de la zona durante la COVID-19: el comercio de proximidad pudo seguir funcionando en los confinamientos.
+An e-commerce platform for local farmers and small businesses in Catalonia, built to keep the regional economy going during COVID-19: proximity commerce could keep running through the lockdowns.
 
-**Con:** [Flutter, Flask y SQLAlchemy](../../conocimiento/web/frameworks.md) · [Python](../../conocimiento/lenguajes/python.py) · [PostgreSQL](../../conocimiento/datos/busqueda.sql)
+**Stack:** [Flutter, Flask and SQLAlchemy](../../skills/web/frameworks.md) · [Python](../../skills/languages/python.py) · [PostgreSQL](../../skills/data/search.sql)
 
-[Vídeo de la app](https://www.youtube.com/watch?v=pRpX1iOqmvw)
+[App video](https://www.youtube.com/watch?v=pRpX1iOqmvw)
 `);
-  f('experiencia/startups/quokka.md', { kind: 'work', title: 'Quokka', sub: 'jun – dic 2019 · nevera inteligente', text: 'La electrónica de un sistema de detección de productos dentro de una nevera.' }, `
-# Quokka · nevera inteligente
+  f('experience/startups/quokka.md', { kind: 'work', title: 'Quokka', sub: 'Jun – Dec 2019 · smart fridge', text: 'The electronics of a system that detects the items inside a fridge.' }, `
+# Quokka · smart fridge
 
-\`jun – dic 2019\`
+\`Jun – Dec 2019\`
 
-Diseñé y programé la electrónica de un sistema de detección dentro de una nevera para identificar los productos: integración de sensores y lógica de control para que la detección fuera precisa y fiable.
+Designed and programmed the electronics of a detection system inside a fridge to identify items, combining sensor integration and control logic for accurate, reliable detection.
 
-**Con:** [Firmware](../../conocimiento/sistemas/firmware.md) · [Diseño de PCB](../../taller/pcb.md)
+**Stack:** [Firmware](../../skills/systems/firmware.md) · [PCB design](../../lab/pcb.md)
 
 [getkombo.app](https://getkombo.app/)
 `);
 
-  // —— conocimiento ——
-  f('conocimiento/lenguajes/cpp.cpp', { kind: 'skill', title: 'C / C++', level: 4, text: 'Componentes del sistema y firmware; modernización de una base de código C++ de más de 20 años.' }, `
-// C / C++ — nivel 4/5 · Avanzado
-// Componentes del sistema y firmware; modernización de una base de código C++ de más de 20 años.
+  // —— skills ——
+  f('skills/languages/cpp.cpp', { kind: 'skill', title: 'C / C++', level: 4, text: 'System components and firmware; modernizing a 20+ year-old C++ codebase.' }, `
+// C / C++ — level 4/5 · Advanced
+// System components and firmware; modernizing a 20+ year-old C++ codebase.
 
 #include <string>
 #include <vector>
 
-struct Uso {
-    std::string donde;
-    std::string que;
+struct Use {
+    std::string where;
+    std::string what;
 };
 
-const std::vector<Uso> usos = {
-    {"HP", "componentes core en C++ moderno, con CMake y Google Test"},
-    {"ALBA Synchrotron", "control de equipos científicos (C, C++, Cython)"},
-    {"drm_display", "visor de imágenes para sistemas embebidos (C)"},
-    {"esp8266-smartlight", "una luz conectada (C++)"},
+const std::vector<Use> uses = {
+    {"HP", "core components in modern C++, with CMake and Google Test"},
+    {"ALBA Synchrotron", "control of scientific equipment (C, C++, Cython)"},
+    {"drm_display", "an image viewer for embedded systems (C)"},
+    {"esp8266-smartlight", "a connected light (C++)"},
 };
 
 int main() {
-    return 0;  // sin warnings
+    return 0;  // no warnings
 }
 `);
-  f('conocimiento/lenguajes/rust.rs', { kind: 'skill', title: 'Rust', level: 4, text: 'La indexación de NucliaDB y mis herramientas y librerías para embebido.' }, `
-//! Rust — nivel 4/5 · Avanzado
-//! La indexación de NucliaDB y mis herramientas y librerías para embebido.
+  f('skills/languages/rust.rs', { kind: 'skill', title: 'Rust', level: 4, text: 'NucliaDB’s indexing, and my own tools and embedded libraries.' }, `
+//! Rust — level 4/5 · Advanced
+//! NucliaDB's indexing, and my own tools and embedded libraries.
 
-pub struct Uso {
-    pub donde: &'static str,
-    pub que: &'static str,
+pub struct Use {
+    pub place: &'static str,
+    pub what: &'static str,
 }
 
-pub const USOS: [Uso; 4] = [
-    Uso { donde: "Nuclia", que: "indexación distribuida con Tantivy y gRPC" },
-    Uso { donde: "esp32-ble-keyboard", que: "librería de teclado BLE para ESP32" },
-    Uso { donde: "cat-rs", que: "cat, con superpoderes" },
-    Uso { donde: "file2wav", que: "esconder archivos dentro de un WAV" },
+pub const USES: [Use; 4] = [
+    Use { place: "Nuclia", what: "distributed indexing with Tantivy and gRPC" },
+    Use { place: "esp32-ble-keyboard", what: "a BLE keyboard library for ESP32" },
+    Use { place: "cat-rs", what: "cat, with superpowers" },
+    Use { place: "file2wav", what: "hiding files inside a WAV" },
 ];
 
 fn main() {
-    for uso in USOS.iter() {
-        println!("{}: {}", uso.donde, uso.que);
+    for u in USES.iter() {
+        println!("{}: {}", u.place, u.what);
     }
 }
 `);
-  f('conocimiento/lenguajes/python.py', { kind: 'skill', title: 'Python', level: 5, text: 'Herramientas y automatización, control de equipos científicos, backends y machine learning.' }, `
-"""Python — nivel 5/5 · Experto
+  f('skills/languages/python.py', { kind: 'skill', title: 'Python', level: 5, text: 'Tooling and automation, scientific equipment control, backends and machine learning.' }, `
+"""Python — level 5/5 · Expert
 
-Herramientas y automatización, control de equipos científicos, backends y machine learning.
+Tooling and automation, scientific equipment control, backends and machine learning.
 """
 
-USOS = {
-    "HP": "herramientas internas y automatización de releases",
-    "Nuclia": "procesado de documentos para el buscador",
-    "ALBA Synchrotron": "control con Sardana y PyTango",
-    "Proxishop": "backend con Flask y SQLAlchemy",
-    "Máster en IA": "deep learning con Keras y TensorFlow",
+USES = {
+    "HP": "internal tools and release automation",
+    "Nuclia": "document processing for the search engine",
+    "ALBA Synchrotron": "control with Sardana and PyTango",
+    "Proxishop": "backend with Flask and SQLAlchemy",
+    "M.S. in AI": "deep learning with Keras and TensorFlow",
 }
 
 if __name__ == "__main__":
-    for donde, que in USOS.items():
-        print(f"{donde}: {que}")
+    for place, what in USES.items():
+        print(f"{place}: {what}")
 `);
-  f('conocimiento/lenguajes/csharp.cs', { kind: 'skill', title: 'C#', level: 3, text: 'Herramientas en HP, un juego con NPC multiagente y el backend de powerMeter.' }, `
-// C# — nivel 3/5 · Competente
-// Herramientas en HP, un juego con NPC multiagente y el backend de powerMeter.
+  f('skills/languages/csharp.cs', { kind: 'skill', title: 'C#', level: 3, text: 'Tools at HP, a game with multi-agent NPCs and the powerMeter backend.' }, `
+// C# — level 3/5 · Competent
+// Tools at HP, a game with multi-agent NPCs and the powerMeter backend.
 
 using System;
 
-var usos = new[] {
-    ("HP", "herramientas internas"),
-    ("Ourcraft", "terreno deformable y NPC multiagente"),
-    ("powerMeter", "el backend del medidor"),
+var uses = new[] {
+    ("HP", "internal tools"),
+    ("Ourcraft", "deformable terrain and multi-agent NPCs"),
+    ("powerMeter", "the meter's backend"),
 };
 
-foreach (var (donde, que) in usos)
-    Console.WriteLine($"{donde}: {que}");
+foreach (var (place, what) in uses)
+    Console.WriteLine($"{place}: {what}");
 `);
-  f('conocimiento/lenguajes/tcl.tcl', { kind: 'skill', title: 'Tcl', level: 3, text: 'Scripts y herramientas internas en HP.' }, `
-# Tcl — nivel 3/5 · Competente
-# Scripts y herramientas internas en HP.
+  f('skills/languages/tcl.tcl', { kind: 'skill', title: 'Tcl', level: 3, text: 'Scripts and internal tools at HP.' }, `
+# Tcl — level 3/5 · Competent
+# Scripts and internal tools at HP.
 
-set usos {HP}
+set places {HP}
 
-proc saluda {donde} {
-    puts "tcl en $donde"
+proc greet {place} {
+    puts "tcl at $place"
 }
 
-foreach donde $usos {
-    saluda $donde
+foreach place $places {
+    greet $place
 }
 `);
-  f('conocimiento/linux/linux.sh', { kind: 'skill', title: 'Linux y Bash', level: 5, text: 'El sistema operativo base en el trabajo y mi escritorio en casa.' }, `
+  f('skills/linux/linux.sh', { kind: 'skill', title: 'Linux and Bash', level: 5, text: 'The base OS at work and my desktop at home.' }, `
 #!/usr/bin/env bash
-# Linux y Bash — nivel 5/5 · Experto
-# El sistema operativo base en el trabajo y mi escritorio en casa.
+# Linux and Bash — level 5/5 · Expert
+# The base OS at work and my desktop at home.
 
 set -euo pipefail
 
-usos=(
-    "HP: sistema operativo base y servicios del sistema"
-    "brother-archlinux: una impresora Brother en Arch Linux"
-    "FreqAudio: una extensión de GNOME para el audio"
+uses=(
+    "HP: base OS and system services"
+    "brother-archlinux: a Brother printer on Arch Linux"
+    "FreqAudio: a GNOME extension for audio"
 )
 
-for uso in "\${usos[@]}"; do
-    echo "$uso"
+for use in "\${uses[@]}"; do
+    echo "$use"
 done
 `);
-  f('conocimiento/sistemas/firmware.md', { kind: 'skill', title: 'Firmware', level: 5, text: 'Firmware y software de sistema para producto embebido, y las herramientas para mantenerlo.' }, `
+  f('skills/systems/firmware.md', { kind: 'skill', title: 'Firmware', level: 5, text: 'Firmware and system software for embedded products, and the tools to maintain them.' }, `
 # Firmware
 
-Nivel: 5/5 · Experto
+Level: 5/5 · Expert
 
-Firmware y software de sistema para producto embebido, y las herramientas para mantenerlo.
+Firmware and system software for embedded products, and the tools to maintain them.
 
-## Dónde
+## Where
 
-- [HP](../../experiencia/hp/README.md): integración en varias plataformas, seguridad, backup y recuperación, fabricación.
-- [Quokka](../../experiencia/startups/quokka.md): la electrónica de una nevera inteligente.
-- [drm_display](../../proyectos/embebido/drm_display.md), [esp32-ble-keyboard](../../proyectos/embebido/esp32-ble-keyboard.md) y [powerMeter](../../proyectos/embebido/powermeter.md).
+- [HP](../../experience/hp/README.md): integration across platforms, security, backup and recovery, manufacturing.
+- [Quokka](../../experience/startups/quokka.md): the electronics of a smart fridge.
+- [drm_display](../../projects/embedded/drm_display.md), [esp32-ble-keyboard](../../projects/embedded/esp32-ble-keyboard.md) and [powerMeter](../../projects/embedded/powermeter.md).
 `);
-  f('conocimiento/sistemas/seguridad.md', { kind: 'skill', title: 'Seguridad', level: 3, text: 'Secure Boot con TPM, cifrado de disco y auditorías de ciberseguridad.' }, `
-# Seguridad
+  f('skills/systems/security.md', { kind: 'skill', title: 'Security', level: 3, text: 'Secure Boot with TPM, disk encryption and cybersecurity audits.' }, `
+# Security
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Secure Boot con TPM, cifrado de disco y la preparación de auditorías de ciberseguridad.
+Secure Boot with TPM, disk encryption and cybersecurity audit preparation.
 
-## Dónde
+## Where
 
-- [HP · seguridad del firmware](../../experiencia/hp/logros/03-seguridad.md)
+- [HP · firmware security](../../experience/hp/achievements/03-security.md)
 `);
-  f('conocimiento/sistemas/virtualizacion.md', { kind: 'skill', title: 'Virtualización', level: 5, text: 'QEMU y VMware para emular el dispositivo y probar el firmware sin hardware.' }, `
-# Virtualización
+  f('skills/systems/virtualization.md', { kind: 'skill', title: 'Virtualization', level: 5, text: 'QEMU and VMware to emulate the device and test firmware without the hardware.' }, `
+# Virtualization
 
-Nivel: 5/5 · Experto
+Level: 5/5 · Expert
 
-QEMU y VMware para emular el dispositivo y probar el firmware sin depender del hardware.
+QEMU and VMware to emulate the device and test firmware without depending on the hardware.
 
-## Dónde
+## Where
 
-- [HP · tests de integración con virtualización](../../experiencia/hp/logros/05-tests-virtualizacion.md)
+- [HP · integration testing with virtualization](../../experience/hp/achievements/05-virtualized-testing.md)
 `);
-  f('conocimiento/herramientas/Dockerfile', { kind: 'skill', title: 'Docker', level: 5, text: 'Entornos reproducibles para compilar e integrar firmware y para desplegar servicios.' }, `
-# Docker — nivel 5/5 · Experto
-# Entornos reproducibles para compilar e integrar firmware (HP) y para servicios (Nuclia).
-# Ejemplo ilustrativo: no es la configuración real de ningún proyecto.
+  f('skills/tools/Dockerfile', { kind: 'skill', title: 'Docker', level: 5, text: 'Reproducible environments to build and integrate firmware, and to run services.' }, `
+# Docker — level 5/5 · Expert
+# Reproducible environments to build and integrate firmware (HP) and for services (Nuclia).
+# Illustrative example: not the real configuration of any project.
 
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y build-essential cmake
 WORKDIR /fw
 COPY . .
-ENTRYPOINT ["make", "integracion"]
+ENTRYPOINT ["make", "integration"]
 `);
-  f('conocimiento/herramientas/ci.yml', { kind: 'skill', title: 'CI/CD', level: 4, text: 'Workflows de integración continua para el firmware de varias plataformas de producto.' }, `
-# CI/CD — nivel 4/5 · Avanzado
-# Workflows de integración continua para firmware de varias plataformas (HP).
-# Ejemplo ilustrativo: no es la configuración real de ningún proyecto.
+  f('skills/tools/ci.yml', { kind: 'skill', title: 'CI/CD', level: 4, text: 'Continuous-integration workflows for firmware across product platforms.' }, `
+# CI/CD — level 4/5 · Advanced
+# Continuous-integration workflows for firmware across product platforms (HP).
+# Illustrative example: not the real configuration of any project.
 
-name: integracion-firmware
+name: firmware-integration
 on: [push, pull_request]
 
 jobs:
@@ -340,191 +340,191 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        plataforma: [producto-a, producto-b, producto-c]
+        platform: [product-a, product-b, product-c]
     steps:
       - uses: actions/checkout@v4
-      - name: Compilar en contenedor
-        run: docker run --rm fw-builder --plataforma \${{ matrix.plataforma }}
+      - name: Build in a container
+        run: docker run --rm fw-builder --platform \${{ matrix.platform }}
 `);
-  f('conocimiento/datos/busqueda.sql', { kind: 'skill', title: 'Bases de datos y búsqueda', level: 3, text: 'Una base de datos distribuida para un buscador, y SQL de toda la vida.' }, `
--- Bases de datos y búsqueda — nivel 3/5 · Competente
--- Una base de datos distribuida para un buscador, y SQL de toda la vida.
+  f('skills/data/search.sql', { kind: 'skill', title: 'Databases and search', level: 3, text: 'A distributed database for a search engine, and good old SQL.' }, `
+-- Databases and search — level 3/5 · Competent
+-- A distributed database for a search engine, and good old SQL.
 
-SELECT donde, que
-FROM usos
-ORDER BY donde;
+SELECT place, what
+FROM uses
+ORDER BY place;
 
--- Nuclia     | NucliaDB: indexación distribuida con Tantivy y Redis
--- Proxishop  | PostgreSQL con SQLAlchemy
--- Además     | SQLite
+-- Nuclia     | NucliaDB: distributed indexing with Tantivy and Redis
+-- Proxishop  | PostgreSQL with SQLAlchemy
+-- Also       | SQLite
 `);
-  f('conocimiento/ia/machine-learning.md', { kind: 'skill', title: 'Machine learning', level: 3, text: 'Máster en IA, visión por computador y deep learning; hoy, LLM y computación acelerada.' }, `
+  f('skills/ai/machine-learning.md', { kind: 'skill', title: 'Machine learning', level: 3, text: 'M.S. in AI, computer vision and deep learning; these days, LLMs and accelerated computing.' }, `
 # Machine learning
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Máster en Inteligencia Artificial: procesamiento del lenguaje natural, sistemas multiagente, visión por computador y deep learning. Hoy me interesan los LLM y la computación acelerada.
+M.S. in Artificial Intelligence: natural language processing, multi-agent systems, computer vision and deep learning. These days I’m into LLMs and accelerated computing.
 
-## Dónde
+## Where
 
-- [Máster en IA](../../formacion/master-ia.md): estimación de la mirada en 3D con flujo óptico.
-- [HP](../../experiencia/hp/logros/02-releases-automaticas.md): visión por computador para automatizar releases.
-- [JEDI](../../experiencia/jedi.md): cursos de verano de machine learning y deep learning.
+- [M.S. in AI](../../education/masters-ai.md): 3D gaze estimation with optical flow.
+- [HP](../../experience/hp/achievements/02-automated-releases.md): computer vision to automate releases.
+- [JEDI](../../experience/jedi.md): summer courses on machine learning and deep learning.
 
-Con Keras y TensorFlow.
+With Keras and TensorFlow.
 `);
-  f('conocimiento/web/frameworks.md', { kind: 'skill', title: 'Web y móvil', level: 3, text: 'Flask, Flutter, Nest.js y Angular.' }, `
-# Web y móvil
+  f('skills/web/frameworks.md', { kind: 'skill', title: 'Web and mobile', level: 3, text: 'Flask, Flutter, Nest.js and Angular.' }, `
+# Web and mobile
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Flask, Flutter, Nest.js y Angular.
+Flask, Flutter, Nest.js and Angular.
 
-## Dónde
+## Where
 
-- [Proxishop](../../experiencia/startups/proxishop.md): app en Flutter con backend en Flask y PostgreSQL.
+- [Proxishop](../../experience/startups/proxishop.md): a Flutter app with a Flask and PostgreSQL backend.
 `);
-  f('conocimiento/personas/liderazgo.md', { kind: 'skill', title: 'Liderazgo técnico', level: 4, text: 'Entrega técnica con partners externos, Scrum Master y Technical Product Owner.' }, `
-# Liderazgo técnico
+  f('skills/people/leadership.md', { kind: 'skill', title: 'Technical leadership', level: 4, text: 'Technical delivery with external partners; Scrum Master and Technical Product Owner.' }, `
+# Technical leadership
 
-Nivel: 4/5 · Avanzado
+Level: 4/5 · Advanced
 
-Entrega técnica con partners externos: traducir requisitos en soluciones implementables y coordinar dependencias entre equipos. He sido Scrum Master y Technical Product Owner.
+Technical delivery with external partners: turning requirements into implementable solutions and coordinating dependencies across teams. I’ve been a Scrum Master and a Technical Product Owner.
 
-## Dónde
+## Where
 
-- [HP · entrega con partners externos](../../experiencia/hp/logros/08-partners.md)
-- [ALBA Synchrotron](../../experiencia/alba-synchrotron.md): responsable del software de control de la línea Minerva.
+- [HP · technical delivery with external partners](../../experience/hp/achievements/08-partners.md)
+- [ALBA Synchrotron](../../experience/alba-synchrotron.md): project lead for the MINERVA beamline control software.
 `);
-  f('conocimiento/personas/mentoria.md', { kind: 'skill', title: 'Mentoría y docencia', level: 4, text: 'Mentoría de ingenieros y becarios, y años dando clase en JEDI.' }, `
-# Mentoría y docencia
+  f('skills/people/mentoring.md', { kind: 'skill', title: 'Mentoring and teaching', level: 4, text: 'Mentoring engineers and interns, and years of teaching at JEDI.' }, `
+# Mentoring and teaching
 
-Nivel: 4/5 · Avanzado
+Level: 4/5 · Advanced
 
-Acompañar a ingenieros y becarios hasta que trabajan con autonomía, y explicar lo complejo de forma sencilla.
+Helping engineers and interns until they work independently, and explaining complex things simply.
 
-## Dónde
+## Where
 
-- [HP · mentoría de ingenieros y becarios](../../experiencia/hp/logros/09-mentoria.md)
-- [JEDI](../../experiencia/jedi.md): responsable de formación y profesor de cursos de verano.
+- [HP · mentoring engineers and interns](../../experience/hp/achievements/09-mentoring.md)
+- [JEDI](../../experience/jedi.md): head of education and summer-course teacher.
 `);
 
-  // —— proyectos (github.com/catunlock) ——
+  // —— projects (github.com/catunlock) ——
   [
-    ['embebido/drm_display', 'drm_display', 'C · 2025', 'Visor de imágenes para sistemas embebidos sobre DRM.', 'drm_display', [['C / C++', 'lenguajes/cpp.cpp'], ['Linux', 'linux/linux.sh']]],
-    ['embebido/esp32-ble-keyboard', 'esp32-ble-keyboard', 'Rust · 2023', 'Librería de teclado Bluetooth LE para ESP32.', 'esp32-ble-keyboard', [['Rust', 'lenguajes/rust.rs'], ['Firmware', 'sistemas/firmware.md']]],
-    ['embebido/powermeter', 'powerMeter', 'C y C# · 2022', 'Firmware en C y backend en C#, en dos repositorios.', 'powerMeter-firmware', [['C / C++', 'lenguajes/cpp.cpp'], ['C#', 'lenguajes/csharp.cs']]],
-    ['embebido/esp8266-smartlight', 'esp8266-smartlight', 'C++ · 2017', 'Controla un relé para encender y apagar una luz, con muchas funciones.', 'esp8266-smartlight', [['C / C++', 'lenguajes/cpp.cpp']]],
-    ['herramientas/cat-rs', 'cat-rs', 'Rust · 2023', 'El comando cat reimplementado en Rust, con superpoderes.', 'cat-rs', [['Rust', 'lenguajes/rust.rs']]],
-    ['herramientas/file2wav', 'file2wav', 'Rust · 2021', 'Esteganografía: esconde cualquier archivo dentro de un audio WAV.', 'file2wav', [['Rust', 'lenguajes/rust.rs']]],
-    ['herramientas/r-means', 'r-means', 'Rust · 2020', 'Una implementación básica de K-means en Rust.', 'r-means', [['Rust', 'lenguajes/rust.rs'], ['Machine learning', 'ia/machine-learning.md']]],
-    ['linux/freqaudio', 'FreqAudio', 'JavaScript · 2017', 'Extensión de GNOME Shell para cambiar la frecuencia y el formato de muestreo del audio.', 'FreqAudio', [['Linux', 'linux/linux.sh']]],
-    ['linux/brother-archlinux', 'brother-archlinux', 'Shell · 2016', 'Script para instalar una Brother MFC-5490CN y similares en CUPS, en Arch Linux.', 'brother-archlinux', [['Linux y Bash', 'linux/linux.sh']]],
-    ['juegos/ourcraft', 'Ourcraft', 'C# · 2024', 'Un juego de terreno deformable con NPC basados en sistemas multiagente.', 'Ourcraft', [['C#', 'lenguajes/csharp.cs'], ['Machine learning', 'ia/machine-learning.md']]],
-    ['juegos/dementia', 'Dementia', 'C++ · 2021', 'Un framework 3D sobre DirectX 11.', 'Dementia', [['C / C++', 'lenguajes/cpp.cpp']]]
+    ['embedded/drm_display', 'drm_display', 'C · 2025', 'A DRM image viewer for embedded systems.', 'drm_display', [['C / C++', 'languages/cpp.cpp'], ['Linux', 'linux/linux.sh']]],
+    ['embedded/esp32-ble-keyboard', 'esp32-ble-keyboard', 'Rust · 2023', 'A Bluetooth LE keyboard library for ESP32.', 'esp32-ble-keyboard', [['Rust', 'languages/rust.rs'], ['Firmware', 'systems/firmware.md']]],
+    ['embedded/powermeter', 'powerMeter', 'C and C# · 2022', 'Firmware in C and a backend in C#, in two repositories.', 'powerMeter-firmware', [['C / C++', 'languages/cpp.cpp'], ['C#', 'languages/csharp.cs']]],
+    ['embedded/esp8266-smartlight', 'esp8266-smartlight', 'C++ · 2017', 'Controls a relay to turn a light on and off, with plenty of features.', 'esp8266-smartlight', [['C / C++', 'languages/cpp.cpp']]],
+    ['tools/cat-rs', 'cat-rs', 'Rust · 2023', 'The cat command reimplemented in Rust, with superpowers.', 'cat-rs', [['Rust', 'languages/rust.rs']]],
+    ['tools/file2wav', 'file2wav', 'Rust · 2021', 'A steganography tool that hides any file inside a WAV audio file.', 'file2wav', [['Rust', 'languages/rust.rs']]],
+    ['tools/r-means', 'r-means', 'Rust · 2020', 'A basic K-means implementation in Rust.', 'r-means', [['Rust', 'languages/rust.rs'], ['Machine learning', 'ai/machine-learning.md']]],
+    ['linux/freqaudio', 'FreqAudio', 'JavaScript · 2017', 'A GNOME Shell extension to change the sample rate and sample format of your audio.', 'FreqAudio', [['Linux', 'linux/linux.sh']]],
+    ['linux/brother-archlinux', 'brother-archlinux', 'Shell · 2016', 'A script to install a Brother MFC-5490CN (and similar models) in CUPS on Arch Linux.', 'brother-archlinux', [['Linux and Bash', 'linux/linux.sh']]],
+    ['games/ourcraft', 'Ourcraft', 'C# · 2024', 'A deformable-terrain game with NPCs based on multi-agent systems.', 'Ourcraft', [['C#', 'languages/csharp.cs'], ['Machine learning', 'ai/machine-learning.md']]],
+    ['games/dementia', 'Dementia', 'C++ · 2021', 'A 3D framework on DirectX 11.', 'Dementia', [['C / C++', 'languages/cpp.cpp']]]
   ].forEach(function (p) {
-    f('proyectos/' + p[0] + '.md', { kind: 'project', title: p[1], sub: 'GitHub · ' + p[2], text: p[3] },
-      '# ' + p[1] + '\n\n`' + p[2] + '`\n\n' + p[3] + '\n\n**Repositorio:** [github.com/catunlock/' + p[4] + '](' + GH + p[4] + ')\n\n**Con:** ' +
-      p[5].map(function (t) { return '[' + t[0] + '](../../conocimiento/' + t[1] + ')'; }).join(' · ') + '\n');
+    f('projects/' + p[0] + '.md', { kind: 'project', title: p[1], sub: 'GitHub · ' + p[2], text: p[3] },
+      '# ' + p[1] + '\n\n`' + p[2] + '`\n\n' + p[3] + '\n\n**Repository:** [github.com/catunlock/' + p[4] + '](' + GH + p[4] + ')\n\n**Stack:** ' +
+      p[5].map(function (t) { return '[' + t[0] + '](../../skills/' + t[1] + ')'; }).join(' · ') + '\n');
   });
 
-  // —— formación ——
-  f('formacion/master-ia.md', { kind: 'education', title: 'Máster en Inteligencia Artificial', sub: 'UPC · sep 2018 – feb 2020', text: 'PLN, sistemas multiagente, visión por computador, planificación y deep learning.' }, `
-# Máster en Inteligencia Artificial
+  // —— education ——
+  f('education/masters-ai.md', { kind: 'education', title: 'M.S. in Artificial Intelligence', sub: 'UPC · Sep 2018 – Feb 2020', text: 'NLP, multi-agent systems, computer vision, planning and deep learning.' }, `
+# M.S. in Artificial Intelligence
 
-\`UPC · sep 2018 – feb 2020\`
+\`UPC · Sep 2018 – Feb 2020\`
 
-Procesamiento del lenguaje natural, sistemas multiagente, visión por computador, planificación y razonamiento, y deep learning.
+Natural language processing, multi-agent systems, computer vision, planning and reasoning, and deep learning.
 
-## Trabajo final
+## Thesis
 
-**Spatio-temporal Gaze Estimation for Human-Machine and Human-Human Interaction** (feb 2020): el flujo óptico como nueva información temporal, junto a la cara y los ojos, para estimar la mirada en 3D desde cámaras remotas a media distancia.
+**Spatio-temporal Gaze Estimation for Human-Machine and Human-Human Interaction** (Feb 2020): optical flow as a new source of temporal information, alongside the face and eyes, to estimate 3D gaze from remote cameras at mid distance.
 
 [hdl.handle.net/2117/335288](http://hdl.handle.net/2117/335288)
 `);
-  f('formacion/grado-informatica.md', { kind: 'education', title: 'Grado en Ingeniería Informática', sub: 'UPC · sep 2013 – jun 2018', text: 'Especialidad en Computación: algoritmos, teoría de la computación, compiladores, IA y machine learning.' }, `
-# Grado en Ingeniería Informática
+  f('education/bachelors-cs.md', { kind: 'education', title: 'B.S. in Computer Science and Engineering', sub: 'UPC · Sep 2013 – Jun 2018', text: 'Specialized in Computing: algorithms, theory of computation, compilers, AI and machine learning.' }, `
+# B.S. in Computer Science and Engineering
 
-\`UPC · sep 2013 – jun 2018\`
+\`UPC · Sep 2013 – Jun 2018\`
 
-Especialidad en Computación: algoritmos (C++), teoría de la computación, programación funcional (Haskell), compiladores, inteligencia artificial (Java y Python), machine learning (Python y R) y lógica (Prolog).
+Specialized in Computing: algorithms (C++), theory of computation, functional programming (Haskell), compilers, artificial intelligence (Java and Python), machine learning (Python and R) and logic (Prolog).
 
-## Trabajo final
+## Final project
 
-**Plataforma web de búsqueda y recomendación de artículos científicos** (feb 2018): un «Netflix» para investigadores que encuentra los artículos relevantes con procesamiento del lenguaje natural y otras técnicas de machine learning.
+**Web platform for the search and recommendation of scientific articles** (Feb 2018): a “Netflix” for researchers that finds the relevant papers using natural language processing and other machine-learning techniques.
 
 [hdl.handle.net/2117/122563](http://hdl.handle.net/2117/122563)
 `);
-  f('formacion/certificaciones.md', { kind: 'education', title: 'Certificaciones', sub: '2020', text: 'ITIL 4 Foundation.' }, `
-# Certificaciones
+  f('education/certifications.md', { kind: 'education', title: 'Certifications', sub: '2020', text: 'ITIL 4 Foundation.' }, `
+# Certifications
 
 - **ITIL 4 Foundation** · 2020
 `);
 
-  // —— taller ——
-  f('taller/home-assistant.yaml', { kind: 'hobby', title: 'Home Assistant · IoT', level: 4, text: 'Mi casa domótica, con dispositivos hechos por mí.' }, `
-# Home Assistant · IoT — nivel 4/5 · Avanzado
-# Mi casa domótica, con dispositivos hechos por mí.
+  // —— lab ——
+  f('lab/home-assistant.yaml', { kind: 'hobby', title: 'Home Assistant · IoT', level: 4, text: 'My smart home, with devices I built myself.' }, `
+# Home Assistant · IoT — level 4/5 · Advanced
+# My smart home, with devices I built myself.
 
 homeassistant:
-  name: Casa
+  name: Home
   unit_system: metric
 
-# Algunos dispositivos están en GitHub:
-#   proyectos/embebido/esp8266-smartlight.md
-#   proyectos/embebido/esp32-ble-keyboard.md
+# Some of the devices are on GitHub:
+#   projects/embedded/esp8266-smartlight.md
+#   projects/embedded/esp32-ble-keyboard.md
 `);
-  f('taller/pcb.md', { kind: 'hobby', title: 'Diseño de PCB', level: 3, text: 'Esquemas y placas para mis propios dispositivos.' }, `
-# Diseño de PCB
+  f('lab/pcb.md', { kind: 'hobby', title: 'PCB design', level: 3, text: 'Schematics and boards for my own devices.' }, `
+# PCB design
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Esquemas y placas para mis propios dispositivos.
+Schematics and boards for my own devices.
 
-- [Quokka](../experiencia/startups/quokka.md): la electrónica de una nevera inteligente.
+- [Quokka](../experience/startups/quokka.md): the electronics of a smart fridge.
 `);
-  f('taller/cad-3d.md', { kind: 'hobby', title: 'CAD e impresión 3D', level: 3, text: 'Cajas, soportes y piezas a medida, diseñadas e impresas en casa.' }, `
-# CAD e impresión 3D
+  f('lab/cad-3d.md', { kind: 'hobby', title: 'CAD and 3D printing', level: 3, text: 'Enclosures, mounts and custom parts, designed and printed at home.' }, `
+# CAD and 3D printing
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Cajas, soportes y piezas a medida, diseñadas e impresas en casa. También la enseñé en los cursos de verano de [JEDI](../experiencia/jedi.md), y hoy trabajo en el software de impresoras 3D de [HP](../experiencia/hp/README.md).
+Enclosures, mounts and custom parts, designed and printed at home. I also taught it in the [JEDI](../experience/jedi.md) summer courses, and today I work on the software of [HP](../experience/hp/README.md)’s 3D printers.
 `);
-  f('taller/escritorio.conf', { kind: 'hobby', title: 'Escritorio Linux', level: 5, text: 'Ajustar el escritorio hasta que hace exactamente lo que necesito.' }, `
-# Escritorio Linux — nivel 5/5 · Experto
-# Ajustar el escritorio hasta que hace exactamente lo que necesito.
+  f('lab/desktop.conf', { kind: 'hobby', title: 'Linux desktop', level: 5, text: 'Tuning my desktop until it does exactly what I need.' }, `
+# Linux desktop — level 5/5 · Expert
+# Tuning my desktop until it does exactly what I need.
 
-[en_github]
-audio = "proyectos/linux/freqaudio.md"
-impresora = "proyectos/linux/brother-archlinux.md"
+[on_github]
+audio = "projects/linux/freqaudio.md"
+printer = "projects/linux/brother-archlinux.md"
 
-[estado]
-terminado = false
+[status]
+finished = false
 `);
 
-  f('contacto.json', { kind: 'contact', title: 'Contacto', text: 'LinkedIn (con el CV completo) y GitHub.' }, `
+  f('contact.json', { kind: 'contact', title: 'Contact', text: 'LinkedIn (with the full CV) and GitHub.' }, `
 {
   "web": "https://${SITE}",
   "linkedin": "${LINKEDIN}",
   "github": "${GITHUB}"
 }
 `);
-  f('.secreto', { kind: 'secret', title: '.secreto', text: 'Si estás leyendo esto, ya lo has encontrado.' }, `
-Has encontrado el archivo secreto.
+  f('.secret', { kind: 'secret', title: '.secret', text: 'If you are reading this, you already found it.' }, `
+You found the secret file.
 
-No hay premio, pero hay truco. En cualquier parte de la página:
+No prize, but there is a trick. Anywhere on the page:
 
     ↑ ↑ ↓ ↓ ← → ← → B A
 `);
 
-  // Trayectoria como historial de git (más reciente primero)
+  // Career as a git history (newest first)
   var COMMITS = [
-    { hash: '9f3c2e1', refs: 'HEAD -> main, origin/hp', date: 'mar 2022 – hoy', msg: 'feat(hp): Software Engineer · firmware, seguridad y herramientas', file: 'experiencia/hp/README.md' },
-    { hash: '7a41d0b', refs: '', date: 'ago 2021 – feb 2022', msg: 'feat(nuclia): indexación distribuida de NucliaDB en Rust', file: 'experiencia/nuclia.md' },
-    { hash: 'c3b7e90', refs: '', date: 'dic 2020 – ago 2021', msg: 'feat(alba): control de equipos científicos en ALBA Synchrotron', file: 'experiencia/alba-synchrotron.md' },
-    { hash: '52e8a9c', refs: '', date: 'ago 2020', msg: 'feat(proxishop): e-commerce de proximidad durante la COVID-19', file: 'experiencia/startups/proxishop.md' },
-    { hash: 'b01dfac', refs: '', date: 'jun – dic 2019', msg: 'feat(quokka): electrónica de una nevera inteligente', file: 'experiencia/startups/quokka.md' },
-    { hash: '4d2a6f3', refs: '', date: 'sep 2018 – feb 2020', msg: 'feat(upc): máster en Inteligencia Artificial', file: 'formacion/master-ia.md' },
-    { hash: 'e81f00d', refs: '', date: 'may 2017 – sep 2020', msg: 'feat(jedi): profesor y responsable de formación', file: 'experiencia/jedi.md' },
-    { hash: '1c0ffee', refs: '', date: 'sep 2013', msg: 'chore: primer commit — empiezo Ingeniería Informática', file: 'formacion/grado-informatica.md' }
+    { hash: '9f3c2e1', refs: 'HEAD -> main, origin/hp', date: 'Mar 2022 – present', msg: 'feat(hp): Software Engineer · firmware, security and tooling', file: 'experience/hp/README.md' },
+    { hash: '7a41d0b', refs: '', date: 'Aug 2021 – Feb 2022', msg: 'feat(nuclia): distributed indexing for NucliaDB in Rust', file: 'experience/nuclia.md' },
+    { hash: 'c3b7e90', refs: '', date: 'Dec 2020 – Aug 2021', msg: 'feat(alba): scientific equipment control at ALBA Synchrotron', file: 'experience/alba-synchrotron.md' },
+    { hash: '52e8a9c', refs: '', date: 'Aug 2020', msg: 'feat(proxishop): local e-commerce during COVID-19', file: 'experience/startups/proxishop.md' },
+    { hash: 'b01dfac', refs: '', date: 'Jun – Dec 2019', msg: 'feat(quokka): electronics for a smart fridge', file: 'experience/startups/quokka.md' },
+    { hash: '4d2a6f3', refs: '', date: 'Sep 2018 – Feb 2020', msg: 'feat(upc): M.S. in Artificial Intelligence', file: 'education/masters-ai.md' },
+    { hash: 'e81f00d', refs: '', date: 'May 2017 – Sep 2020', msg: 'feat(jedi): instructor and head of education', file: 'experience/jedi.md' },
+    { hash: '1c0ffee', refs: '', date: 'Sep 2013', msg: 'chore: initial commit — starting Computer Science', file: 'education/bachelors-cs.md' }
   ];

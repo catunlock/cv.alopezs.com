@@ -7,13 +7,13 @@
 <body>
 <div id="root" class="vs vs-solo">
   <aside class="vs-side" style="--side-cur: 280px">
-    <div class="vs-side-head"><span class="vs-side-title">Explorador</span></div>
-    <div class="vs-side-body"><div class="vs-sect">alberto-lopez</div><div class="vs-tree" id="tree"></div></div>
+    <div class="vs-side-head"><span class="vs-side-title">Explorer</span></div>
+    <div class="vs-side-body"><div class="vs-sect">cv.alopezs.com</div><div class="vs-tree" id="tree"></div></div>
   </aside>
 </div>
 <script>
   var P = window.Portfolio, root = document.getElementById('root');
-  P.explorer(document.getElementById('tree'), { open: { experiencia: true, 'experiencia/hp': true, conocimiento: true, 'conocimiento/lenguajes': true }, active: 'experiencia/hp/README.md', onOpen: function () {} });
+  P.explorer(document.getElementById('tree'), { open: { experience: true, 'experience/hp': true, skills: true, 'skills/languages': true }, active: 'experience/hp/README.md', onOpen: function () {} });
   P.hover(root);
 </script>
 </body>

@@ -1,5 +1,5 @@
 {
- "noche": {
+ "night": {
   "bg_editor": "#16181c",
   "bg_side": "#1b1e23",
   "bg_activity": "#111317",
@@ -30,7 +30,7 @@
   "term_path": "#82b4ec",
   "focus": "#94d181"
  },
- "dia": {
+ "day": {
   "bg_editor": "#fbfaf7",
   "bg_side": "#f2f0ea",
   "bg_activity": "#e7e4dc",
@@ -61,7 +61,7 @@
   "term_path": "#2556a3",
   "focus": "#2556a3"
  },
- "placa": {
+ "pcb": {
   "bg_editor": "#0f3a2b",
   "bg_side": "#0c3124",
   "bg_activity": "#09271d",

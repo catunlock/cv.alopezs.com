@@ -8,7 +8,7 @@
   var P = window.Portfolio, doc = document.getElementById('doc');
   function show(p) { doc.innerHTML = P.docHTML(p); }
   doc.addEventListener('click', function (e) { var a = e.target.closest('[data-open]'); if (a && P.files[a.getAttribute('data-open')]) { e.preventDefault(); show(a.getAttribute('data-open')); } });
-  show('experiencia/hp/README.md');
+  show('experience/hp/README.md');
   P.hover(document.getElementById('root'));
 </script>
 </body>

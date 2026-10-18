@@ -5,15 +5,15 @@
 <body>
 <div class="vs vs-solo" id="root">
   <section class="vs-panel" style="--panel-cur: 440px">
-    <div class="vs-panel-head"><div class="vs-ptabs"><button>Problemas <span class="vs-count">1</span></button><button>Salida</button><button class="on">Terminal</button></div></div>
+    <div class="vs-panel-head"><div class="vs-ptabs"><button>Problems <span class="vs-count">1</span></button><button>Output</button><button class="on">Terminal</button></div></div>
     <div class="vs-panel-body"><div class="vs-pview" id="term"></div></div>
   </section>
 </div>
 <script>
   var root = document.getElementById('root');
   var t = window.Portfolio.terminal(document.getElementById('term'), {
-    theme: function () { return root.getAttribute('data-theme') || document.documentElement.getAttribute('data-theme') || 'noche'; },
-    setTheme: function (id) { root.setAttribute('data-theme', id); }, themes: ['noche', 'dia', 'placa']
+    theme: function () { return root.getAttribute('data-theme') || document.documentElement.getAttribute('data-theme') || 'night'; },
+    setTheme: function (id) { root.setAttribute('data-theme', id); }, themes: ['night', 'day', 'pcb']
   });
   t.run('skills');
 </script>

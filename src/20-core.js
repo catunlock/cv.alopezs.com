@@ -1,6 +1,6 @@
   // ================= Utilidades =================
-  var LEVELS = ['', 'Explorando', 'Básico', 'Competente', 'Avanzado', 'Experto'];
-  var KINDS = { about: 'Sobre mí', work: 'Experiencia', achievement: 'Logro', skill: 'Conocimiento', hobby: 'Taller', project: 'Proyecto', education: 'Formación', contact: 'Contacto', secret: '¿?' };
+  var LEVELS = ['', 'Exploring', 'Basic', 'Competent', 'Advanced', 'Expert'];
+  var KINDS = { about: 'About', work: 'Experience', achievement: 'Achievement', skill: 'Skill', hobby: 'Lab', project: 'Project', education: 'Education', contact: 'Contact', secret: '??' };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function fold(s) { return s.split('').map(function (c) { return c.normalize('NFD').replace(/[̀-ͯ]/g, '') || c; }).join('').toLowerCase(); }
   function dirOf(p) { var i = p.lastIndexOf('/'); return i < 0 ? '' : p.slice(0, i); }
@@ -23,8 +23,8 @@
       seen[name] = 1;
       out.push({ name: name, path: pre + name, dir: i >= 0 });
     });
-    var ORDER = ['experiencia', 'conocimiento', 'proyectos', 'formacion', 'taller'], rank = function (c) { var k = dir ? -1 : ORDER.indexOf(c.name); return k < 0 ? 99 : k; };
-    return out.sort(function (a, b) { return (b.dir - a.dir) || (rank(a) - rank(b)) || a.name.localeCompare(b.name, 'es'); });
+    var ORDER = ['experience', 'skills', 'projects', 'education', 'lab'], rank = function (c) { var k = dir ? -1 : ORDER.indexOf(c.name); return k < 0 ? 99 : k; };
+    return out.sort(function (a, b) { return (b.dir - a.dir) || (rank(a) - rank(b)) || a.name.localeCompare(b.name, 'en'); });
   }
   function filesUnder(dir, hidden) { var pre = dir ? dir + '/' : ''; return Object.keys(FILES).filter(function (k) { return k.indexOf(pre) === 0 && (hidden || !/(^|\/)\./.test(k)); }); }
   function langOf(p) {
@@ -33,7 +33,7 @@
     var ext = b.lastIndexOf('.') > 0 ? b.slice(b.lastIndexOf('.') + 1) : '';
     return { md: 'markdown', rs: 'rust', c: 'c', cpp: 'cpp', cs: 'csharp', tcl: 'tcl', sql: 'sql', py: 'python', yml: 'yaml', yaml: 'yaml', json: 'json', toml: 'toml', conf: 'ini', sh: 'bash' }[ext] || 'text';
   }
-  var LANG_NAME = { markdown: 'Markdown', rust: 'Rust', c: 'C', cpp: 'C++', csharp: 'C#', tcl: 'Tcl', sql: 'SQL', python: 'Python', yaml: 'YAML', json: 'JSON', toml: 'TOML', ini: 'Ini', bash: 'Shell Script', dockerfile: 'Dockerfile', text: 'Texto sin formato' };
+  var LANG_NAME = { markdown: 'Markdown', rust: 'Rust', c: 'C', cpp: 'C++', csharp: 'C#', tcl: 'Tcl', sql: 'SQL', python: 'Python', yaml: 'YAML', json: 'JSON', toml: 'TOML', ini: 'Ini', bash: 'Shell Script', dockerfile: 'Dockerfile', text: 'Plain Text' };
   var ICON = { markdown: ['#', 'syn-func'], rust: ['R', 'syn-keyword'], c: ['C', 'syn-type'], cpp: ['C+', 'syn-type'], csharp: ['C#', 'syn-key'], tcl: ['T', 'syn-func'], sql: ['DB', 'syn-number'], python: ['py', 'syn-string'], yaml: ['≡', 'syn-key'], json: ['{}', 'syn-number'], toml: ['⚙', 'ink-muted'], ini: ['⚙', 'ink-muted'], bash: ['$', 'syn-string'], dockerfile: ['◫', 'syn-type'], text: ['·', 'ink-muted'] };
   function icon(p) { var i = ICON[langOf(p)]; return '<span class="vs-ficon" aria-hidden="true" style="color:var(--' + i[1] + ')">' + i[0] + '</span>'; }
 
@@ -41,7 +41,7 @@
     opts = opts || {};
     var pips = '';
     for (var i = 1; i <= 5; i++) pips += '<span class="vs-pip' + (i <= l ? ' on' : '') + '"></span>';
-    return '<span class="vs-level" role="img" aria-label="Nivel ' + l + ' de 5: ' + LEVELS[l] + '"><span class="vs-pips">' + pips + '</span>' +
+    return '<span class="vs-level" role="img" aria-label="Level ' + l + ' of 5: ' + LEVELS[l] + '"><span class="vs-pips">' + pips + '</span>' +
       (opts.compact ? '' : '<span class="vs-level-word">' + LEVELS[l] + ' · ' + l + '/5</span>') + '</span>';
   }
 
@@ -129,7 +129,7 @@
     var L = src.replace(/\n$/, '').split('\n'), out = '', i = 0, buf = [];
     function para() {
       if (!buf.length) return;
-      var t = buf.join(' '), lv = /^Nivel: (\d)\/5/.exec(t);
+      var t = buf.join(' '), lv = /^Level: (\d)\/5/.exec(t);
       out += lv ? '<div class="vs-md-level">' + level(+lv[1]) + '</div>' : '<p>' + inline(t, base) + '</p>';
       buf = [];
     }
@@ -175,8 +175,8 @@
     var file = FILES[path];
     if (!file && isDir(path)) {
       var n = filesUnder(path).length;
-      return '<div class="vs-card"><div class="vs-card-kind">Carpeta<span>' + esc(path) + '/</span></div><div class="vs-card-title">' + esc(baseOf(path)) + '/</div>' +
-        '<div class="vs-card-sub">' + n + (n === 1 ? ' archivo' : ' archivos') + '</div>' + (DIRS[path] ? '<p class="vs-card-text">' + esc(DIRS[path]) + '</p>' : '') + '</div>';
+      return '<div class="vs-card"><div class="vs-card-kind">Folder<span>' + esc(path) + '/</span></div><div class="vs-card-title">' + esc(baseOf(path)) + '/</div>' +
+        '<div class="vs-card-sub">' + n + (n === 1 ? ' file' : ' files') + '</div>' + (DIRS[path] ? '<p class="vs-card-text">' + esc(DIRS[path]) + '</p>' : '') + '</div>';
     }
     if (!file || !file.meta) return '';
     var m = file.meta;

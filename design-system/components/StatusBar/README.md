@@ -6,4 +6,4 @@ La barra inferior: rama, problemas, posición, codificación, lenguaje, tema y e
 
 **Composición:** `small` en `on-status` sobre `status-bg`; cada elemento es un botón con 8px de relleno y el hover aclara el fondo. El hueco central lleva cursor de redimensionar: arrastrarlo hacia arriba abre el panel y fija su alto (por debajo de 64px se vuelve a cerrar).
 
-- `main` abre Trayectoria; `⊗ 0 ⚠ 1` abre Problemas; el tema abre el selector; «Terminal» la abre o la cierra; la campana avisa de que no hay nada.
+- `main` abre Career; `⊗ 0 ⚠ 1` abre Problems; el tema abre el selector; «Terminal» la abre o la cierra; la campana avisa de que no hay nada.

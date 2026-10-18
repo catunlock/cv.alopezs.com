@@ -5,13 +5,13 @@
 <body>
 <div class="vs vs-solo" id="root"></div>
 <script>
-  var P = window.Portfolio, tabs = ['README.md', 'experiencia/hp/README.md', 'conocimiento/lenguajes/rust.rs'], active = 'experiencia/hp/README.md';
+  var P = window.Portfolio, tabs = ['README.md', 'experience/hp/README.md', 'skills/languages/rust.rs'], active = 'experience/hp/README.md';
   function base(p) { return p.split('/').pop(); }
   var html = '<div class="vs-tabbar"><div class="vs-tabs">' + tabs.map(function (p) {
     var dup = tabs.filter(function (q) { return base(q) === base(p); }).length > 1;
-    return '<div class="vs-tab' + (p === active ? ' on' : '') + '" tabindex="0">' + P.icon(p) + '<span>' + base(p) + '</span>' + (dup ? '<span class="vs-tab-desc">' + (p.indexOf('/') > 0 ? p.slice(0, p.lastIndexOf('/')) : '~') + '</span>' : '') + '<button class="vs-tab-x" aria-label="Cerrar">' + P.ico('close', 14) + '</button></div>';
-  }).join('') + '</div><div class="vs-tab-actions"><button aria-label="Ver código fuente">' + P.ico('code') + '</button></div></div>';
-  html += '<div class="vs-crumbs"><button>alberto-lopez</button><span class="sep">›</span><button>experiencia</button><span class="sep">›</span><button>hp</button><span class="sep">›</span>' + P.icon(active) + '<span class="cur">README.md</span></div>';
+    return '<div class="vs-tab' + (p === active ? ' on' : '') + '" tabindex="0">' + P.icon(p) + '<span>' + base(p) + '</span>' + (dup ? '<span class="vs-tab-desc">' + (p.indexOf('/') > 0 ? p.slice(0, p.lastIndexOf('/')) : '~') + '</span>' : '') + '<button class="vs-tab-x" aria-label="Close">' + P.ico('close', 14) + '</button></div>';
+  }).join('') + '</div><div class="vs-tab-actions"><button aria-label="Show source">' + P.ico('code') + '</button></div></div>';
+  html += '<div class="vs-crumbs"><button>cv.alopezs.com</button><span class="sep">›</span><button>experience</button><span class="sep">›</span><button>hp</button><span class="sep">›</span>' + P.icon(active) + '<span class="cur">README.md</span></div>';
   document.getElementById('root').innerHTML = html;
 </script>
 </body>

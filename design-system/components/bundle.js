@@ -1,341 +1,341 @@
 /* Portfolio — un editor de código como portfolio: sistema de archivos, markdown, resaltado, terminal y la app completa. Sin dependencias. */
 (function () {
   'use strict';
-  // ================= Contenido =================
-  // Datos de los CV y de github.com/catunlock. Los niveles (1–5) son una estimación inicial a revisar por Alberto.
-  var SITE = 'cv.alopezs.com', LINKEDIN = 'https://www.linkedin.com/in/alberto-lopez-sanchez', GITHUB = 'https://github.com/catunlock';
+  // ================= Content =================
+  // From Alberto's CVs and github.com/catunlock. Skill levels (1–5) set by Alberto.
+  var SITE = 'cv.alopezs.com', NAME = 'Alberto López Sánchez', LINKEDIN = 'https://www.linkedin.com/in/alberto-lopez-sanchez', GITHUB = 'https://github.com/catunlock';
   var FILES = {}, DIRS = {};
   function f(path, meta, body) { FILES[path] = { path: path, meta: meta, body: body.replace(/^\n/, '').replace(/\s+$/, '') + '\n' }; }
   function d(path, text) { DIRS[path] = text; }
 
-  var HP_SUMMARY = 'Desarrollo software, firmware y herramientas de desarrollo para plataformas de producto embebido, combinando ingeniería práctica con liderazgo técnico entre equipos y partners externos.';
+  var HP_SUMMARY = 'I develop software, firmware and development tools for embedded product platforms, combining hands-on engineering with technical leadership across teams and external partners.';
   var GH = 'https://github.com/catunlock/';
 
-  d('experiencia', 'Dónde he trabajado: HP, Nuclia, ALBA Synchrotron y JEDI, más dos startups propias.');
-  d('experiencia/hp', 'Software Engineer · mar 2022 – hoy. Un archivo por logro.');
-  d('experiencia/hp/logros', 'Un archivo por logro: qué, con qué y qué cambió.');
-  d('experiencia/startups', 'Proyectos que arranqué y no llegaron lejos, pero enseñaron mucho.');
-  d('conocimiento', 'Lo que sé hacer, por áreas. Cada archivo lleva su nivel.');
-  d('conocimiento/lenguajes', 'Lenguajes de programación, cada uno escrito en sí mismo.');
-  d('conocimiento/sistemas', 'Firmware, seguridad y virtualización.');
-  d('conocimiento/herramientas', 'Contenedores e integración continua.');
-  d('conocimiento/datos', 'Bases de datos y búsqueda.');
-  d('conocimiento/ia', 'Machine learning: el máster y lo que vino después.');
-  d('conocimiento/web', 'Frameworks web y móvil.');
-  d('conocimiento/linux', 'Sistema de trabajo y de ocio.');
-  d('conocimiento/personas', 'Liderazgo, metodologías ágiles y docencia.');
-  d('proyectos', 'Proyectos personales en github.com/catunlock.');
-  d('proyectos/embebido', 'Firmware y dispositivos.');
-  d('proyectos/herramientas', 'Utilidades de línea de comandos, casi todas en Rust.');
-  d('proyectos/linux', 'Para que mi Linux haga lo que quiero.');
-  d('proyectos/juegos', 'Gráficos, motores y agentes.');
-  d('formacion', 'Grado y máster en la UPC, y certificaciones.');
-  d('taller', 'Lo que hago por gusto: IoT, PCB, CAD, impresión 3D y el escritorio.');
+  d('experience', 'Where I have worked: HP, Nuclia, ALBA Synchrotron and JEDI, plus two startups of my own.');
+  d('experience/hp', 'Software Engineer · Mar 2022 – present. One file per achievement.');
+  d('experience/hp/achievements', 'One file per achievement: what, with what and what changed.');
+  d('experience/startups', 'Projects I started that did not go far, but taught me a lot.');
+  d('skills', 'What I can do, by area. Every file carries its level.');
+  d('skills/languages', 'Programming languages, each one written in itself.');
+  d('skills/systems', 'Firmware, security and virtualization.');
+  d('skills/tools', 'Containers and continuous integration.');
+  d('skills/data', 'Databases and search.');
+  d('skills/ai', 'Machine learning: the master’s degree and what came after.');
+  d('skills/web', 'Web and mobile frameworks.');
+  d('skills/linux', 'My system for work and for fun.');
+  d('skills/people', 'Leadership, agile and teaching.');
+  d('projects', 'Personal projects on github.com/catunlock.');
+  d('projects/embedded', 'Firmware and devices.');
+  d('projects/tools', 'Command-line utilities, mostly in Rust.');
+  d('projects/linux', 'Making my Linux do what I want.');
+  d('projects/games', 'Graphics, engines and agents.');
+  d('education', 'Bachelor’s and master’s degrees at UPC, and certifications.');
+  d('lab', 'What I do for fun: IoT, PCBs, CAD, 3D printing and the desktop.');
 
-  f('README.md', { kind: 'about', title: 'Alberto López Sánchez', sub: 'Software Engineer · HP · Barcelona', text: 'Quién soy, a qué me dedico y cómo moverte por esta web.' }, `
+  f('README.md', { kind: 'about', title: NAME, sub: 'Software Engineer · HP · Barcelona', text: 'Who I am, what I do and how to find your way around this site.' }, `
 # Alberto López Sánchez
 
-**Software Engineer en HP** · Barcelona
+**Software Engineer at HP** · Barcelona
 
-Soy ingeniero de software centrado en I+D: construyo sistemas desde cero y llevo años haciendo herramientas internas para otros desarrolladores. Trabajo con firmware, sistemas operativos (Linux), hardware y virtualización.
+I’m a software engineer focused on R&D: I build systems from the ground up and have spent years building internal tools for other developers. I work across firmware, operating systems (Linux), hardware and virtualization.
 
-He trabajado en varias startups y he arrancado proyectos propios. Me importa el producto y lo que dicen quienes lo usan; he sido Scrum Master y Technical Product Owner.
+I’ve worked at several startups and started projects of my own. I’m product-minded and put user feedback first; I’ve been a Scrum Master and a Technical Product Owner.
 
-Fuera del trabajo hago dispositivos IoT para Home Assistant, diseño placas y piezas, imprimo en 3D y mantengo un escritorio Linux que nunca está terminado. Me interesan el machine learning, los LLM y la computación acelerada.
+Outside work I build IoT devices for Home Assistant, design boards and parts, 3D print, and keep tuning a Linux desktop that is never quite finished. I’m interested in machine learning, LLMs and accelerated computing.
 
-## Ahora
+## Now
 
-- [Software Engineer · HP](experiencia/hp/README.md) — mar 2022 – hoy
+- [Software Engineer · HP](experience/hp/README.md) — Mar 2022 – present
 
-## Antes
+## Before
 
-- [Software Engineer · Nuclia](experiencia/nuclia.md) — ago 2021 – feb 2022
-- [Software Engineer · ALBA Synchrotron](experiencia/alba-synchrotron.md) — dic 2020 – ago 2021
-- [Profesor y responsable de formación · JEDI](experiencia/jedi.md) — may 2017 – sep 2020
+- [Software Engineer · Nuclia](experience/nuclia.md) — Aug 2021 – Feb 2022
+- [Software Engineer · ALBA Synchrotron](experience/alba-synchrotron.md) — Dec 2020 – Aug 2021
+- [Instructor and head of education · JEDI](experience/jedi.md) — May 2017 – Sep 2020
 
-## Formación
+## Education
 
-- [Máster en Inteligencia Artificial · UPC](formacion/master-ia.md) — 2018 – 2020
-- [Grado en Ingeniería Informática · UPC](formacion/grado-informatica.md) — 2013 – 2018
+- [M.S. in Artificial Intelligence · UPC](education/masters-ai.md) — 2018 – 2020
+- [B.S. in Computer Science and Engineering · UPC](education/bachelors-cs.md) — 2013 – 2018
 
-Español y catalán nativos · inglés C1.
+Spanish and Catalan (native) · English (C1).
 
-## Cómo moverte
+## Getting around
 
-- **Explorador**, a la izquierda: experiencia, conocimiento, proyectos, formación y taller, cada cosa en su carpeta. Pasa el cursor por un archivo para ver su resumen.
-- **Terminal**, abajo: arrastra hacia arriba la barra de estado o pulsa \`Ctrl+ñ\`. Empieza por \`help\`.
-- **Paleta de comandos**: \`Ctrl+Shift+P\`. Para abrir un archivo por su nombre, \`Ctrl+P\`.
-- **Contacto**: [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock).
+- **Explorer**, on the left: experience, skills, projects, education and lab, each in its own folder. Hover over a file to see a summary.
+- **Terminal**, at the bottom: drag the status bar up, or press Ctrl + backtick. Start with **help**.
+- **Command palette**: \`Ctrl+Shift+P\`. To open a file by name, \`Ctrl+P\`.
+- **Contact**: [LinkedIn](https://www.linkedin.com/in/alberto-lopez-sanchez) · [GitHub](https://github.com/catunlock).
 `);
 
-  var KN = '../../../conocimiento/';
-  f('experiencia/hp/README.md', { kind: 'work', title: 'Software Engineer · HP', sub: 'mar 2022 – hoy · Barcelona', text: HP_SUMMARY }, `
+  var KN = '../../../skills/';
+  f('experience/hp/README.md', { kind: 'work', title: 'Software Engineer · HP', sub: 'Mar 2022 – present · Barcelona', text: HP_SUMMARY }, `
 # Software Engineer · HP
 
-\`HP Inc · Barcelona · mar 2022 – hoy\`
+\`HP Inc · Barcelona · Mar 2022 – present\`
 
 ${HP_SUMMARY}
 
-Trabajo en el equipo Foundations de fabricación aditiva (impresión 3D): sistema operativo base, seguridad y servicios del sistema, y las herramientas internas para desarrollar, empaquetar y distribuir el software.
+I work in the Foundations team for additive manufacturing (3D printing): base OS, security and system services, plus the internal tools to develop, package and distribute the software.
 
-## Logros
+## Achievements
 
-- [Integración de firmware con CI y Docker](logros/01-ci-docker.md)
-- [Releases automáticas con visión por computador](logros/02-releases-automaticas.md)
-- [Seguridad del firmware: Secure Boot, TPM y cifrado](logros/03-seguridad.md)
-- [Modernización de una base de código C++ de más de 20 años](logros/04-modernizacion-cpp.md)
-- [Tests de integración con virtualización](logros/05-tests-virtualizacion.md)
-- [Fiabilidad en campo: backup y recuperación](logros/06-fiabilidad.md)
-- [Fabricación y reparabilidad del dispositivo](logros/07-fabricacion.md)
-- [Entrega técnica con partners externos](logros/08-partners.md)
-- [Mentoría de ingenieros y becarios](logros/09-mentoria.md)
+- [Firmware integration with CI and Docker](achievements/01-ci-docker.md)
+- [Automated releases with computer vision](achievements/02-automated-releases.md)
+- [Firmware security: Secure Boot, TPM and encryption](achievements/03-security.md)
+- [Modernizing a 20+ year-old C++ codebase](achievements/04-cpp-modernization.md)
+- [Integration testing with virtualization](achievements/05-virtualized-testing.md)
+- [Field reliability: backup and recovery](achievements/06-reliability.md)
+- [Manufacturing and repairability](achievements/07-manufacturing.md)
+- [Technical delivery with external partners](achievements/08-partners.md)
+- [Mentoring engineers and interns](achievements/09-mentoring.md)
 
-## Con qué
+## Stack
 
-[C / C++](../../conocimiento/lenguajes/cpp.cpp) · [Python](../../conocimiento/lenguajes/python.py) · [Rust](../../conocimiento/lenguajes/rust.rs) · [C#](../../conocimiento/lenguajes/csharp.cs) · [Tcl](../../conocimiento/lenguajes/tcl.tcl) · [Linux y Bash](../../conocimiento/linux/linux.sh) · [Docker](../../conocimiento/herramientas/Dockerfile) · [CI/CD](../../conocimiento/herramientas/ci.yml) · [Virtualización](../../conocimiento/sistemas/virtualizacion.md)
+[C / C++](../../skills/languages/cpp.cpp) · [Python](../../skills/languages/python.py) · [Rust](../../skills/languages/rust.rs) · [C#](../../skills/languages/csharp.cs) · [Tcl](../../skills/languages/tcl.tcl) · [Linux and Bash](../../skills/linux/linux.sh) · [Docker](../../skills/tools/Dockerfile) · [CI/CD](../../skills/tools/ci.yml) · [Virtualization](../../skills/systems/virtualization.md)
 
 [hp.com](https://www.hp.com)
 `);
   [
-    ['01-ci-docker', 'Integración de firmware con CI y Docker', 'Workflows de CI y herramientas basadas en Docker para automatizar la integración de firmware en varias plataformas de producto. Herramientas de firmware reutilizables, adoptadas por varios equipos, que simplifican el mantenimiento y el soporte.', [['CI/CD', 'herramientas/ci.yml'], ['Docker', 'herramientas/Dockerfile'], ['Firmware', 'sistemas/firmware.md']]],
-    ['02-releases-automaticas', 'Releases automáticas con visión por computador', 'Infraestructura para generar y publicar automáticamente los componentes de cada release de firmware; con visión por computador, el proceso libera varias horas de trabajo cada semana.', [['Python', 'lenguajes/python.py'], ['Machine learning', 'ia/machine-learning.md']]],
-    ['03-seguridad', 'Seguridad del firmware: Secure Boot, TPM y cifrado', 'Proyectos clave de seguridad: Secure Boot con TPM (Trusted Platform Module) y cifrado de disco, para proteger la propiedad intelectual de la empresa. También coordino la preparación de auditorías de ciberseguridad, reuniendo evidencia técnica y acciones de seguimiento entre disciplinas.', [['Seguridad', 'sistemas/seguridad.md'], ['Firmware', 'sistemas/firmware.md']]],
-    ['04-modernizacion-cpp', 'Modernización de una base de código C++ de más de 20 años', 'Diseño y modernización de componentes core en C++ de una base de código con más de 20 años, para que escale y se pueda mantener; más calidad con tests unitarios y de integración.', [['C / C++', 'lenguajes/cpp.cpp']]],
-    ['05-tests-virtualizacion', 'Tests de integración con virtualización', 'Más cobertura de tests de integración gracias a técnicas avanzadas de virtualización y emulación.', [['Virtualización', 'sistemas/virtualizacion.md'], ['Linux', 'linux/linux.sh']]],
-    ['06-fiabilidad', 'Fiabilidad en campo: backup y recuperación', 'Diseño y desarrollo de backup y recuperación del sistema; soluciones robustas a problemas aparecidos tras el lanzamiento que redujeron el coste de soporte en campo de varios productos.', [['Firmware', 'sistemas/firmware.md'], ['C / C++', 'lenguajes/cpp.cpp']]],
-    ['07-fabricacion', 'Fabricación y reparabilidad del dispositivo', 'Con otros equipos, soluciones seguras y escalables que simplificaron la fabricación del dispositivo —menos coste y más éxito— y mejoraron su reparabilidad.', [['Firmware', 'sistemas/firmware.md'], ['Liderazgo técnico', 'personas/liderazgo.md']]],
-    ['08-partners', 'Entrega técnica con partners externos', 'Liderazgo de la entrega técnica con partners externos: de los requisitos a soluciones implementables, coordinando dependencias entre equipos de ingeniería.', [['Liderazgo técnico', 'personas/liderazgo.md']]],
-    ['09-mentoria', 'Mentoría de ingenieros y becarios', 'Mentoría de ingenieros y becarios para que construyan conocimiento técnico y contribuyan de forma independiente.', [['Mentoría y docencia', 'personas/mentoria.md']]]
+    ['01-ci-docker', 'Firmware integration with CI and Docker', 'Built CI workflows and Docker-based tooling to automate firmware integration across multiple product platforms. Created reusable firmware tools, adopted across product teams, that simplify maintenance and support.', [['CI/CD', 'tools/ci.yml'], ['Docker', 'tools/Dockerfile'], ['Firmware', 'systems/firmware.md']]],
+    ['02-automated-releases', 'Automated releases with computer vision', 'Built the infrastructure to automatically generate and publish firmware release components; with computer vision, the process frees up several hours of work every week.', [['Python', 'languages/python.py'], ['Machine learning', 'ai/machine-learning.md']]],
+    ['03-security', 'Firmware security: Secure Boot, TPM and encryption', 'Led key security projects: Secure Boot with TPM (Trusted Platform Module) and disk encryption, protecting the company’s intellectual property. I also coordinate cybersecurity audit preparation, bringing together technical evidence and follow-up actions across disciplines.', [['Security', 'systems/security.md'], ['Firmware', 'systems/firmware.md']]],
+    ['04-cpp-modernization', 'Modernizing a 20+ year-old C++ codebase', 'Designed and modernized core C++ components in a codebase more than 20 years old, keeping it scalable and maintainable, and raised code quality with unit and integration tests.', [['C / C++', 'languages/cpp.cpp']]],
+    ['05-virtualized-testing', 'Integration testing with virtualization', 'Enhanced integration test coverage with advanced virtualization and emulation techniques.', [['Virtualization', 'systems/virtualization.md'], ['Linux', 'linux/linux.sh']]],
+    ['06-reliability', 'Field reliability: backup and recovery', 'Designed and developed system backup and recovery capabilities, and engineered robust fixes for issues found in the field after launch, reducing field-support costs across several products.', [['Firmware', 'systems/firmware.md'], ['C / C++', 'languages/cpp.cpp']]],
+    ['07-manufacturing', 'Manufacturing and repairability', 'Worked with other teams on secure, scalable solutions that simplified device manufacturing — lowering cost and raising the success rate — and improved repairability.', [['Firmware', 'systems/firmware.md'], ['Technical leadership', 'people/leadership.md']]],
+    ['08-partners', 'Technical delivery with external partners', 'Led technical delivery with external partners, translating requirements into implementable solutions and coordinating dependencies across engineering teams.', [['Technical leadership', 'people/leadership.md']]],
+    ['09-mentoring', 'Mentoring engineers and interns', 'Mentored engineers and interns, helping them build technical knowledge and contribute independently.', [['Mentoring and teaching', 'people/mentoring.md']]]
   ].forEach(function (l) {
-    f('experiencia/hp/logros/' + l[0] + '.md', { kind: 'achievement', title: l[1], sub: 'HP · Software Engineer', text: l[2] },
-      '# ' + l[1] + '\n\n`HP · Software Engineer · mar 2022 – hoy`\n\n' + l[2] + '\n\n**Con:** ' +
+    f('experience/hp/achievements/' + l[0] + '.md', { kind: 'achievement', title: l[1], sub: 'HP · Software Engineer', text: l[2] },
+      '# ' + l[1] + '\n\n`HP · Software Engineer · Mar 2022 – present`\n\n' + l[2] + '\n\n**Stack:** ' +
       l[3].map(function (t) { return '[' + t[0] + '](' + KN + t[1] + ')'; }).join(' · ') + '\n');
   });
 
-  f('experiencia/nuclia.md', { kind: 'work', title: 'Software Engineer · Nuclia', sub: 'ago 2021 – feb 2022 · Barcelona', text: 'NucliaDB: la base de datos distribuida de un buscador de documentos de empresa.' }, `
+  f('experience/nuclia.md', { kind: 'work', title: 'Software Engineer · Nuclia', sub: 'Aug 2021 – Feb 2022 · Barcelona', text: 'NucliaDB: the distributed database behind an enterprise search engine for business documents.' }, `
 # Software Engineer · Nuclia
 
-\`NucliaDB · Barcelona · ago 2021 – feb 2022\`
+\`NucliaDB · Barcelona · Aug 2021 – Feb 2022\`
 
-Diseñé e implementé la indexación de NucliaDB, la base de datos distribuida de un buscador para documentos de empresa: vídeos, imágenes, podcasts y texto.
+Designed and implemented the indexing of NucliaDB, the distributed database behind an enterprise search engine for business documents: videos, images, podcasts and text.
 
-- Extracción de metadatos, texto y representaciones semánticas de cada tipo de medio para que las búsquedas sean más precisas y relevantes.
-- Técnicas de procesado de datos para entender mejor el significado de los documentos.
+- Extracted metadata, text and semantic representations from each media type to improve search accuracy and relevance.
+- Applied data-processing techniques to improve the semantic understanding of documents.
 
-**Con:** [Rust](../conocimiento/lenguajes/rust.rs) · [Python](../conocimiento/lenguajes/python.py) · [Bases de datos y búsqueda](../conocimiento/datos/busqueda.sql) · [Docker](../conocimiento/herramientas/Dockerfile) · gRPC
+**Stack:** [Rust](../skills/languages/rust.rs) · [Python](../skills/languages/python.py) · [Databases and search](../skills/data/search.sql) · [Docker](../skills/tools/Dockerfile) · gRPC
 
 [nuclia.com](https://nuclia.com/)
 `);
-  f('experiencia/alba-synchrotron.md', { kind: 'work', title: 'Software Engineer · ALBA Synchrotron', sub: 'dic 2020 – ago 2021 · Barcelona', text: 'Software de control y adquisición de datos para equipos científicos de alta precisión.' }, `
+  f('experience/alba-synchrotron.md', { kind: 'work', title: 'Software Engineer · ALBA Synchrotron', sub: 'Dec 2020 – Aug 2021 · Barcelona', text: 'Data acquisition and control software for high-precision scientific equipment.' }, `
 # Software Engineer · ALBA Synchrotron
 
-\`Adquisición de datos y control · dic 2020 – ago 2021\`
+\`Data acquisition and control · Dec 2020 – Aug 2021\`
 
-Software para controlar dispositivos de alta precisión en un entorno distribuido, en una instalación de rayos X duros: operaciones precisas y fiables sin exposición a la radiación.
+Software to control high-precision devices in a distributed environment at a hard X-ray facility: accurate, reliable operation without exposure to radiation.
 
-- Responsable del software de control de la línea Minerva.
-- Integración de equipos científicos en el software de control.
-- Contribuciones a los proyectos de código abierto Sardana, PyTango y cppTango.
+- Project lead for the control software of the MINERVA beamline.
+- Integrated scientific equipment into the control software.
+- Contributor to the open-source projects Sardana, PyTango and cppTango.
 
-**Con:** [C / C++](../conocimiento/lenguajes/cpp.cpp) · [Python](../conocimiento/lenguajes/python.py) · Cython
+**Stack:** [C / C++](../skills/languages/cpp.cpp) · [Python](../skills/languages/python.py) · Cython
 
-[cells.es](https://www.cells.es/ca)
+[cells.es](https://www.cells.es/en)
 `);
-  f('experiencia/jedi.md', { kind: 'work', title: 'Profesor · JEDI', sub: 'may 2017 – sep 2020 · Barcelona', text: 'Responsable de formación de la asociación de estudiantes de informática JEDI y profesor de sus cursos de verano.' }, `
-# Profesor y responsable de formación · JEDI
+  f('experience/jedi.md', { kind: 'work', title: 'Instructor · JEDI', sub: 'May 2017 – Sep 2020 · Barcelona', text: 'Head of education at the JEDI computer science student association, and teacher of its summer courses.' }, `
+# Instructor and head of education · JEDI
 
-\`Joves Estudiants d'Informàtica · may 2017 – sep 2020\`
+\`Joves Estudiants d'Informàtica · May 2017 – Sep 2020\`
 
-- Responsable del departamento de formación.
-- Profesor de los cursos de verano de machine learning, deep learning, robótica e impresión 3D.
+- Head of the education department.
+- Taught the summer courses on machine learning, deep learning, robotics and 3D printing.
 
-**Con:** [Mentoría y docencia](../conocimiento/personas/mentoria.md) · [Machine learning](../conocimiento/ia/machine-learning.md) · [CAD e impresión 3D](../taller/cad-3d.md)
+**Stack:** [Mentoring and teaching](../skills/people/mentoring.md) · [Machine learning](../skills/ai/machine-learning.md) · [CAD and 3D printing](../lab/cad-3d.md)
 `);
-  f('experiencia/startups/proxishop.md', { kind: 'work', title: 'Proxishop', sub: 'ago 2020 · app Android e iOS', text: 'E-commerce para que agricultores y pequeños comercios de Cataluña siguieran vendiendo durante el confinamiento.' }, `
+  f('experience/startups/proxishop.md', { kind: 'work', title: 'Proxishop', sub: 'Aug 2020 · Android and iOS app', text: 'E-commerce so that farmers and small shops in Catalonia could keep selling during the lockdowns.' }, `
 # Proxishop
 
-\`App para Android e iOS · ago 2020\`
+\`Android and iOS app · Aug 2020\`
 
-Plataforma de comercio electrónico para agricultores locales y pequeños comercios de Cataluña, pensada para reactivar la economía de la zona durante la COVID-19: el comercio de proximidad pudo seguir funcionando en los confinamientos.
+An e-commerce platform for local farmers and small businesses in Catalonia, built to keep the regional economy going during COVID-19: proximity commerce could keep running through the lockdowns.
 
-**Con:** [Flutter, Flask y SQLAlchemy](../../conocimiento/web/frameworks.md) · [Python](../../conocimiento/lenguajes/python.py) · [PostgreSQL](../../conocimiento/datos/busqueda.sql)
+**Stack:** [Flutter, Flask and SQLAlchemy](../../skills/web/frameworks.md) · [Python](../../skills/languages/python.py) · [PostgreSQL](../../skills/data/search.sql)
 
-[Vídeo de la app](https://www.youtube.com/watch?v=pRpX1iOqmvw)
+[App video](https://www.youtube.com/watch?v=pRpX1iOqmvw)
 `);
-  f('experiencia/startups/quokka.md', { kind: 'work', title: 'Quokka', sub: 'jun – dic 2019 · nevera inteligente', text: 'La electrónica de un sistema de detección de productos dentro de una nevera.' }, `
-# Quokka · nevera inteligente
+  f('experience/startups/quokka.md', { kind: 'work', title: 'Quokka', sub: 'Jun – Dec 2019 · smart fridge', text: 'The electronics of a system that detects the items inside a fridge.' }, `
+# Quokka · smart fridge
 
-\`jun – dic 2019\`
+\`Jun – Dec 2019\`
 
-Diseñé y programé la electrónica de un sistema de detección dentro de una nevera para identificar los productos: integración de sensores y lógica de control para que la detección fuera precisa y fiable.
+Designed and programmed the electronics of a detection system inside a fridge to identify items, combining sensor integration and control logic for accurate, reliable detection.
 
-**Con:** [Firmware](../../conocimiento/sistemas/firmware.md) · [Diseño de PCB](../../taller/pcb.md)
+**Stack:** [Firmware](../../skills/systems/firmware.md) · [PCB design](../../lab/pcb.md)
 
 [getkombo.app](https://getkombo.app/)
 `);
 
-  // —— conocimiento ——
-  f('conocimiento/lenguajes/cpp.cpp', { kind: 'skill', title: 'C / C++', level: 4, text: 'Componentes del sistema y firmware; modernización de una base de código C++ de más de 20 años.' }, `
-// C / C++ — nivel 4/5 · Avanzado
-// Componentes del sistema y firmware; modernización de una base de código C++ de más de 20 años.
+  // —— skills ——
+  f('skills/languages/cpp.cpp', { kind: 'skill', title: 'C / C++', level: 4, text: 'System components and firmware; modernizing a 20+ year-old C++ codebase.' }, `
+// C / C++ — level 4/5 · Advanced
+// System components and firmware; modernizing a 20+ year-old C++ codebase.
 
 #include <string>
 #include <vector>
 
-struct Uso {
-    std::string donde;
-    std::string que;
+struct Use {
+    std::string where;
+    std::string what;
 };
 
-const std::vector<Uso> usos = {
-    {"HP", "componentes core en C++ moderno, con CMake y Google Test"},
-    {"ALBA Synchrotron", "control de equipos científicos (C, C++, Cython)"},
-    {"drm_display", "visor de imágenes para sistemas embebidos (C)"},
-    {"esp8266-smartlight", "una luz conectada (C++)"},
+const std::vector<Use> uses = {
+    {"HP", "core components in modern C++, with CMake and Google Test"},
+    {"ALBA Synchrotron", "control of scientific equipment (C, C++, Cython)"},
+    {"drm_display", "an image viewer for embedded systems (C)"},
+    {"esp8266-smartlight", "a connected light (C++)"},
 };
 
 int main() {
-    return 0;  // sin warnings
+    return 0;  // no warnings
 }
 `);
-  f('conocimiento/lenguajes/rust.rs', { kind: 'skill', title: 'Rust', level: 4, text: 'La indexación de NucliaDB y mis herramientas y librerías para embebido.' }, `
-//! Rust — nivel 4/5 · Avanzado
-//! La indexación de NucliaDB y mis herramientas y librerías para embebido.
+  f('skills/languages/rust.rs', { kind: 'skill', title: 'Rust', level: 4, text: 'NucliaDB’s indexing, and my own tools and embedded libraries.' }, `
+//! Rust — level 4/5 · Advanced
+//! NucliaDB's indexing, and my own tools and embedded libraries.
 
-pub struct Uso {
-    pub donde: &'static str,
-    pub que: &'static str,
+pub struct Use {
+    pub place: &'static str,
+    pub what: &'static str,
 }
 
-pub const USOS: [Uso; 4] = [
-    Uso { donde: "Nuclia", que: "indexación distribuida con Tantivy y gRPC" },
-    Uso { donde: "esp32-ble-keyboard", que: "librería de teclado BLE para ESP32" },
-    Uso { donde: "cat-rs", que: "cat, con superpoderes" },
-    Uso { donde: "file2wav", que: "esconder archivos dentro de un WAV" },
+pub const USES: [Use; 4] = [
+    Use { place: "Nuclia", what: "distributed indexing with Tantivy and gRPC" },
+    Use { place: "esp32-ble-keyboard", what: "a BLE keyboard library for ESP32" },
+    Use { place: "cat-rs", what: "cat, with superpowers" },
+    Use { place: "file2wav", what: "hiding files inside a WAV" },
 ];
 
 fn main() {
-    for uso in USOS.iter() {
-        println!("{}: {}", uso.donde, uso.que);
+    for u in USES.iter() {
+        println!("{}: {}", u.place, u.what);
     }
 }
 `);
-  f('conocimiento/lenguajes/python.py', { kind: 'skill', title: 'Python', level: 5, text: 'Herramientas y automatización, control de equipos científicos, backends y machine learning.' }, `
-"""Python — nivel 5/5 · Experto
+  f('skills/languages/python.py', { kind: 'skill', title: 'Python', level: 5, text: 'Tooling and automation, scientific equipment control, backends and machine learning.' }, `
+"""Python — level 5/5 · Expert
 
-Herramientas y automatización, control de equipos científicos, backends y machine learning.
+Tooling and automation, scientific equipment control, backends and machine learning.
 """
 
-USOS = {
-    "HP": "herramientas internas y automatización de releases",
-    "Nuclia": "procesado de documentos para el buscador",
-    "ALBA Synchrotron": "control con Sardana y PyTango",
-    "Proxishop": "backend con Flask y SQLAlchemy",
-    "Máster en IA": "deep learning con Keras y TensorFlow",
+USES = {
+    "HP": "internal tools and release automation",
+    "Nuclia": "document processing for the search engine",
+    "ALBA Synchrotron": "control with Sardana and PyTango",
+    "Proxishop": "backend with Flask and SQLAlchemy",
+    "M.S. in AI": "deep learning with Keras and TensorFlow",
 }
 
 if __name__ == "__main__":
-    for donde, que in USOS.items():
-        print(f"{donde}: {que}")
+    for place, what in USES.items():
+        print(f"{place}: {what}")
 `);
-  f('conocimiento/lenguajes/csharp.cs', { kind: 'skill', title: 'C#', level: 3, text: 'Herramientas en HP, un juego con NPC multiagente y el backend de powerMeter.' }, `
-// C# — nivel 3/5 · Competente
-// Herramientas en HP, un juego con NPC multiagente y el backend de powerMeter.
+  f('skills/languages/csharp.cs', { kind: 'skill', title: 'C#', level: 3, text: 'Tools at HP, a game with multi-agent NPCs and the powerMeter backend.' }, `
+// C# — level 3/5 · Competent
+// Tools at HP, a game with multi-agent NPCs and the powerMeter backend.
 
 using System;
 
-var usos = new[] {
-    ("HP", "herramientas internas"),
-    ("Ourcraft", "terreno deformable y NPC multiagente"),
-    ("powerMeter", "el backend del medidor"),
+var uses = new[] {
+    ("HP", "internal tools"),
+    ("Ourcraft", "deformable terrain and multi-agent NPCs"),
+    ("powerMeter", "the meter's backend"),
 };
 
-foreach (var (donde, que) in usos)
-    Console.WriteLine($"{donde}: {que}");
+foreach (var (place, what) in uses)
+    Console.WriteLine($"{place}: {what}");
 `);
-  f('conocimiento/lenguajes/tcl.tcl', { kind: 'skill', title: 'Tcl', level: 3, text: 'Scripts y herramientas internas en HP.' }, `
-# Tcl — nivel 3/5 · Competente
-# Scripts y herramientas internas en HP.
+  f('skills/languages/tcl.tcl', { kind: 'skill', title: 'Tcl', level: 3, text: 'Scripts and internal tools at HP.' }, `
+# Tcl — level 3/5 · Competent
+# Scripts and internal tools at HP.
 
-set usos {HP}
+set places {HP}
 
-proc saluda {donde} {
-    puts "tcl en $donde"
+proc greet {place} {
+    puts "tcl at $place"
 }
 
-foreach donde $usos {
-    saluda $donde
+foreach place $places {
+    greet $place
 }
 `);
-  f('conocimiento/linux/linux.sh', { kind: 'skill', title: 'Linux y Bash', level: 5, text: 'El sistema operativo base en el trabajo y mi escritorio en casa.' }, `
+  f('skills/linux/linux.sh', { kind: 'skill', title: 'Linux and Bash', level: 5, text: 'The base OS at work and my desktop at home.' }, `
 #!/usr/bin/env bash
-# Linux y Bash — nivel 5/5 · Experto
-# El sistema operativo base en el trabajo y mi escritorio en casa.
+# Linux and Bash — level 5/5 · Expert
+# The base OS at work and my desktop at home.
 
 set -euo pipefail
 
-usos=(
-    "HP: sistema operativo base y servicios del sistema"
-    "brother-archlinux: una impresora Brother en Arch Linux"
-    "FreqAudio: una extensión de GNOME para el audio"
+uses=(
+    "HP: base OS and system services"
+    "brother-archlinux: a Brother printer on Arch Linux"
+    "FreqAudio: a GNOME extension for audio"
 )
 
-for uso in "\${usos[@]}"; do
-    echo "$uso"
+for use in "\${uses[@]}"; do
+    echo "$use"
 done
 `);
-  f('conocimiento/sistemas/firmware.md', { kind: 'skill', title: 'Firmware', level: 5, text: 'Firmware y software de sistema para producto embebido, y las herramientas para mantenerlo.' }, `
+  f('skills/systems/firmware.md', { kind: 'skill', title: 'Firmware', level: 5, text: 'Firmware and system software for embedded products, and the tools to maintain them.' }, `
 # Firmware
 
-Nivel: 5/5 · Experto
+Level: 5/5 · Expert
 
-Firmware y software de sistema para producto embebido, y las herramientas para mantenerlo.
+Firmware and system software for embedded products, and the tools to maintain them.
 
-## Dónde
+## Where
 
-- [HP](../../experiencia/hp/README.md): integración en varias plataformas, seguridad, backup y recuperación, fabricación.
-- [Quokka](../../experiencia/startups/quokka.md): la electrónica de una nevera inteligente.
-- [drm_display](../../proyectos/embebido/drm_display.md), [esp32-ble-keyboard](../../proyectos/embebido/esp32-ble-keyboard.md) y [powerMeter](../../proyectos/embebido/powermeter.md).
+- [HP](../../experience/hp/README.md): integration across platforms, security, backup and recovery, manufacturing.
+- [Quokka](../../experience/startups/quokka.md): the electronics of a smart fridge.
+- [drm_display](../../projects/embedded/drm_display.md), [esp32-ble-keyboard](../../projects/embedded/esp32-ble-keyboard.md) and [powerMeter](../../projects/embedded/powermeter.md).
 `);
-  f('conocimiento/sistemas/seguridad.md', { kind: 'skill', title: 'Seguridad', level: 3, text: 'Secure Boot con TPM, cifrado de disco y auditorías de ciberseguridad.' }, `
-# Seguridad
+  f('skills/systems/security.md', { kind: 'skill', title: 'Security', level: 3, text: 'Secure Boot with TPM, disk encryption and cybersecurity audits.' }, `
+# Security
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Secure Boot con TPM, cifrado de disco y la preparación de auditorías de ciberseguridad.
+Secure Boot with TPM, disk encryption and cybersecurity audit preparation.
 
-## Dónde
+## Where
 
-- [HP · seguridad del firmware](../../experiencia/hp/logros/03-seguridad.md)
+- [HP · firmware security](../../experience/hp/achievements/03-security.md)
 `);
-  f('conocimiento/sistemas/virtualizacion.md', { kind: 'skill', title: 'Virtualización', level: 5, text: 'QEMU y VMware para emular el dispositivo y probar el firmware sin hardware.' }, `
-# Virtualización
+  f('skills/systems/virtualization.md', { kind: 'skill', title: 'Virtualization', level: 5, text: 'QEMU and VMware to emulate the device and test firmware without the hardware.' }, `
+# Virtualization
 
-Nivel: 5/5 · Experto
+Level: 5/5 · Expert
 
-QEMU y VMware para emular el dispositivo y probar el firmware sin depender del hardware.
+QEMU and VMware to emulate the device and test firmware without depending on the hardware.
 
-## Dónde
+## Where
 
-- [HP · tests de integración con virtualización](../../experiencia/hp/logros/05-tests-virtualizacion.md)
+- [HP · integration testing with virtualization](../../experience/hp/achievements/05-virtualized-testing.md)
 `);
-  f('conocimiento/herramientas/Dockerfile', { kind: 'skill', title: 'Docker', level: 5, text: 'Entornos reproducibles para compilar e integrar firmware y para desplegar servicios.' }, `
-# Docker — nivel 5/5 · Experto
-# Entornos reproducibles para compilar e integrar firmware (HP) y para servicios (Nuclia).
-# Ejemplo ilustrativo: no es la configuración real de ningún proyecto.
+  f('skills/tools/Dockerfile', { kind: 'skill', title: 'Docker', level: 5, text: 'Reproducible environments to build and integrate firmware, and to run services.' }, `
+# Docker — level 5/5 · Expert
+# Reproducible environments to build and integrate firmware (HP) and for services (Nuclia).
+# Illustrative example: not the real configuration of any project.
 
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y build-essential cmake
 WORKDIR /fw
 COPY . .
-ENTRYPOINT ["make", "integracion"]
+ENTRYPOINT ["make", "integration"]
 `);
-  f('conocimiento/herramientas/ci.yml', { kind: 'skill', title: 'CI/CD', level: 4, text: 'Workflows de integración continua para el firmware de varias plataformas de producto.' }, `
-# CI/CD — nivel 4/5 · Avanzado
-# Workflows de integración continua para firmware de varias plataformas (HP).
-# Ejemplo ilustrativo: no es la configuración real de ningún proyecto.
+  f('skills/tools/ci.yml', { kind: 'skill', title: 'CI/CD', level: 4, text: 'Continuous-integration workflows for firmware across product platforms.' }, `
+# CI/CD — level 4/5 · Advanced
+# Continuous-integration workflows for firmware across product platforms (HP).
+# Illustrative example: not the real configuration of any project.
 
-name: integracion-firmware
+name: firmware-integration
 on: [push, pull_request]
 
 jobs:
@@ -343,197 +343,197 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        plataforma: [producto-a, producto-b, producto-c]
+        platform: [product-a, product-b, product-c]
     steps:
       - uses: actions/checkout@v4
-      - name: Compilar en contenedor
-        run: docker run --rm fw-builder --plataforma \${{ matrix.plataforma }}
+      - name: Build in a container
+        run: docker run --rm fw-builder --platform \${{ matrix.platform }}
 `);
-  f('conocimiento/datos/busqueda.sql', { kind: 'skill', title: 'Bases de datos y búsqueda', level: 3, text: 'Una base de datos distribuida para un buscador, y SQL de toda la vida.' }, `
--- Bases de datos y búsqueda — nivel 3/5 · Competente
--- Una base de datos distribuida para un buscador, y SQL de toda la vida.
+  f('skills/data/search.sql', { kind: 'skill', title: 'Databases and search', level: 3, text: 'A distributed database for a search engine, and good old SQL.' }, `
+-- Databases and search — level 3/5 · Competent
+-- A distributed database for a search engine, and good old SQL.
 
-SELECT donde, que
-FROM usos
-ORDER BY donde;
+SELECT place, what
+FROM uses
+ORDER BY place;
 
--- Nuclia     | NucliaDB: indexación distribuida con Tantivy y Redis
--- Proxishop  | PostgreSQL con SQLAlchemy
--- Además     | SQLite
+-- Nuclia     | NucliaDB: distributed indexing with Tantivy and Redis
+-- Proxishop  | PostgreSQL with SQLAlchemy
+-- Also       | SQLite
 `);
-  f('conocimiento/ia/machine-learning.md', { kind: 'skill', title: 'Machine learning', level: 3, text: 'Máster en IA, visión por computador y deep learning; hoy, LLM y computación acelerada.' }, `
+  f('skills/ai/machine-learning.md', { kind: 'skill', title: 'Machine learning', level: 3, text: 'M.S. in AI, computer vision and deep learning; these days, LLMs and accelerated computing.' }, `
 # Machine learning
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Máster en Inteligencia Artificial: procesamiento del lenguaje natural, sistemas multiagente, visión por computador y deep learning. Hoy me interesan los LLM y la computación acelerada.
+M.S. in Artificial Intelligence: natural language processing, multi-agent systems, computer vision and deep learning. These days I’m into LLMs and accelerated computing.
 
-## Dónde
+## Where
 
-- [Máster en IA](../../formacion/master-ia.md): estimación de la mirada en 3D con flujo óptico.
-- [HP](../../experiencia/hp/logros/02-releases-automaticas.md): visión por computador para automatizar releases.
-- [JEDI](../../experiencia/jedi.md): cursos de verano de machine learning y deep learning.
+- [M.S. in AI](../../education/masters-ai.md): 3D gaze estimation with optical flow.
+- [HP](../../experience/hp/achievements/02-automated-releases.md): computer vision to automate releases.
+- [JEDI](../../experience/jedi.md): summer courses on machine learning and deep learning.
 
-Con Keras y TensorFlow.
+With Keras and TensorFlow.
 `);
-  f('conocimiento/web/frameworks.md', { kind: 'skill', title: 'Web y móvil', level: 3, text: 'Flask, Flutter, Nest.js y Angular.' }, `
-# Web y móvil
+  f('skills/web/frameworks.md', { kind: 'skill', title: 'Web and mobile', level: 3, text: 'Flask, Flutter, Nest.js and Angular.' }, `
+# Web and mobile
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Flask, Flutter, Nest.js y Angular.
+Flask, Flutter, Nest.js and Angular.
 
-## Dónde
+## Where
 
-- [Proxishop](../../experiencia/startups/proxishop.md): app en Flutter con backend en Flask y PostgreSQL.
+- [Proxishop](../../experience/startups/proxishop.md): a Flutter app with a Flask and PostgreSQL backend.
 `);
-  f('conocimiento/personas/liderazgo.md', { kind: 'skill', title: 'Liderazgo técnico', level: 4, text: 'Entrega técnica con partners externos, Scrum Master y Technical Product Owner.' }, `
-# Liderazgo técnico
+  f('skills/people/leadership.md', { kind: 'skill', title: 'Technical leadership', level: 4, text: 'Technical delivery with external partners; Scrum Master and Technical Product Owner.' }, `
+# Technical leadership
 
-Nivel: 4/5 · Avanzado
+Level: 4/5 · Advanced
 
-Entrega técnica con partners externos: traducir requisitos en soluciones implementables y coordinar dependencias entre equipos. He sido Scrum Master y Technical Product Owner.
+Technical delivery with external partners: turning requirements into implementable solutions and coordinating dependencies across teams. I’ve been a Scrum Master and a Technical Product Owner.
 
-## Dónde
+## Where
 
-- [HP · entrega con partners externos](../../experiencia/hp/logros/08-partners.md)
-- [ALBA Synchrotron](../../experiencia/alba-synchrotron.md): responsable del software de control de la línea Minerva.
+- [HP · technical delivery with external partners](../../experience/hp/achievements/08-partners.md)
+- [ALBA Synchrotron](../../experience/alba-synchrotron.md): project lead for the MINERVA beamline control software.
 `);
-  f('conocimiento/personas/mentoria.md', { kind: 'skill', title: 'Mentoría y docencia', level: 4, text: 'Mentoría de ingenieros y becarios, y años dando clase en JEDI.' }, `
-# Mentoría y docencia
+  f('skills/people/mentoring.md', { kind: 'skill', title: 'Mentoring and teaching', level: 4, text: 'Mentoring engineers and interns, and years of teaching at JEDI.' }, `
+# Mentoring and teaching
 
-Nivel: 4/5 · Avanzado
+Level: 4/5 · Advanced
 
-Acompañar a ingenieros y becarios hasta que trabajan con autonomía, y explicar lo complejo de forma sencilla.
+Helping engineers and interns until they work independently, and explaining complex things simply.
 
-## Dónde
+## Where
 
-- [HP · mentoría de ingenieros y becarios](../../experiencia/hp/logros/09-mentoria.md)
-- [JEDI](../../experiencia/jedi.md): responsable de formación y profesor de cursos de verano.
+- [HP · mentoring engineers and interns](../../experience/hp/achievements/09-mentoring.md)
+- [JEDI](../../experience/jedi.md): head of education and summer-course teacher.
 `);
 
-  // —— proyectos (github.com/catunlock) ——
+  // —— projects (github.com/catunlock) ——
   [
-    ['embebido/drm_display', 'drm_display', 'C · 2025', 'Visor de imágenes para sistemas embebidos sobre DRM.', 'drm_display', [['C / C++', 'lenguajes/cpp.cpp'], ['Linux', 'linux/linux.sh']]],
-    ['embebido/esp32-ble-keyboard', 'esp32-ble-keyboard', 'Rust · 2023', 'Librería de teclado Bluetooth LE para ESP32.', 'esp32-ble-keyboard', [['Rust', 'lenguajes/rust.rs'], ['Firmware', 'sistemas/firmware.md']]],
-    ['embebido/powermeter', 'powerMeter', 'C y C# · 2022', 'Firmware en C y backend en C#, en dos repositorios.', 'powerMeter-firmware', [['C / C++', 'lenguajes/cpp.cpp'], ['C#', 'lenguajes/csharp.cs']]],
-    ['embebido/esp8266-smartlight', 'esp8266-smartlight', 'C++ · 2017', 'Controla un relé para encender y apagar una luz, con muchas funciones.', 'esp8266-smartlight', [['C / C++', 'lenguajes/cpp.cpp']]],
-    ['herramientas/cat-rs', 'cat-rs', 'Rust · 2023', 'El comando cat reimplementado en Rust, con superpoderes.', 'cat-rs', [['Rust', 'lenguajes/rust.rs']]],
-    ['herramientas/file2wav', 'file2wav', 'Rust · 2021', 'Esteganografía: esconde cualquier archivo dentro de un audio WAV.', 'file2wav', [['Rust', 'lenguajes/rust.rs']]],
-    ['herramientas/r-means', 'r-means', 'Rust · 2020', 'Una implementación básica de K-means en Rust.', 'r-means', [['Rust', 'lenguajes/rust.rs'], ['Machine learning', 'ia/machine-learning.md']]],
-    ['linux/freqaudio', 'FreqAudio', 'JavaScript · 2017', 'Extensión de GNOME Shell para cambiar la frecuencia y el formato de muestreo del audio.', 'FreqAudio', [['Linux', 'linux/linux.sh']]],
-    ['linux/brother-archlinux', 'brother-archlinux', 'Shell · 2016', 'Script para instalar una Brother MFC-5490CN y similares en CUPS, en Arch Linux.', 'brother-archlinux', [['Linux y Bash', 'linux/linux.sh']]],
-    ['juegos/ourcraft', 'Ourcraft', 'C# · 2024', 'Un juego de terreno deformable con NPC basados en sistemas multiagente.', 'Ourcraft', [['C#', 'lenguajes/csharp.cs'], ['Machine learning', 'ia/machine-learning.md']]],
-    ['juegos/dementia', 'Dementia', 'C++ · 2021', 'Un framework 3D sobre DirectX 11.', 'Dementia', [['C / C++', 'lenguajes/cpp.cpp']]]
+    ['embedded/drm_display', 'drm_display', 'C · 2025', 'A DRM image viewer for embedded systems.', 'drm_display', [['C / C++', 'languages/cpp.cpp'], ['Linux', 'linux/linux.sh']]],
+    ['embedded/esp32-ble-keyboard', 'esp32-ble-keyboard', 'Rust · 2023', 'A Bluetooth LE keyboard library for ESP32.', 'esp32-ble-keyboard', [['Rust', 'languages/rust.rs'], ['Firmware', 'systems/firmware.md']]],
+    ['embedded/powermeter', 'powerMeter', 'C and C# · 2022', 'Firmware in C and a backend in C#, in two repositories.', 'powerMeter-firmware', [['C / C++', 'languages/cpp.cpp'], ['C#', 'languages/csharp.cs']]],
+    ['embedded/esp8266-smartlight', 'esp8266-smartlight', 'C++ · 2017', 'Controls a relay to turn a light on and off, with plenty of features.', 'esp8266-smartlight', [['C / C++', 'languages/cpp.cpp']]],
+    ['tools/cat-rs', 'cat-rs', 'Rust · 2023', 'The cat command reimplemented in Rust, with superpowers.', 'cat-rs', [['Rust', 'languages/rust.rs']]],
+    ['tools/file2wav', 'file2wav', 'Rust · 2021', 'A steganography tool that hides any file inside a WAV audio file.', 'file2wav', [['Rust', 'languages/rust.rs']]],
+    ['tools/r-means', 'r-means', 'Rust · 2020', 'A basic K-means implementation in Rust.', 'r-means', [['Rust', 'languages/rust.rs'], ['Machine learning', 'ai/machine-learning.md']]],
+    ['linux/freqaudio', 'FreqAudio', 'JavaScript · 2017', 'A GNOME Shell extension to change the sample rate and sample format of your audio.', 'FreqAudio', [['Linux', 'linux/linux.sh']]],
+    ['linux/brother-archlinux', 'brother-archlinux', 'Shell · 2016', 'A script to install a Brother MFC-5490CN (and similar models) in CUPS on Arch Linux.', 'brother-archlinux', [['Linux and Bash', 'linux/linux.sh']]],
+    ['games/ourcraft', 'Ourcraft', 'C# · 2024', 'A deformable-terrain game with NPCs based on multi-agent systems.', 'Ourcraft', [['C#', 'languages/csharp.cs'], ['Machine learning', 'ai/machine-learning.md']]],
+    ['games/dementia', 'Dementia', 'C++ · 2021', 'A 3D framework on DirectX 11.', 'Dementia', [['C / C++', 'languages/cpp.cpp']]]
   ].forEach(function (p) {
-    f('proyectos/' + p[0] + '.md', { kind: 'project', title: p[1], sub: 'GitHub · ' + p[2], text: p[3] },
-      '# ' + p[1] + '\n\n`' + p[2] + '`\n\n' + p[3] + '\n\n**Repositorio:** [github.com/catunlock/' + p[4] + '](' + GH + p[4] + ')\n\n**Con:** ' +
-      p[5].map(function (t) { return '[' + t[0] + '](../../conocimiento/' + t[1] + ')'; }).join(' · ') + '\n');
+    f('projects/' + p[0] + '.md', { kind: 'project', title: p[1], sub: 'GitHub · ' + p[2], text: p[3] },
+      '# ' + p[1] + '\n\n`' + p[2] + '`\n\n' + p[3] + '\n\n**Repository:** [github.com/catunlock/' + p[4] + '](' + GH + p[4] + ')\n\n**Stack:** ' +
+      p[5].map(function (t) { return '[' + t[0] + '](../../skills/' + t[1] + ')'; }).join(' · ') + '\n');
   });
 
-  // —— formación ——
-  f('formacion/master-ia.md', { kind: 'education', title: 'Máster en Inteligencia Artificial', sub: 'UPC · sep 2018 – feb 2020', text: 'PLN, sistemas multiagente, visión por computador, planificación y deep learning.' }, `
-# Máster en Inteligencia Artificial
+  // —— education ——
+  f('education/masters-ai.md', { kind: 'education', title: 'M.S. in Artificial Intelligence', sub: 'UPC · Sep 2018 – Feb 2020', text: 'NLP, multi-agent systems, computer vision, planning and deep learning.' }, `
+# M.S. in Artificial Intelligence
 
-\`UPC · sep 2018 – feb 2020\`
+\`UPC · Sep 2018 – Feb 2020\`
 
-Procesamiento del lenguaje natural, sistemas multiagente, visión por computador, planificación y razonamiento, y deep learning.
+Natural language processing, multi-agent systems, computer vision, planning and reasoning, and deep learning.
 
-## Trabajo final
+## Thesis
 
-**Spatio-temporal Gaze Estimation for Human-Machine and Human-Human Interaction** (feb 2020): el flujo óptico como nueva información temporal, junto a la cara y los ojos, para estimar la mirada en 3D desde cámaras remotas a media distancia.
+**Spatio-temporal Gaze Estimation for Human-Machine and Human-Human Interaction** (Feb 2020): optical flow as a new source of temporal information, alongside the face and eyes, to estimate 3D gaze from remote cameras at mid distance.
 
 [hdl.handle.net/2117/335288](http://hdl.handle.net/2117/335288)
 `);
-  f('formacion/grado-informatica.md', { kind: 'education', title: 'Grado en Ingeniería Informática', sub: 'UPC · sep 2013 – jun 2018', text: 'Especialidad en Computación: algoritmos, teoría de la computación, compiladores, IA y machine learning.' }, `
-# Grado en Ingeniería Informática
+  f('education/bachelors-cs.md', { kind: 'education', title: 'B.S. in Computer Science and Engineering', sub: 'UPC · Sep 2013 – Jun 2018', text: 'Specialized in Computing: algorithms, theory of computation, compilers, AI and machine learning.' }, `
+# B.S. in Computer Science and Engineering
 
-\`UPC · sep 2013 – jun 2018\`
+\`UPC · Sep 2013 – Jun 2018\`
 
-Especialidad en Computación: algoritmos (C++), teoría de la computación, programación funcional (Haskell), compiladores, inteligencia artificial (Java y Python), machine learning (Python y R) y lógica (Prolog).
+Specialized in Computing: algorithms (C++), theory of computation, functional programming (Haskell), compilers, artificial intelligence (Java and Python), machine learning (Python and R) and logic (Prolog).
 
-## Trabajo final
+## Final project
 
-**Plataforma web de búsqueda y recomendación de artículos científicos** (feb 2018): un «Netflix» para investigadores que encuentra los artículos relevantes con procesamiento del lenguaje natural y otras técnicas de machine learning.
+**Web platform for the search and recommendation of scientific articles** (Feb 2018): a “Netflix” for researchers that finds the relevant papers using natural language processing and other machine-learning techniques.
 
 [hdl.handle.net/2117/122563](http://hdl.handle.net/2117/122563)
 `);
-  f('formacion/certificaciones.md', { kind: 'education', title: 'Certificaciones', sub: '2020', text: 'ITIL 4 Foundation.' }, `
-# Certificaciones
+  f('education/certifications.md', { kind: 'education', title: 'Certifications', sub: '2020', text: 'ITIL 4 Foundation.' }, `
+# Certifications
 
 - **ITIL 4 Foundation** · 2020
 `);
 
-  // —— taller ——
-  f('taller/home-assistant.yaml', { kind: 'hobby', title: 'Home Assistant · IoT', level: 4, text: 'Mi casa domótica, con dispositivos hechos por mí.' }, `
-# Home Assistant · IoT — nivel 4/5 · Avanzado
-# Mi casa domótica, con dispositivos hechos por mí.
+  // —— lab ——
+  f('lab/home-assistant.yaml', { kind: 'hobby', title: 'Home Assistant · IoT', level: 4, text: 'My smart home, with devices I built myself.' }, `
+# Home Assistant · IoT — level 4/5 · Advanced
+# My smart home, with devices I built myself.
 
 homeassistant:
-  name: Casa
+  name: Home
   unit_system: metric
 
-# Algunos dispositivos están en GitHub:
-#   proyectos/embebido/esp8266-smartlight.md
-#   proyectos/embebido/esp32-ble-keyboard.md
+# Some of the devices are on GitHub:
+#   projects/embedded/esp8266-smartlight.md
+#   projects/embedded/esp32-ble-keyboard.md
 `);
-  f('taller/pcb.md', { kind: 'hobby', title: 'Diseño de PCB', level: 3, text: 'Esquemas y placas para mis propios dispositivos.' }, `
-# Diseño de PCB
+  f('lab/pcb.md', { kind: 'hobby', title: 'PCB design', level: 3, text: 'Schematics and boards for my own devices.' }, `
+# PCB design
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Esquemas y placas para mis propios dispositivos.
+Schematics and boards for my own devices.
 
-- [Quokka](../experiencia/startups/quokka.md): la electrónica de una nevera inteligente.
+- [Quokka](../experience/startups/quokka.md): the electronics of a smart fridge.
 `);
-  f('taller/cad-3d.md', { kind: 'hobby', title: 'CAD e impresión 3D', level: 3, text: 'Cajas, soportes y piezas a medida, diseñadas e impresas en casa.' }, `
-# CAD e impresión 3D
+  f('lab/cad-3d.md', { kind: 'hobby', title: 'CAD and 3D printing', level: 3, text: 'Enclosures, mounts and custom parts, designed and printed at home.' }, `
+# CAD and 3D printing
 
-Nivel: 3/5 · Competente
+Level: 3/5 · Competent
 
-Cajas, soportes y piezas a medida, diseñadas e impresas en casa. También la enseñé en los cursos de verano de [JEDI](../experiencia/jedi.md), y hoy trabajo en el software de impresoras 3D de [HP](../experiencia/hp/README.md).
+Enclosures, mounts and custom parts, designed and printed at home. I also taught it in the [JEDI](../experience/jedi.md) summer courses, and today I work on the software of [HP](../experience/hp/README.md)’s 3D printers.
 `);
-  f('taller/escritorio.conf', { kind: 'hobby', title: 'Escritorio Linux', level: 5, text: 'Ajustar el escritorio hasta que hace exactamente lo que necesito.' }, `
-# Escritorio Linux — nivel 5/5 · Experto
-# Ajustar el escritorio hasta que hace exactamente lo que necesito.
+  f('lab/desktop.conf', { kind: 'hobby', title: 'Linux desktop', level: 5, text: 'Tuning my desktop until it does exactly what I need.' }, `
+# Linux desktop — level 5/5 · Expert
+# Tuning my desktop until it does exactly what I need.
 
-[en_github]
-audio = "proyectos/linux/freqaudio.md"
-impresora = "proyectos/linux/brother-archlinux.md"
+[on_github]
+audio = "projects/linux/freqaudio.md"
+printer = "projects/linux/brother-archlinux.md"
 
-[estado]
-terminado = false
+[status]
+finished = false
 `);
 
-  f('contacto.json', { kind: 'contact', title: 'Contacto', text: 'LinkedIn (con el CV completo) y GitHub.' }, `
+  f('contact.json', { kind: 'contact', title: 'Contact', text: 'LinkedIn (with the full CV) and GitHub.' }, `
 {
   "web": "https://${SITE}",
   "linkedin": "${LINKEDIN}",
   "github": "${GITHUB}"
 }
 `);
-  f('.secreto', { kind: 'secret', title: '.secreto', text: 'Si estás leyendo esto, ya lo has encontrado.' }, `
-Has encontrado el archivo secreto.
+  f('.secret', { kind: 'secret', title: '.secret', text: 'If you are reading this, you already found it.' }, `
+You found the secret file.
 
-No hay premio, pero hay truco. En cualquier parte de la página:
+No prize, but there is a trick. Anywhere on the page:
 
     ↑ ↑ ↓ ↓ ← → ← → B A
 `);
 
-  // Trayectoria como historial de git (más reciente primero)
+  // Career as a git history (newest first)
   var COMMITS = [
-    { hash: '9f3c2e1', refs: 'HEAD -> main, origin/hp', date: 'mar 2022 – hoy', msg: 'feat(hp): Software Engineer · firmware, seguridad y herramientas', file: 'experiencia/hp/README.md' },
-    { hash: '7a41d0b', refs: '', date: 'ago 2021 – feb 2022', msg: 'feat(nuclia): indexación distribuida de NucliaDB en Rust', file: 'experiencia/nuclia.md' },
-    { hash: 'c3b7e90', refs: '', date: 'dic 2020 – ago 2021', msg: 'feat(alba): control de equipos científicos en ALBA Synchrotron', file: 'experiencia/alba-synchrotron.md' },
-    { hash: '52e8a9c', refs: '', date: 'ago 2020', msg: 'feat(proxishop): e-commerce de proximidad durante la COVID-19', file: 'experiencia/startups/proxishop.md' },
-    { hash: 'b01dfac', refs: '', date: 'jun – dic 2019', msg: 'feat(quokka): electrónica de una nevera inteligente', file: 'experiencia/startups/quokka.md' },
-    { hash: '4d2a6f3', refs: '', date: 'sep 2018 – feb 2020', msg: 'feat(upc): máster en Inteligencia Artificial', file: 'formacion/master-ia.md' },
-    { hash: 'e81f00d', refs: '', date: 'may 2017 – sep 2020', msg: 'feat(jedi): profesor y responsable de formación', file: 'experiencia/jedi.md' },
-    { hash: '1c0ffee', refs: '', date: 'sep 2013', msg: 'chore: primer commit — empiezo Ingeniería Informática', file: 'formacion/grado-informatica.md' }
+    { hash: '9f3c2e1', refs: 'HEAD -> main, origin/hp', date: 'Mar 2022 – present', msg: 'feat(hp): Software Engineer · firmware, security and tooling', file: 'experience/hp/README.md' },
+    { hash: '7a41d0b', refs: '', date: 'Aug 2021 – Feb 2022', msg: 'feat(nuclia): distributed indexing for NucliaDB in Rust', file: 'experience/nuclia.md' },
+    { hash: 'c3b7e90', refs: '', date: 'Dec 2020 – Aug 2021', msg: 'feat(alba): scientific equipment control at ALBA Synchrotron', file: 'experience/alba-synchrotron.md' },
+    { hash: '52e8a9c', refs: '', date: 'Aug 2020', msg: 'feat(proxishop): local e-commerce during COVID-19', file: 'experience/startups/proxishop.md' },
+    { hash: 'b01dfac', refs: '', date: 'Jun – Dec 2019', msg: 'feat(quokka): electronics for a smart fridge', file: 'experience/startups/quokka.md' },
+    { hash: '4d2a6f3', refs: '', date: 'Sep 2018 – Feb 2020', msg: 'feat(upc): M.S. in Artificial Intelligence', file: 'education/masters-ai.md' },
+    { hash: 'e81f00d', refs: '', date: 'May 2017 – Sep 2020', msg: 'feat(jedi): instructor and head of education', file: 'experience/jedi.md' },
+    { hash: '1c0ffee', refs: '', date: 'Sep 2013', msg: 'chore: initial commit — starting Computer Science', file: 'education/bachelors-cs.md' }
   ];
   // ================= Utilidades =================
-  var LEVELS = ['', 'Explorando', 'Básico', 'Competente', 'Avanzado', 'Experto'];
-  var KINDS = { about: 'Sobre mí', work: 'Experiencia', achievement: 'Logro', skill: 'Conocimiento', hobby: 'Taller', project: 'Proyecto', education: 'Formación', contact: 'Contacto', secret: '¿?' };
+  var LEVELS = ['', 'Exploring', 'Basic', 'Competent', 'Advanced', 'Expert'];
+  var KINDS = { about: 'About', work: 'Experience', achievement: 'Achievement', skill: 'Skill', hobby: 'Lab', project: 'Project', education: 'Education', contact: 'Contact', secret: '??' };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function fold(s) { return s.split('').map(function (c) { return c.normalize('NFD').replace(/[̀-ͯ]/g, '') || c; }).join('').toLowerCase(); }
   function dirOf(p) { var i = p.lastIndexOf('/'); return i < 0 ? '' : p.slice(0, i); }
@@ -556,8 +556,8 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       seen[name] = 1;
       out.push({ name: name, path: pre + name, dir: i >= 0 });
     });
-    var ORDER = ['experiencia', 'conocimiento', 'proyectos', 'formacion', 'taller'], rank = function (c) { var k = dir ? -1 : ORDER.indexOf(c.name); return k < 0 ? 99 : k; };
-    return out.sort(function (a, b) { return (b.dir - a.dir) || (rank(a) - rank(b)) || a.name.localeCompare(b.name, 'es'); });
+    var ORDER = ['experience', 'skills', 'projects', 'education', 'lab'], rank = function (c) { var k = dir ? -1 : ORDER.indexOf(c.name); return k < 0 ? 99 : k; };
+    return out.sort(function (a, b) { return (b.dir - a.dir) || (rank(a) - rank(b)) || a.name.localeCompare(b.name, 'en'); });
   }
   function filesUnder(dir, hidden) { var pre = dir ? dir + '/' : ''; return Object.keys(FILES).filter(function (k) { return k.indexOf(pre) === 0 && (hidden || !/(^|\/)\./.test(k)); }); }
   function langOf(p) {
@@ -566,7 +566,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     var ext = b.lastIndexOf('.') > 0 ? b.slice(b.lastIndexOf('.') + 1) : '';
     return { md: 'markdown', rs: 'rust', c: 'c', cpp: 'cpp', cs: 'csharp', tcl: 'tcl', sql: 'sql', py: 'python', yml: 'yaml', yaml: 'yaml', json: 'json', toml: 'toml', conf: 'ini', sh: 'bash' }[ext] || 'text';
   }
-  var LANG_NAME = { markdown: 'Markdown', rust: 'Rust', c: 'C', cpp: 'C++', csharp: 'C#', tcl: 'Tcl', sql: 'SQL', python: 'Python', yaml: 'YAML', json: 'JSON', toml: 'TOML', ini: 'Ini', bash: 'Shell Script', dockerfile: 'Dockerfile', text: 'Texto sin formato' };
+  var LANG_NAME = { markdown: 'Markdown', rust: 'Rust', c: 'C', cpp: 'C++', csharp: 'C#', tcl: 'Tcl', sql: 'SQL', python: 'Python', yaml: 'YAML', json: 'JSON', toml: 'TOML', ini: 'Ini', bash: 'Shell Script', dockerfile: 'Dockerfile', text: 'Plain Text' };
   var ICON = { markdown: ['#', 'syn-func'], rust: ['R', 'syn-keyword'], c: ['C', 'syn-type'], cpp: ['C+', 'syn-type'], csharp: ['C#', 'syn-key'], tcl: ['T', 'syn-func'], sql: ['DB', 'syn-number'], python: ['py', 'syn-string'], yaml: ['≡', 'syn-key'], json: ['{}', 'syn-number'], toml: ['⚙', 'ink-muted'], ini: ['⚙', 'ink-muted'], bash: ['$', 'syn-string'], dockerfile: ['◫', 'syn-type'], text: ['·', 'ink-muted'] };
   function icon(p) { var i = ICON[langOf(p)]; return '<span class="vs-ficon" aria-hidden="true" style="color:var(--' + i[1] + ')">' + i[0] + '</span>'; }
 
@@ -574,7 +574,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     opts = opts || {};
     var pips = '';
     for (var i = 1; i <= 5; i++) pips += '<span class="vs-pip' + (i <= l ? ' on' : '') + '"></span>';
-    return '<span class="vs-level" role="img" aria-label="Nivel ' + l + ' de 5: ' + LEVELS[l] + '"><span class="vs-pips">' + pips + '</span>' +
+    return '<span class="vs-level" role="img" aria-label="Level ' + l + ' of 5: ' + LEVELS[l] + '"><span class="vs-pips">' + pips + '</span>' +
       (opts.compact ? '' : '<span class="vs-level-word">' + LEVELS[l] + ' · ' + l + '/5</span>') + '</span>';
   }
 
@@ -662,7 +662,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     var L = src.replace(/\n$/, '').split('\n'), out = '', i = 0, buf = [];
     function para() {
       if (!buf.length) return;
-      var t = buf.join(' '), lv = /^Nivel: (\d)\/5/.exec(t);
+      var t = buf.join(' '), lv = /^Level: (\d)\/5/.exec(t);
       out += lv ? '<div class="vs-md-level">' + level(+lv[1]) + '</div>' : '<p>' + inline(t, base) + '</p>';
       buf = [];
     }
@@ -708,8 +708,8 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     var file = FILES[path];
     if (!file && isDir(path)) {
       var n = filesUnder(path).length;
-      return '<div class="vs-card"><div class="vs-card-kind">Carpeta<span>' + esc(path) + '/</span></div><div class="vs-card-title">' + esc(baseOf(path)) + '/</div>' +
-        '<div class="vs-card-sub">' + n + (n === 1 ? ' archivo' : ' archivos') + '</div>' + (DIRS[path] ? '<p class="vs-card-text">' + esc(DIRS[path]) + '</p>' : '') + '</div>';
+      return '<div class="vs-card"><div class="vs-card-kind">Folder<span>' + esc(path) + '/</span></div><div class="vs-card-title">' + esc(baseOf(path)) + '/</div>' +
+        '<div class="vs-card-sub">' + n + (n === 1 ? ' file' : ' files') + '</div>' + (DIRS[path] ? '<p class="vs-card-text">' + esc(DIRS[path]) + '</p>' : '') + '</div>';
     }
     if (!file || !file.meta) return '';
     var m = file.meta;
@@ -805,11 +805,11 @@ No hay premio, pero hay truco. En cualquier parte de la página:
   // api: { open(path), reveal(dir), setTheme(id), theme(), close(), toast(text), themes }
   var REDUCED = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var FORTUNES = [
-    'Primero haz que funcione; luego, que funcione bien; después, que sea rápido. En ese orden.',
-    'Un firmware sin logs es un firmware con secretos.',
-    'Si lo haces tres veces, automatízalo. Si lo haces dos, piénsalo.',
-    'El mejor commit es el que se entiende dentro de seis meses.',
-    'Funciona en mi máquina. Por eso existe Docker.'
+    'Make it work, then make it right, then make it fast. In that order.',
+    'Firmware without logs is firmware with secrets.',
+    'If you do it three times, automate it. If you do it twice, think about it.',
+    'The best commit is the one you still understand six months later.',
+    'It works on my machine. That is why Docker exists.'
   ];
   function lev(a, b) {
     var m = [], i, j;
@@ -820,7 +820,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     api = api || {};
     var cwd = '', hist = [], hi = 0, mode = 'sh';
     el.classList.add('vs-term');
-    el.innerHTML = '<div class="vs-term-out" role="log" aria-live="polite"></div><div class="vs-term-line"><span class="vs-term-ps"></span><input class="vs-term-in" aria-label="Terminal: escribe un comando" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></div>';
+    el.innerHTML = '<div class="vs-term-out" role="log" aria-live="polite"></div><div class="vs-term-line"><span class="vs-term-ps"></span><input class="vs-term-in" aria-label="Terminal: type a command" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></div>';
     var out = el.querySelector('.vs-term-out'), input = el.querySelector('.vs-term-in'), ps = el.querySelector('.vs-term-ps');
     function promptHTML() { return '<span class="c-ok">alberto@alopezs</span>:<span class="c-path">' + (cwd ? '~/' + esc(cwd) : '~') + '</span>$ '; }
     function setPs() { ps.innerHTML = mode === 'vim' ? '<span class="c-dim">:</span>' : mode === 'busy' ? '' : promptHTML(); el.classList.toggle('is-busy', mode === 'busy'); }
@@ -835,44 +835,44 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     function pad(s, n) { s = String(s); while (s.length < n) s += ' '; return s; }
 
     var HELP = [
-      ['help', 'esta ayuda'], ['ls [-a] [ruta]', 'lista una carpeta'], ['cd <ruta>', 'cambia de carpeta'], ['cat <archivo>', 'muestra un archivo'],
-      ['open <archivo>', 'lo abre en el editor (también: code)'], ['tree [ruta]', 'árbol de carpetas'], ['grep <texto>', 'busca en todos los archivos'],
-      ['skills', 'conocimiento y taller con su nivel'], ['git log', 'la trayectoria, como historial'], ['neofetch', 'resumen del sistema'],
-      ['contacto', 'cómo escribirme'], ['cv', 'el CV completo'], ['theme [nombre]', 'cambia el tema'], ['clear', 'limpia la terminal (Ctrl+L)'], ['exit', 'cierra el panel']
+      ['help', 'this help'], ['ls [-a] [path]', 'list a folder'], ['cd <path>', 'change folder'], ['cat <file>', 'print a file'],
+      ['open <file>', 'open it in the editor (also: code)'], ['tree [path]', 'folder tree'], ['grep <text>', 'search every file'],
+      ['skills', 'skills and lab, with their levels'], ['git log', 'my career, as a commit history'], ['neofetch', 'system summary'],
+      ['contact', 'how to reach me'], ['cv', 'the full CV'], ['theme [name]', 'change the theme'], ['clear', 'clear the terminal (Ctrl+L)'], ['exit', 'close the panel']
     ];
     var C = {
-      help: function () { print(HELP.map(function (h) { return '<span class="c-ok">' + esc(pad(h[0], 18)) + '</span>' + esc(h[1]); }).join('\n') + '\n<span class="c-dim">Tab completa, ↑ ↓ recorren el historial. Hay más comandos de los que salen aquí.</span>'); },
+      help: function () { print(HELP.map(function (h) { return '<span class="c-ok">' + esc(pad(h[0], 18)) + '</span>' + esc(h[1]); }).join('\n') + '\n<span class="c-dim">Tab completes, ↑ ↓ walk the history. There are more commands than the ones listed here.</span>'); },
       ls: function (a) {
         var all = a.indexOf('-a') >= 0 || a.indexOf('-la') >= 0 || a.indexOf('-al') >= 0, long = /^-\w*l/.test(a.join(' ')), p = target(a.filter(function (x) { return x.charAt(0) !== '-'; })[0]);
         if (isFile(p)) return print(link(p));
-        if (!isDir(p)) return line('ls: no se puede acceder a «' + p + '»: No existe el archivo o el directorio', 'c-err');
+        if (!isDir(p)) return line("ls: cannot access '" + p + "': No such file or directory", 'c-err');
         var items = children(p, all);
         if (long) return print(items.map(function (c) { var sz = c.dir ? 4096 : FILES[c.path].body.length; return (c.dir ? 'drwxr-xr-x' : '-rw-r--r--') + '  alberto  ' + pad(String(sz), 5) + '  ' + nameHTML(c); }).join('\n'));
         print((all ? '<span class="c-path">./</span>  <span class="c-path">../</span>  ' : '') + items.map(nameHTML).join('  '));
       },
       cd: function (a) {
         var p = a[0] === '-' ? cwd : target(a[0] || '~');
-        if (isFile(p)) return line('cd: no es un directorio: ' + a[0], 'c-err');
-        if (!isDir(p)) return line('cd: no existe el directorio: ' + a[0], 'c-err');
+        if (isFile(p)) return line('cd: not a directory: ' + a[0], 'c-err');
+        if (!isDir(p)) return line('cd: no such file or directory: ' + a[0], 'c-err');
         cwd = p;
       },
       pwd: function () { line('/home/alberto' + (cwd ? '/' + cwd : '')); },
       cat: function (a) {
-        if (!a[0]) return line('cat: falta el archivo. Prueba: cat README.md', 'c-err');
+        if (!a[0]) return line('cat: missing file. Try: cat README.md', 'c-err');
         var p = target(a[0]);
-        if (isDir(p) && !isFile(p)) return line('cat: ' + a[0] + ': Es un directorio', 'c-err');
-        if (!isFile(p)) return line('cat: ' + a[0] + ': No existe el archivo o el directorio', 'c-err');
+        if (isDir(p) && !isFile(p)) return line('cat: ' + a[0] + ': Is a directory', 'c-err');
+        if (!isFile(p)) return line('cat: ' + a[0] + ': No such file or directory', 'c-err');
         print('<span class="c-cat">' + esc(FILES[p].body.replace(/\n$/, '')) + '</span>');
       },
       open: function (a) {
         var p = target(a[0] || '.');
-        if (isFile(p)) { api.open ? api.open(p) : 0; return line('Abierto en el editor: ' + p, 'c-dim'); }
-        if (isDir(p)) { api.reveal ? api.reveal(p) : 0; return line('Mostrado en el explorador: ' + (p || '~'), 'c-dim'); }
-        line('open: no existe: ' + a[0], 'c-err');
+        if (isFile(p)) { api.open ? api.open(p) : 0; return line('Opened in the editor: ' + p, 'c-dim'); }
+        if (isDir(p)) { api.reveal ? api.reveal(p) : 0; return line('Shown in the explorer: ' + (p || '~'), 'c-dim'); }
+        line('open: not found: ' + a[0], 'c-err');
       },
       tree: function (a) {
         var root = target(a[0]), lines = [esc(root ? root + '/' : '.')];
-        if (!isDir(root)) return line('tree: no es un directorio: ' + a[0], 'c-err');
+        if (!isDir(root)) return line('tree: not a directory: ' + a[0], 'c-err');
         (function walk(dir, prefix) {
           var cs = children(dir, false);
           cs.forEach(function (c, i) { var last = i === cs.length - 1; lines.push('<span class="c-dim">' + prefix + (last ? '└── ' : '├── ') + '</span>' + nameHTML(c)); if (c.dir) walk(c.path, prefix + (last ? '    ' : '│   ')); });
@@ -881,7 +881,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       },
       grep: function (a) {
         var q = a.filter(function (x) { return x.charAt(0) !== '-'; }).join(' ');
-        if (!q) return line('grep: ¿qué busco? Prueba: grep firmware', 'c-err');
+        if (!q) return line('grep: search for what? Try: grep firmware', 'c-err');
         var fq = fold(q), res = [];
         filesUnder('', false).forEach(function (p) {
           FILES[p].body.split('\n').forEach(function (l, i) {
@@ -889,109 +889,109 @@ No hay premio, pero hay truco. En cualquier parte de la página:
             if (k >= 0) res.push(link(p, p) + '<span class="c-dim">:' + (i + 1) + ':</span> ' + esc(l.slice(0, k).trim().slice(-40)) + '<span class="c-hit">' + esc(l.substr(k, q.length)) + '</span>' + esc(l.slice(k + q.length).slice(0, 50)));
           });
         });
-        if (!res.length) return line('Sin coincidencias para «' + q + '».', 'c-dim');
-        print(res.slice(0, 40).join('\n') + (res.length > 40 ? '\n<span class="c-dim">… y ' + (res.length - 40) + ' más</span>' : ''));
+        if (!res.length) return line('No matches for "' + q + '".', 'c-dim');
+        print(res.slice(0, 40).join('\n') + (res.length > 40 ? '\n<span class="c-dim">… and ' + (res.length - 40) + ' more</span>' : ''));
       },
       skills: function () {
         var rows = [], add = function (title, kind) {
           rows.push('<span class="c-warn">' + title + '</span>');
           Object.keys(FILES).forEach(function (p) { var m = FILES[p].meta; if (m && m.kind === kind && m.level) rows.push(link(p, pad(m.title, 22)) + ' <span class="c-ok">' + pips(m.level) + '</span>  ' + LEVELS[m.level]); });
         };
-        add('CONOCIMIENTO', 'skill'); rows.push(''); add('TALLER', 'hobby');
+        add('SKILLS', 'skill'); rows.push(''); add('LAB', 'hobby');
         print(rows.join('\n'));
       },
       git: function (a) {
         var sub = a[0] || '';
         if (sub === 'log') {
           if (a.indexOf('--oneline') >= 0) return print(COMMITS.map(function (c) { return '<span class="c-warn">' + c.hash + '</span> ' + (c.refs ? '<span class="c-path">(' + esc(c.refs) + ')</span> ' : '') + '<a href="#" class="c-file" data-open="' + c.file + '">' + esc(c.msg) + '</a>'; }).join('\n'));
-          return print(COMMITS.map(function (c) { return '<span class="c-warn">commit ' + c.hash + '</span>' + (c.refs ? ' <span class="c-path">(' + esc(c.refs) + ')</span>' : '') + '\nAutor: Alberto López\nFecha: ' + esc(c.date) + '\n\n    <a href="#" class="c-file" data-open="' + c.file + '">' + esc(c.msg) + '</a>\n'; }).join('\n'));
+          return print(COMMITS.map(function (c) { return '<span class="c-warn">commit ' + c.hash + '</span>' + (c.refs ? ' <span class="c-path">(' + esc(c.refs) + ')</span>' : '') + '\nAuthor: Alberto López\nDate:   ' + esc(c.date) + '\n\n    <a href="#" class="c-file" data-open="' + c.file + '">' + esc(c.msg) + '</a>\n'; }).join('\n'));
         }
-        if (sub === 'status') return print('En la rama main\nTu rama está al día con «origin/hp».\n\nnada para confirmar, el árbol de trabajo está limpio\n<span class="c-dim">(salvo un par de ideas para el próximo proyecto)</span>');
-        if (sub === 'blame') return line('Todas las líneas: Alberto López. Los bugs en producción, el compilador.', 'c-dim');
-        if (sub === 'push') return print('remote: Aquí no se acepta código, pero sí ideas.\nremote: Escríbeme: ' + link('contacto.json'));
-        if (sub === 'checkout' || sub === 'switch') return print('<span class="c-err">error: la rama «' + esc(a[a.length - 1] || '') + '» todavía no existe.</span>\n¿La creamos juntos? ' + link('contacto.json'));
-        line('git: «' + sub + '» no está disponible aquí. Prueba git log o git status.', 'c-err');
+        if (sub === 'status') return print("On branch main\nYour branch is up to date with 'origin/hp'.\n\nnothing to commit, working tree clean\n<span class=\"c-dim\">(apart from a couple of ideas for the next project)</span>");
+        if (sub === 'blame') return line('Every line: Alberto López. Production bugs: the compiler.', 'c-dim');
+        if (sub === 'push') return print('remote: No code accepted here, but ideas are welcome.\nremote: Write to me: ' + link('contact.json'));
+        if (sub === 'checkout' || sub === 'switch') return print("<span class=\"c-err\">error: pathspec '" + esc(a[a.length - 1] || '') + "' did not match any branch yet.</span>\nShall we create it together? " + link('contact.json'));
+        line("git: '" + sub + "' is not available here. Try git log or git status.", 'c-err');
       },
       neofetch: function () {
         var art = [' █████  ██      ', '██   ██ ██      ', '███████ ██      ', '██   ██ ██      ', '██   ██ ███████ ', '', '', '', '', ''];
         var info = ['<span class="c-ok">alberto</span>@<span class="c-ok">alopezs</span>', '<span class="c-dim">─────────────────</span>',
-          '<span class="c-warn">Rol</span>: Software Engineer', '<span class="c-warn">Empresa</span>: HP · Barcelona', '<span class="c-warn">Hace</span>: firmware, seguridad, tooling',
-          '<span class="c-warn">Lenguajes</span>: C++, Rust, Python, C#', '<span class="c-warn">Formación</span>: Máster en IA (UPC)', '<span class="c-warn">Taller</span>: IoT, PCB, impresión 3D', '<span class="c-warn">Idiomas</span>: es, ca, en (C1)', '<span class="c-warn">Tema</span>: ' + esc(api.theme ? api.theme() : 'noche')];
+          '<span class="c-warn">Role</span>: Software Engineer', '<span class="c-warn">Company</span>: HP · Barcelona', '<span class="c-warn">Does</span>: firmware, security, tooling',
+          '<span class="c-warn">Languages</span>: C++, Rust, Python, C#', '<span class="c-warn">Education</span>: M.S. in AI (UPC)', '<span class="c-warn">Lab</span>: IoT, PCB, 3D printing', '<span class="c-warn">Speaks</span>: es, ca, en (C1)', '<span class="c-warn">Theme</span>: ' + esc(api.theme ? api.theme() : 'night')];
         print(art.map(function (r, i) { return '<span class="c-ok">' + esc(r) + '</span>  ' + (info[i] || ''); }).join('\n'));
       },
-      contacto: function () { if (api.open) api.open('contacto.json'); print('Escríbeme por LinkedIn: ' + ext(LINKEDIN) + '\nEl código, en GitHub: ' + ext(GITHUB)); },
-      cv: function () { print('El CV completo está en LinkedIn: ' + ext(LINKEDIN)); },
+      contact: function () { if (api.open) api.open('contact.json'); print('Write to me on LinkedIn: ' + ext(LINKEDIN) + '\nThe code, on GitHub: ' + ext(GITHUB)); },
+      cv: function () { print('The full CV is on LinkedIn: ' + ext(LINKEDIN)); },
       theme: function (a) {
-        var list = api.themes || ['noche', 'dia'];
-        if (!a[0]) return print(list.filter(function (t) { return t !== 'placa'; }).map(function (t) { return (api.theme && api.theme() === t ? '<span class="c-ok">● ' : '  ') + t + (api.theme && api.theme() === t ? '</span>' : ''); }).join('\n') + '\n<span class="c-dim">Uso: theme dia</span>');
-        if (list.indexOf(a[0]) < 0) return line('theme: no conozco «' + a[0] + '». Prueba: theme', 'c-err');
+        var list = api.themes || ['night', 'day'];
+        if (!a[0]) return print(list.filter(function (t) { return t !== 'pcb'; }).map(function (t) { return (api.theme && api.theme() === t ? '<span class="c-ok">● ' : '  ') + t + (api.theme && api.theme() === t ? '</span>' : ''); }).join('\n') + '\n<span class="c-dim">Usage: theme day</span>');
+        if (list.indexOf(a[0]) < 0) return line("theme: unknown theme '" + a[0] + "'. Try: theme", 'c-err');
         if (api.setTheme) api.setTheme(a[0]);
-        line('Tema: ' + a[0], 'c-ok');
+        line('Theme: ' + a[0], 'c-ok');
       },
       history: function () { print(hist.map(function (h, i) { return '<span class="c-dim">' + pad(String(i + 1), 4) + '</span>' + esc(h); }).join('\n')); },
       echo: function (a) { line(a.join(' ')); },
-      date: function () { line(new Date().toLocaleString('es-ES', { dateStyle: 'full', timeStyle: 'short' })); },
+      date: function () { line(new Date().toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' })); },
       whoami: function () { line('alberto'); },
       hostname: function () { line(SITE); },
       uname: function (a) { line(a[0] === '-a' ? 'PortfolioOS 1.0 alopezs 6.0.0-alberto x86_64 GNU/Linux' : 'PortfolioOS'); },
       clear: function () { out.innerHTML = ''; },
-      exit: function () { if (api.close) { api.close(); line('logout', 'c-dim'); } else line('logout (aquí no hay ningún panel que cerrar)', 'c-dim'); },
+      exit: function () { if (api.close) { api.close(); line('logout', 'c-dim'); } else line('logout (there is no panel to close here)', 'c-dim'); },
       man: function (a) {
         var h = HELP.filter(function (x) { return x[0].split(' ')[0] === a[0]; })[0];
-        line(h ? a[0] + ' — ' + h[1] : 'No hay entrada de manual para ' + (a[0] || 'eso') + '. Prueba help.', h ? '' : 'c-dim');
+        line(h ? a[0] + ' — ' + h[1] : 'No manual entry for ' + (a[0] || 'that') + '. Try help.', h ? '' : 'c-dim');
       },
-      // —— los que no salen en help ——
+      // —— not listed in help ——
       sudo: function (a) {
-        if (a.join(' ') === 'make me a sandwich') return line('Vale.', 'c-ok');
-        print('[sudo] contraseña para alberto: \n<span class="c-err">alberto no está en el archivo sudoers. Este incidente será reportado.</span>');
+        if (a.join(' ') === 'make me a sandwich') return line('Okay.', 'c-ok');
+        print('[sudo] password for alberto: \n<span class="c-err">alberto is not in the sudoers file. This incident will be reported.</span>');
       },
       rm: function (a) {
-        if (a.indexOf('-rf') < 0 && a.indexOf('-fr') < 0) return line('rm: aquí no se borra nada; es mi carrera.', 'c-err');
+        if (a.indexOf('-rf') < 0 && a.indexOf('-fr') < 0) return line('rm: nothing gets deleted here; this is my career.', 'c-err');
         mode = 'busy'; setPs();
-        var steps = ['experiencia', 'conocimiento', 'proyectos', 'taller'], k = 0;
+        var steps = ['experience', 'skills', 'projects', 'lab'], k = 0;
         (function next() {
-          if (k < steps.length) { line('rm: borrando /home/alberto/' + steps[k++] + '…', 'c-err'); return setTimeout(next, REDUCED ? 0 : 420); }
-          line('Es broma: es una web estática. Todo sigue en su sitio.', 'c-ok'); mode = 'sh'; setPs(); input.focus({ preventScroll: true });
+          if (k < steps.length) { line("rm: removing '/home/alberto/" + steps[k++] + "'…", 'c-err'); return setTimeout(next, REDUCED ? 0 : 420); }
+          line('Just kidding: this is a static site. Everything is still in place.', 'c-ok'); mode = 'sh'; setPs(); input.focus({ preventScroll: true });
         })();
       },
       vim: function (a) {
         mode = 'vim'; setPs();
         var rows = ''; for (var i = 0; i < 6; i++) rows += '<span class="c-dim">~</span>\n';
-        print('<div class="c-vim">' + rows + '<span class="c-inv">"' + esc(a[0] || '[Sin nombre]') + '" — NORMAL</span></div>');
-        input.placeholder = 'q para salir… si sabes cómo';
+        print('<div class="c-vim">' + rows + '<span class="c-inv">"' + esc(a[0] || '[No Name]') + '" — NORMAL</span></div>');
+        input.placeholder = ':q to quit… if you know how';
       },
-      emacs: function () { line('Buen intento. Aquí se usa vim.', 'c-dim'); C.vim([]); },
-      nano: function () { line('nano: elección sensata. Pero esto es una terminal de mentira.', 'c-dim'); },
-      coffee: function () { print('<span class="c-err">HTTP 418</span> Soy una tetera.\n<span class="c-dim">(RFC 2324. Para café de verdad, escríbeme: ' + link('contacto.json') + ')</span>'); },
-      make: function (a) { if (a[0] === 'coffee' || a[0] === 'cafe' || a[0] === 'café') return C.coffee(); line('make: *** No hay ninguna regla para construir «' + (a[0] || 'todo') + '». Alto.', 'c-err'); },
+      emacs: function () { line('Nice try. We use vim here.', 'c-dim'); C.vim([]); },
+      nano: function () { line('nano: a sensible choice. But this terminal is make-believe.', 'c-dim'); },
+      coffee: function () { print("<span class=\"c-err\">HTTP 418</span> I'm a teapot.\n<span class=\"c-dim\">(RFC 2324. For real coffee, write to me: " + link('contact.json') + ')</span>'); },
+      make: function (a) { if (a[0] === 'coffee') return C.coffee(); line("make: *** No rule to make target '" + (a[0] || 'all') + "'.  Stop.", 'c-err'); },
       sl: function () {
         var train = ['      ====        ________                ', '  _D _|  |_______/        \\__I_I_____===__', '   |(_)---  |   H\\________/ |   |        |', '   /     |  |   H  |  |     |   |  ALB   |', '  |      |  |   H  |__--------------------|', '__/ =| o |=-~~\\  /~~\\  /~~\\  /~~\\ ____Y___', ' |/-=|___|=    ||    ||    ||    |_____/~\\', '  \\_/      \\O=====O=====O=====O_/      \\_/'];
         var dv = print('<div class="c-train-wrap"><pre class="c-train">' + esc(train.join('\n')) + '</pre></div>');
-        if (REDUCED) return line('(querías decir ls)', 'c-dim');
+        if (REDUCED) return line('(you meant ls)', 'c-dim');
         mode = 'busy'; setPs();
-        setTimeout(function () { dv.remove(); line('(querías decir ls)', 'c-dim'); mode = 'sh'; setPs(); input.focus({ preventScroll: true }); }, 2600);
+        setTimeout(function () { dv.remove(); line('(you meant ls)', 'c-dim'); mode = 'sh'; setPs(); input.focus({ preventScroll: true }); }, 2600);
       },
-      ping: function (a) { var h = a[0] || 'alberto'; print('PING ' + esc(h) + ': 56 bytes de datos.\n64 bytes de ' + esc(h) + ': icmp_seq=1 tiempo=un café\n64 bytes de ' + esc(h) + ': icmp_seq=2 tiempo=un café y medio\n<span class="c-dim">--- 2 paquetes enviados, 2 recibidos. Para hablar de verdad: ' + link('contacto.json') + ' ---</span>'); },
-      pacman: function () { line('¿Arch? Respeto. Pero aquí no se instala nada.', 'c-dim'); },
+      ping: function (a) { var h = a[0] || 'alberto'; print('PING ' + esc(h) + ': 56 data bytes\n64 bytes from ' + esc(h) + ': icmp_seq=1 time=one coffee\n64 bytes from ' + esc(h) + ': icmp_seq=2 time=a coffee and a half\n<span class="c-dim">--- 2 packets transmitted, 2 received. To actually talk: ' + link('contact.json') + ' ---</span>'); },
+      pacman: function () { line('Arch? Respect. But nothing gets installed here.', 'c-dim'); },
       fortune: function () { line(FORTUNES[Math.floor(Math.random() * FORTUNES.length)]); },
       cowsay: function (a) {
-        var t = a.join(' ') || 'Muu. Escribe help.', bar = new Array(t.length + 3).join('-');
+        var t = a.join(' ') || 'Moo. Type help.', bar = new Array(t.length + 3).join('-');
         print(' ' + bar.replace(/-/g, '_') + '\n< ' + esc(t) + ' >\n ' + bar + '\n        \\   ^__^\n         \\  (oo)\\_______\n            (__)\\       )\\/\\\n                ||----w |\n                ||     ||');
       },
-      42: function () { line('La respuesta. Falta la pregunta.', 'c-dim'); },
-      hola: function () { line('¡Hola! Escribe help para empezar, o contacto para hablar.'); },
-      contratar: function () { line('Buena idea.', 'c-ok'); C.contacto(); }
+      42: function () { line('The answer. Now we need the question.', 'c-dim'); },
+      hello: function () { line('Hi! Type help to get started, or contact to talk.'); },
+      hire: function () { line('Good idea.', 'c-ok'); C.contact(); }
     };
-    C.code = C.open; C.vi = C.nvim = C.vim; C.cafe = C['café'] = C.coffee; C.fastfetch = C.neofetch; C.contact = C.contacto; C.hire = C.contratar;
-    C.apt = C['apt-get'] = C.dnf = function () { line('E: Necesitas ser root para instalar paquetes. Y no lo eres.', 'c-err'); };
-    C.hello = C.hola; C.ll = function (a) { C.ls(['-la'].concat(a)); };
+    C.code = C.open; C.vi = C.nvim = C.vim; C.fastfetch = C.neofetch; C.hi = C.hello;
+    C.apt = C['apt-get'] = C.dnf = function () { line('E: You need to be root to install packages. And you are not.', 'c-err'); };
+    C.ll = function (a) { C.ls(['-la'].concat(a)); };
 
     function run(raw) {
       var text = raw.trim();
       if (mode === 'vim') {
         print('<span class="c-dim">:</span>' + esc(text.replace(/^:/, '')));
-        if (/^:?(q|q!|wq|x|qa!?|wq!)$/.test(text)) { mode = 'sh'; input.placeholder = ''; setPs(); return line('Has salido de vim. Pocos lo consiguen a la primera.', 'c-ok'); }
-        return print('<span class="c-err">E492: No es una orden del editor: ' + esc(text || '(nada)') + '</span>  <span class="c-dim">pista: :q</span>');
+        if (/^:?(q|q!|wq|x|qa!?|wq!)$/.test(text)) { mode = 'sh'; input.placeholder = ''; setPs(); return line('You escaped vim. Few manage it on the first try.', 'c-ok'); }
+        return print('<span class="c-err">E492: Not an editor command: ' + esc(text || '(nothing)') + '</span>  <span class="c-dim">hint: :q</span>');
       }
       print(promptHTML() + esc(text));
       if (!text) return;
@@ -1000,7 +1000,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       var args = text.split(/\s+/), cmd = args.shift(), fn = C.hasOwnProperty(cmd) ? C[cmd] : null;
       if (fn) return fn(args);
       var best = Object.keys(C).filter(function (k) { return C[k] && k.length > 1; }).map(function (k) { return [k, lev(cmd, k)]; }).sort(function (x, y) { return x[1] - y[1]; })[0];
-      print('<span class="c-err">' + esc(cmd) + ': orden no encontrada.</span>' + (best && best[1] <= 2 ? ' ¿Querías decir <span class="c-ok">' + best[0] + '</span>?' : ' Prueba <span class="c-ok">help</span>.'));
+      print('<span class="c-err">' + esc(cmd) + ': command not found.</span>' + (best && best[1] <= 2 ? ' Did you mean <span class="c-ok">' + best[0] + '</span>?' : ' Try <span class="c-ok">help</span>.'));
     }
     function complete() {
       var v = input.value, parts = v.split(' '), last = parts[parts.length - 1], cands;
@@ -1023,7 +1023,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       else if (e.key === 'ArrowUp' && mode === 'sh') { e.preventDefault(); if (hi > 0) input.value = hist[--hi]; }
       else if (e.key === 'ArrowDown' && mode === 'sh') { e.preventDefault(); hi = Math.min(hist.length, hi + 1); input.value = hist[hi] || ''; }
       else if (e.ctrlKey && (e.key === 'l' || e.key === 'L')) { e.preventDefault(); out.innerHTML = ''; }
-      else if (e.ctrlKey && (e.key === 'c' || e.key === 'C') && !window.getSelection().toString()) { e.preventDefault(); print((mode === 'vim' ? '' : promptHTML()) + esc(input.value) + '<span class="c-dim">^C</span>'); input.value = ''; if (mode === 'vim') { mode = 'sh'; setPs(); line('Vale, también vale para salir de vim.', 'c-dim'); } }
+      else if (e.ctrlKey && (e.key === 'c' || e.key === 'C') && !window.getSelection().toString()) { e.preventDefault(); print((mode === 'vim' ? '' : promptHTML()) + esc(input.value) + '<span class="c-dim">^C</span>'); input.value = ''; if (mode === 'vim') { mode = 'sh'; setPs(); line('Fine, that works to quit vim too.', 'c-dim'); } }
     });
     el.addEventListener('click', function (e) {
       var a = e.target.closest('[data-open]');
@@ -1031,10 +1031,10 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       if (!window.getSelection().toString()) input.focus({ preventScroll: true });
     });
     setPs();
-    print('<span class="c-dim">portfolio-sh 1.0 — escribe</span> <span class="c-ok">help</span> <span class="c-dim">para ver los comandos.</span>');
+    print('<span class="c-dim">portfolio-sh 1.0 — type</span> <span class="c-ok">help</span> <span class="c-dim">to see the commands.</span>');
     return {
       run: function (t) { run(t); setPs(); }, focus: function () { input.focus({ preventScroll: true }); }, print: print,
-      clear: function () { out.innerHTML = ''; }, reset: function () { out.innerHTML = ''; cwd = ''; mode = 'sh'; setPs(); print('<span class="c-dim">Nueva terminal.</span>'); },
+      clear: function () { out.innerHTML = ''; }, reset: function () { out.innerHTML = ''; cwd = ''; mode = 'sh'; setPs(); print('<span class="c-dim">New terminal.</span>'); },
       typeAndRun: function (t) { run(t); setPs(); }
     };
   }
@@ -1059,7 +1059,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
 
   // ================= Paleta (reutilizable) =================
   // Lista filtrable: items [{ label, desc, kbd, icon, run }]
-  function paletteHTML() { return '<div class="vs-palette" role="dialog" aria-label="Paleta de comandos"><input class="vs-pal-in" aria-label="Buscar" autocomplete="off" spellcheck="false"><div class="vs-pal-list" role="listbox"></div></div>'; }
+  function paletteHTML() { return '<div class="vs-palette" role="dialog" aria-label="Command palette"><input class="vs-pal-in" aria-label="Search" autocomplete="off" spellcheck="false"><div class="vs-pal-list" role="listbox"></div></div>'; }
   function matchScore(label, q) {
     if (!q) return { score: 0, marks: [] };
     var L = fold(label), Q = fold(q), marks = [], j = 0, start = L.indexOf(Q);
@@ -1079,7 +1079,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       list.innerHTML = shown.length ? shown.map(function (s, i) {
         return '<div class="vs-pal-item' + (i === sel ? ' on' : '') + '" role="option" aria-selected="' + (i === sel) + '" data-i="' + i + '">' + (s.it.icon || '') +
           '<span class="vs-pal-label">' + marked(s.it.label, s.m.marks) + '</span>' + (s.it.desc ? '<span class="vs-pal-desc">' + esc(s.it.desc) + '</span>' : '') + (s.it.kbd ? '<kbd>' + esc(s.it.kbd) + '</kbd>' : '') + '</div>';
-      }).join('') : '<div class="vs-pal-empty">' + esc(mode.empty || 'No hay resultados') + '</div>';
+      }).join('') : '<div class="vs-pal-empty">' + esc(mode.empty || 'No results') + '</div>';
       var on = list.querySelector('.on'); if (on) on.scrollIntoView({ block: 'nearest' });
     }
     function pick(i) { var s = shown[i]; if (!s) return; if (!s.it.keep) opts.close(); s.it.run(); }
@@ -1102,52 +1102,52 @@ No hay premio, pero hay truco. En cualquier parte de la página:
   // ================= La app completa =================
   function app(root, opts) {
     opts = opts || {};
-    var THEMES = ['noche', 'dia', 'placa'], THEME_NAME = { noche: 'Noche', dia: 'Día', placa: 'Placa' };
+    var THEMES = ['night', 'day', 'pcb'], THEME_NAME = { night: 'Night', day: 'Day', pcb: 'PCB' };
     var S = {
       view: 'explorer', sideOpen: true, side: 264, panelOpen: opts.panel !== false, panel: 220, lastPanel: 220, panelTab: 'terminal',
       tabs: ['README.md'], active: 'README.md', source: {}, hidden: false,
-      theme: root.getAttribute('data-theme') || document.documentElement.getAttribute('data-theme') || 'noche'
+      theme: root.getAttribute('data-theme') || document.documentElement.getAttribute('data-theme') || 'night'
     };
-    if (THEMES.indexOf(S.theme) < 0) S.theme = 'noche';
+    if (THEMES.indexOf(S.theme) < 0) S.theme = 'night';
     var narrow = function () { return root.offsetWidth < 720; };
     if (narrow()) { S.sideOpen = false; S.panelOpen = false; }
     root.classList.add('vs');
     root.innerHTML =
       '<header class="vs-title">' +
         '<span class="vs-mark" aria-hidden="true">AL</span>' +
-        '<nav class="vs-menubar"><button data-menu="archivo">Archivo</button><button data-menu="ver">Ver</button><button data-menu="terminal">Terminal</button><button data-menu="ayuda">Ayuda</button></nav>' +
-        '<button class="vs-cc" data-act="quick">' + ico('search', 14) + '<span>' + SITE + '</span></button>' +
-        '<div class="vs-win"><button data-act="win-min" aria-label="Minimizar">' + ico('min', 14) + '</button><button data-act="win-max" aria-label="Pantalla completa">' + ico('max', 13) + '</button><button data-act="win-close" class="x" aria-label="Cerrar">' + ico('close', 14) + '</button></div>' +
+        '<nav class="vs-menubar"><button data-menu="file">File</button><button data-menu="view">View</button><button data-menu="terminal">Terminal</button><button data-menu="help">Help</button></nav>' +
+        '<button class="vs-cc" data-act="quick">' + ico('search', 14) + '<span>' + NAME + '</span></button>' +
+        '<div class="vs-win"><button data-act="win-min" aria-label="Minimize">' + ico('min', 14) + '</button><button data-act="win-max" aria-label="Full screen">' + ico('max', 13) + '</button><button data-act="win-close" class="x" aria-label="Close">' + ico('close', 14) + '</button></div>' +
       '</header>' +
       '<div class="vs-body">' +
-        '<nav class="vs-activity" aria-label="Vistas">' +
-          '<button data-view="explorer" title="Explorador (Ctrl+Shift+E)" aria-label="Explorador">' + ico('files', 24) + '</button>' +
-          '<button data-view="search" title="Buscar (Ctrl+Shift+F)" aria-label="Buscar">' + ico('search', 24) + '</button>' +
-          '<button data-view="scm" title="Trayectoria (Ctrl+Shift+G)" aria-label="Trayectoria">' + ico('branch', 24) + '<span class="vs-badge">' + COMMITS.length + '</span></button>' +
-          '<button data-view="ext" title="Conocimiento (Ctrl+Shift+X)" aria-label="Conocimiento">' + ico('blocks', 24) + '</button>' +
+        '<nav class="vs-activity" aria-label="Views">' +
+          '<button data-view="explorer" title="Explorer (Ctrl+Shift+E)" aria-label="Explorer">' + ico('files', 24) + '</button>' +
+          '<button data-view="search" title="Search (Ctrl+Shift+F)" aria-label="Search">' + ico('search', 24) + '</button>' +
+          '<button data-view="scm" title="Career (Ctrl+Shift+G)" aria-label="Career">' + ico('branch', 24) + '<span class="vs-badge">' + COMMITS.length + '</span></button>' +
+          '<button data-view="ext" title="Skills (Ctrl+Shift+X)" aria-label="Skills">' + ico('blocks', 24) + '</button>' +
           '<span class="vs-act-spacer"></span>' +
-          '<button data-act="account" title="Cuenta" aria-label="Cuenta">' + ico('user', 24) + '</button>' +
-          '<button data-act="settings" title="Tema de color" aria-label="Tema de color">' + ico('sliders', 24) + '</button>' +
+          '<button data-act="account" title="Account" aria-label="Account">' + ico('user', 24) + '</button>' +
+          '<button data-act="settings" title="Color theme" aria-label="Color theme">' + ico('sliders', 24) + '</button>' +
         '</nav>' +
-        '<aside class="vs-side" aria-label="Barra lateral"><div class="vs-side-head"><span class="vs-side-title"></span><span class="vs-side-actions"></span></div><div class="vs-side-body"></div></aside>' +
-        '<div class="vs-sash vs-sash-v" title="Arrastra para cambiar el ancho"></div>' +
+        '<aside class="vs-side" aria-label="Sidebar"><div class="vs-side-head"><span class="vs-side-title"></span><span class="vs-side-actions"></span></div><div class="vs-side-body"></div></aside>' +
+        '<div class="vs-sash vs-sash-v" title="Drag to resize"></div>' +
         '<main class="vs-main">' +
           '<div class="vs-tabbar"><div class="vs-tabs" role="tablist"></div><div class="vs-tab-actions"></div></div>' +
           '<div class="vs-crumbs"></div>' +
           '<div class="vs-editor" tabindex="-1"></div>' +
-          '<div class="vs-sash vs-sash-h" title="Arrastra para abrir o cambiar el tamaño del panel"></div>' +
+          '<div class="vs-sash vs-sash-h" title="Drag to open or resize the panel"></div>' +
           '<section class="vs-panel" aria-label="Panel">' +
-            '<div class="vs-panel-head"><div class="vs-ptabs" role="tablist"><button data-ptab="problems">Problemas <span class="vs-count">1</span></button><button data-ptab="output">Salida</button><button data-ptab="terminal">Terminal</button><button data-ptab="ports">Puertos</button></div>' +
-            '<div class="vs-panel-actions"><button data-act="term-new" title="Nueva terminal" aria-label="Nueva terminal">' + ico('plus') + '</button><button data-act="term-clear" title="Limpiar" aria-label="Limpiar terminal">' + ico('trash') + '</button><button data-act="panel-max" title="Maximizar panel" aria-label="Maximizar panel">' + ico('up') + '</button><button data-act="panel-close" title="Cerrar panel" aria-label="Cerrar panel">' + ico('close') + '</button></div></div>' +
+            '<div class="vs-panel-head"><div class="vs-ptabs" role="tablist"><button data-ptab="problems">Problems <span class="vs-count">1</span></button><button data-ptab="output">Output</button><button data-ptab="terminal">Terminal</button><button data-ptab="ports">Ports</button></div>' +
+            '<div class="vs-panel-actions"><button data-act="term-new" title="New terminal" aria-label="New terminal">' + ico('plus') + '</button><button data-act="term-clear" title="Clear" aria-label="Clear terminal">' + ico('trash') + '</button><button data-act="panel-max" title="Maximize panel" aria-label="Maximize panel">' + ico('up') + '</button><button data-act="panel-close" title="Close panel" aria-label="Close panel">' + ico('close') + '</button></div></div>' +
             '<div class="vs-panel-body"><div class="vs-pview" data-pview="terminal"></div><div class="vs-pview vs-plist" data-pview="problems"></div><div class="vs-pview vs-plist" data-pview="output"></div><div class="vs-pview vs-plist" data-pview="ports"></div></div>' +
           '</section>' +
         '</main>' +
       '</div>' +
       '<footer class="vs-status">' +
         '<button data-act="scm">' + ico('branch', 14) + 'main</button><button data-act="problems">' + ico('err', 14) + '0 ' + ico('warn', 14) + '1</button>' +
-        '<span class="vs-status-fill" title="Arrastra hacia arriba para abrir la terminal"></span>' +
+        '<span class="vs-status-fill" title="Drag up to open the terminal"></span>' +
         '<span class="vs-pos"></span><span>UTF-8</span><span>LF</span><button data-act="lang" class="vs-lang"></button><button data-act="settings" class="vs-themebtn"></button>' +
-        '<button data-act="term-toggle">' + ico('term', 14) + 'Terminal</button><button data-act="bell" aria-label="Notificaciones">' + ico('bell', 14) + '</button>' +
+        '<button data-act="term-toggle">' + ico('term', 14) + 'Terminal</button><button data-act="bell" aria-label="Notifications">' + ico('bell', 14) + '</button>' +
       '</footer>' +
       '<div class="vs-overlay"></div>' + paletteHTML() + '<div class="vs-menu" role="menu"></div><div class="vs-dialog" role="dialog" aria-modal="true"></div><div class="vs-toasts" aria-live="polite"></div>';
 
@@ -1161,7 +1161,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     // —— avisos y diálogos ——
     function toast(text, actions) {
       var t = document.createElement('div'); t.className = 'vs-toast';
-      t.innerHTML = ico('info', 16) + '<div class="vs-toast-text">' + text + '</div><button class="vs-toast-x" aria-label="Cerrar aviso">' + ico('close', 14) + '</button>' +
+      t.innerHTML = ico('info', 16) + '<div class="vs-toast-text">' + text + '</div><button class="vs-toast-x" aria-label="Dismiss">' + ico('close', 14) + '</button>' +
         (actions ? '<div class="vs-toast-acts">' + actions.map(function (a, i) { return '<button data-i="' + i + '"' + (i === 0 ? ' class="primary"' : '') + '>' + esc(a.label) + '</button>'; }).join('') + '</div>' : '');
       t.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; if (b.hasAttribute('data-i')) actions[+b.getAttribute('data-i')].run(); t.remove(); });
       var box = $('.vs-toasts'); box.appendChild(t); while (box.children.length > 3) box.firstChild.remove();
@@ -1177,7 +1177,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
 
     // —— archivos y pestañas ——
     function openFile(p, opt) {
-      if (!isFile(p)) { if (isDir(p)) return reveal(p); return toast('No existe <b>' + esc(p) + '</b>.'); }
+      if (!isFile(p)) { if (isDir(p)) return reveal(p); return toast('Not found: <b>' + esc(p) + '</b>.'); }
       if (S.tabs.indexOf(p) < 0) S.tabs.push(p);
       S.active = p;
       if (narrow() && S.sideOpen) { S.sideOpen = false; layout(); }
@@ -1197,17 +1197,17 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       var names = {}; S.tabs.forEach(function (p) { var b = baseOf(p); names[b] = (names[b] || 0) + 1; });
       $('.vs-tabs').innerHTML = S.tabs.map(function (p) {
         return '<div class="vs-tab' + (p === S.active ? ' on' : '') + '" role="tab" aria-selected="' + (p === S.active) + '" tabindex="0" data-tab="' + esc(p) + '" title="' + esc(p) + '">' + icon(p) + '<span>' + esc(baseOf(p)) + '</span>' +
-          (names[baseOf(p)] > 1 ? '<span class="vs-tab-desc">' + esc(dirOf(p) || '~') + '</span>' : '') + '<button class="vs-tab-x" data-close="' + esc(p) + '" aria-label="Cerrar ' + esc(baseOf(p)) + '">' + ico('close', 14) + '</button></div>';
+          (names[baseOf(p)] > 1 ? '<span class="vs-tab-desc">' + esc(dirOf(p) || '~') + '</span>' : '') + '<button class="vs-tab-x" data-close="' + esc(p) + '" aria-label="Close ' + esc(baseOf(p)) + '">' + ico('close', 14) + '</button></div>';
       }).join('');
       var md = S.active && langOf(S.active) === 'markdown';
-      $('.vs-tab-actions').innerHTML = md ? '<button data-act="md-toggle" title="' + (S.source[S.active] ? 'Abrir vista previa' : 'Ver código fuente') + '" aria-label="' + (S.source[S.active] ? 'Abrir vista previa' : 'Ver código fuente') + '">' + ico(S.source[S.active] ? 'preview' : 'code') + '</button>' : '';
+      $('.vs-tab-actions').innerHTML = md ? '<button data-act="md-toggle" title="' + (S.source[S.active] ? 'Open preview' : 'Show source') + '" aria-label="' + (S.source[S.active] ? 'Open preview' : 'Show source') + '">' + ico(S.source[S.active] ? 'preview' : 'code') + '</button>' : '';
       var on = $('.vs-tab.on'); if (on) on.scrollIntoView({ block: 'nearest', inline: 'nearest' });
     }
     function renderEditor() {
       var p = S.active, crumbs = $('.vs-crumbs');
       if (!p) {
         crumbs.innerHTML = '';
-        editor.innerHTML = '<div class="vs-empty"><span class="vs-mark big" aria-hidden="true">AL</span><dl><dt>Mostrar todos los comandos</dt><dd><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></dd><dt>Abrir archivo</dt><dd><kbd>Ctrl</kbd>+<kbd>P</kbd></dd><dt>Abrir o cerrar la terminal</dt><dd><kbd>Ctrl</kbd>+<kbd>ñ</kbd></dd><dt>Leer el README</dt><dd><a href="#" class="vs-link" data-open="README.md">README.md</a></dd></dl></div>';
+        editor.innerHTML = '<div class="vs-empty"><span class="vs-mark big" aria-hidden="true">AL</span><dl><dt>Show all commands</dt><dd><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></dd><dt>Open file</dt><dd><kbd>Ctrl</kbd>+<kbd>P</kbd></dd><dt>Toggle terminal</dt><dd><kbd>Ctrl</kbd>+<kbd>`</kbd></dd><dt>Read the README</dt><dd><a href="#" class="vs-link" data-open="README.md">README.md</a></dd></dl></div>';
         return;
       }
       crumbs.innerHTML = [SITE].concat(p.split('/')).map(function (c, i, a) {
@@ -1225,7 +1225,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     }
 
     // —— barra lateral ——
-    var VIEW_TITLE = { explorer: 'Explorador', search: 'Buscar', scm: 'Trayectoria', ext: 'Conocimiento' };
+    var VIEW_TITLE = { explorer: 'Explorer', search: 'Search', scm: 'Career', ext: 'Skills' };
     function setView(v, force) {
       if (S.view === v && S.sideOpen && !force) { S.sideOpen = false; return layout(); }
       S.view = v; S.sideOpen = true; layout(); renderSide();
@@ -1235,18 +1235,18 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       $('.vs-side-title').textContent = VIEW_TITLE[S.view];
       var acts = $('.vs-side-actions');
       if (S.view === 'explorer') {
-        acts.innerHTML = '<button data-act="toggle-hidden" title="' + (S.hidden ? 'Ocultar' : 'Mostrar') + ' archivos ocultos" aria-label="Archivos ocultos">' + ico('eye') + '</button><button data-act="collapse" title="Contraer carpetas" aria-label="Contraer carpetas">' + ico('collapse') + '</button>';
+        acts.innerHTML = '<button data-act="toggle-hidden" title="' + (S.hidden ? 'Hide' : 'Show') + ' hidden files" aria-label="Hidden files">' + ico('eye') + '</button><button data-act="collapse" title="Collapse folders" aria-label="Collapse folders">' + ico('collapse') + '</button>';
         sideBody.innerHTML = '<div class="vs-sect">' + SITE + '</div><div class="vs-tree"></div>';
-        exp = explorer(sideBody.querySelector('.vs-tree'), { open: exp ? exp.state.open : { experiencia: true, 'experiencia/hp': true, conocimiento: true }, hidden: S.hidden, active: S.active, onOpen: function (p) { openFile(p, { keepFocus: true }); } });
+        exp = explorer(sideBody.querySelector('.vs-tree'), { open: exp ? exp.state.open : { experience: true, 'experience/hp': true, skills: true }, hidden: S.hidden, active: S.active, onOpen: function (p) { openFile(p, { keepFocus: true }); } });
       } else if (S.view === 'search') {
         acts.innerHTML = '';
-        sideBody.innerHTML = '<div class="vs-sidebox"><input class="vs-field" data-search placeholder="Buscar en todos los archivos" aria-label="Buscar"></div><div class="vs-results"></div>';
+        sideBody.innerHTML = '<div class="vs-sidebox"><input class="vs-field" data-search placeholder="Search all files" aria-label="Search"></div><div class="vs-results"></div>';
         var inp = sideBody.querySelector('[data-search]'); inp.value = S.query || ''; inp.focus({ preventScroll: true }); search(inp.value);
         inp.addEventListener('input', function () { S.query = inp.value; search(inp.value); });
       } else if (S.view === 'scm') {
         acts.innerHTML = '';
-        sideBody.innerHTML = '<div class="vs-sidebox"><textarea class="vs-field" rows="2" data-commit placeholder="Mensaje (Ctrl+Enter para confirmar en «main»)" aria-label="Mensaje de commit"></textarea><button class="vs-btn primary" data-act="commit">Confirmar</button></div>' +
-          '<div class="vs-sect">Historial · main</div>' + COMMITS.map(function (c) {
+        sideBody.innerHTML = '<div class="vs-sidebox"><textarea class="vs-field" rows="2" data-commit placeholder="Message (Ctrl+Enter to commit on &quot;main&quot;)" aria-label="Commit message"></textarea><button class="vs-btn primary" data-act="commit">Commit</button></div>' +
+          '<div class="vs-sect">History · main</div>' + COMMITS.map(function (c) {
             return '<div class="vs-commit" data-file="' + c.file + '" tabindex="0"><span class="vs-commit-dot"></span><div><div class="vs-commit-msg">' + esc(c.msg) + '</div><div class="vs-commit-meta"><span class="h">' + c.hash + '</span> · ' + esc(c.date) + (c.refs ? ' · <span class="r">' + esc(c.refs.split(',')[0]) + '</span>' : '') + '</div></div></div>';
           }).join('');
         sideBody.querySelector('[data-commit]').addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.ctrlKey) { e.preventDefault(); commit(); } });
@@ -1259,7 +1259,7 @@ No hay premio, pero hay truco. En cualquier parte de la página:
             return '<div class="vs-ext" data-file="' + esc(p) + '" tabindex="0"><span class="vs-ext-ico" style="color:var(--' + ic[1] + ')">' + ic[0] + '</span><div class="vs-ext-body"><div class="vs-ext-name">' + esc(m.title) + '</div><div class="vs-ext-desc">' + esc(m.text) + '</div><div class="vs-ext-meta">alberto · ' + level(m.level) + '</div></div></div>';
           }).join('');
         };
-        sideBody.innerHTML = '<div class="vs-sidebox"><input class="vs-field" data-extq placeholder="Filtrar conocimiento" aria-label="Filtrar conocimiento"></div>' + group('Instalado', 'skill') + group('Taller', 'hobby');
+        sideBody.innerHTML = '<div class="vs-sidebox"><input class="vs-field" data-extq placeholder="Filter skills" aria-label="Filter skills"></div>' + group('Installed', 'skill') + group('Lab', 'hobby');
         sideBody.querySelector('[data-extq]').addEventListener('input', function (e) {
           var q = fold(e.target.value);
           sideBody.querySelectorAll('.vs-ext').forEach(function (x) { x.style.display = fold(x.textContent).indexOf(q) >= 0 ? '' : 'none'; });
@@ -1268,20 +1268,20 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     }
     function search(q) {
       var box = sideBody.querySelector('.vs-results'); if (!box) return;
-      if (!q || q.length < 2) { box.innerHTML = '<p class="vs-hint">Escribe al menos dos letras. Prueba «firmware» o «Rust».</p>'; return; }
+      if (!q || q.length < 2) { box.innerHTML = '<p class="vs-hint">Type at least two letters. Try “firmware” or “Rust”.</p>'; return; }
       var fq = fold(q), groups = [], total = 0;
       filesUnder('', S.hidden).forEach(function (p) {
         var hits = [];
         FILES[p].body.split('\n').forEach(function (l) { var k = fold(l).indexOf(fq); if (k >= 0) hits.push(esc(l.slice(Math.max(0, k - 24), k).replace(/^\S*\s/, '')) + '<mark>' + esc(l.substr(k, q.length)) + '</mark>' + esc(l.slice(k + q.length, k + q.length + 60))); });
         if (hits.length) { total += hits.length; groups.push('<div class="vs-sr-file" data-file="' + esc(p) + '">' + icon(p) + '<span>' + esc(baseOf(p)) + '</span><span class="vs-sr-dir">' + esc(dirOf(p)) + '</span><span class="vs-count">' + hits.length + '</span></div>' + hits.slice(0, 4).map(function (h) { return '<div class="vs-sr-line" data-file="' + esc(p) + '">' + h + '</div>'; }).join('')); }
       });
-      box.innerHTML = '<p class="vs-hint">' + total + ' resultados en ' + groups.length + ' archivos</p>' + groups.join('');
+      box.innerHTML = '<p class="vs-hint">' + total + ' results in ' + groups.length + ' files</p>' + groups.join('');
     }
     function commit() {
       var t = sideBody.querySelector('[data-commit]'), msg = t ? t.value.trim() : '';
-      if (!msg) return toast('No hay mensaje. Ni cambios. Ni prisa.');
+      if (!msg) return toast('No message. No changes. No rush.');
       t.value = '';
-      toast('Commit «' + esc(msg) + '» creado… en tu imaginación. Si va en serio, escríbeme.', [{ label: 'Abrir contacto', run: function () { openFile('contacto.json'); } }]);
+      toast('Commit “' + esc(msg) + '” created… in your imagination. If you mean it, write to me.', [{ label: 'Open contact', run: function () { openFile('contact.json'); } }]);
     }
 
     // —— panel ——
@@ -1354,43 +1354,43 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     }
     function commands() {
       return [
-        { label: 'Ver: Alternar terminal', kbd: 'Ctrl+ñ', run: toggleTerminal },
-        { label: 'Ver: Explorador', kbd: 'Ctrl+Shift+E', run: function () { setView('explorer', true); } },
-        { label: 'Ver: Buscar en archivos', kbd: 'Ctrl+Shift+F', run: function () { setView('search', true); } },
-        { label: 'Ver: Trayectoria (historial)', kbd: 'Ctrl+Shift+G', run: function () { setView('scm', true); } },
-        { label: 'Ver: Conocimiento', kbd: 'Ctrl+Shift+X', run: function () { setView('ext', true); } },
-        { label: 'Ver: Alternar barra lateral', kbd: 'Ctrl+B', run: function () { S.sideOpen = !S.sideOpen; layout(); } },
-        { label: 'Preferencias: Tema de color', keep: true, run: themePicker },
-        { label: 'Archivo: Abrir README', run: function () { openFile('README.md'); } },
-        { label: 'Contacto: Escribirme', run: function () { openFile('contacto.json'); } },
-        { label: 'CV: Ver en LinkedIn', run: openCV },
-        { label: 'Terminal: Ejecutar «neofetch»', run: function () { openPanel('terminal', true); term.run('neofetch'); } },
-        { label: 'Café: Preparar', run: function () { toast('<b>HTTP 418</b>: soy una tetera.'); } },
-        { label: 'Ayuda: Atajos de teclado', run: shortcuts }
+        { label: 'View: Toggle Terminal', kbd: 'Ctrl+`', run: toggleTerminal },
+        { label: 'View: Explorer', kbd: 'Ctrl+Shift+E', run: function () { setView('explorer', true); } },
+        { label: 'View: Search Files', kbd: 'Ctrl+Shift+F', run: function () { setView('search', true); } },
+        { label: 'View: Career (History)', kbd: 'Ctrl+Shift+G', run: function () { setView('scm', true); } },
+        { label: 'View: Skills', kbd: 'Ctrl+Shift+X', run: function () { setView('ext', true); } },
+        { label: 'View: Toggle Sidebar', kbd: 'Ctrl+B', run: function () { S.sideOpen = !S.sideOpen; layout(); } },
+        { label: 'Preferences: Color Theme', keep: true, run: themePicker },
+        { label: 'File: Open README', run: function () { openFile('README.md'); } },
+        { label: 'Contact: Write to Me', run: function () { openFile('contact.json'); } },
+        { label: 'CV: View on LinkedIn', run: openCV },
+        { label: 'Terminal: Run “neofetch”', run: function () { openPanel('terminal', true); term.run('neofetch'); } },
+        { label: 'Coffee: Brew', run: function () { toast("<b>HTTP 418</b>: I'm a teapot."); } },
+        { label: 'Help: Keyboard Shortcuts', run: shortcuts }
       ];
     }
     function themePicker() {
-      pal.open(function (q) { return { query: q, items: THEMES.filter(function (t) { return t !== 'placa' || S.theme === 'placa'; }).map(function (t) { return { label: THEME_NAME[t], desc: t === S.theme ? 'actual' : '', run: function () { setTheme(t); } }; }) }; }, '', 'Elige un tema de color');
+      pal.open(function (q) { return { query: q, items: THEMES.filter(function (t) { return t !== 'pcb' || S.theme === 'pcb'; }).map(function (t) { return { label: THEME_NAME[t], desc: t === S.theme ? 'current' : '', run: function () { setTheme(t); } }; }) }; }, '', 'Select a color theme');
       root.classList.add('has-palette');
     }
     function openPalette(cmd) {
       root.classList.add('has-palette');
       pal.open(function (q) {
-        if (q.charAt(0) === '>') return { query: q.slice(1).trim(), items: commands(), empty: 'Ningún comando coincide' };
-        return { query: q, items: fileItems(), empty: 'Ningún archivo coincide' };
-      }, cmd ? '>' : '', cmd ? '' : 'Buscar archivos por nombre (escribe > para comandos)');
+        if (q.charAt(0) === '>') return { query: q.slice(1).trim(), items: commands(), empty: 'No matching commands' };
+        return { query: q, items: fileItems(), empty: 'No matching files' };
+      }, cmd ? '>' : '', cmd ? '' : 'Search files by name (type > for commands)');
     }
     function openCV() { window.open(LINKEDIN, '_blank', 'noopener'); }
     function shortcuts() {
-      dialog('Atajos de teclado', 'Ctrl+Shift+P paleta de comandos · Ctrl+P abrir archivo · Ctrl+ñ terminal · Ctrl+B barra lateral · Ctrl+Shift+E/F/G/X vistas · Esc cierra lo que flota. Y un código que quizá conozcas.', [{ label: 'Entendido', primary: true }]);
+      dialog('Keyboard shortcuts', 'Ctrl+Shift+P command palette · Ctrl+P open file · Ctrl+` terminal · Ctrl+B sidebar · Ctrl+Shift+E/F/G/X views · Esc closes anything floating. And a code you might know.', [{ label: 'Got it', primary: true }]);
     }
 
     // —— menús ——
     var MENUS = {
-      archivo: [['Abrir archivo…', 'Ctrl+P', function () { openPalette(false); }], ['Abrir README', '', function () { openFile('README.md'); }], ['Contacto', '', function () { openFile('contacto.json'); }], ['Ver CV en LinkedIn', '', openCV], null, ['Cerrar ventana', '', closeWindow]],
-      ver: [['Paleta de comandos…', 'Ctrl+Shift+P', function () { openPalette(true); }], null, ['Explorador', 'Ctrl+Shift+E', function () { setView('explorer', true); }], ['Buscar', 'Ctrl+Shift+F', function () { setView('search', true); }], ['Trayectoria', 'Ctrl+Shift+G', function () { setView('scm', true); }], ['Conocimiento', 'Ctrl+Shift+X', function () { setView('ext', true); }], null, ['Terminal', 'Ctrl+ñ', toggleTerminal], ['Barra lateral', 'Ctrl+B', function () { S.sideOpen = !S.sideOpen; layout(); }], ['Tema de color…', '', function () { themePicker(); }]],
-      terminal: [['Nueva terminal', '', function () { openPanel('terminal', true); term.reset(); }], ['Limpiar terminal', '', function () { term.clear(); }], ['Ejecutar «help»', '', function () { openPanel('terminal', true); term.run('help'); }]],
-      ayuda: [['Atajos de teclado', '', shortcuts], ['Acerca de', '', function () { dialog('Acerca de', SITE + ' — el portfolio de Alberto López Sánchez. Versión 1.0 · Hecho a mano, sin frameworks. Inspirado en los editores de código de toda la vida.', [{ label: 'Cerrar', primary: true }]); }]]
+      file: [['Open File…', 'Ctrl+P', function () { openPalette(false); }], ['Open README', '', function () { openFile('README.md'); }], ['Contact', '', function () { openFile('contact.json'); }], ['View CV on LinkedIn', '', openCV], null, ['Close Window', '', closeWindow]],
+      view: [['Command Palette…', 'Ctrl+Shift+P', function () { openPalette(true); }], null, ['Explorer', 'Ctrl+Shift+E', function () { setView('explorer', true); }], ['Search', 'Ctrl+Shift+F', function () { setView('search', true); }], ['Career', 'Ctrl+Shift+G', function () { setView('scm', true); }], ['Skills', 'Ctrl+Shift+X', function () { setView('ext', true); }], null, ['Terminal', 'Ctrl+`', toggleTerminal], ['Sidebar', 'Ctrl+B', function () { S.sideOpen = !S.sideOpen; layout(); }], ['Color Theme…', '', function () { themePicker(); }]],
+      terminal: [['New Terminal', '', function () { openPanel('terminal', true); term.reset(); }], ['Clear Terminal', '', function () { term.clear(); }], ['Run “help”', '', function () { openPanel('terminal', true); term.run('help'); }]],
+      help: [['Keyboard Shortcuts', '', shortcuts], ['About', '', function () { dialog('About', SITE + ' — the portfolio of ' + NAME + '. Version 1.0 · Handmade, no frameworks. Inspired by the code editors we all know.', [{ label: 'Close', primary: true }]); }]]
     };
     var menuEl = $('.vs-menu'), menuFor = null;
     function openMenu(name, btn) {
@@ -1408,10 +1408,10 @@ No hay premio, pero hay truco. En cualquier parte de la página:
       if (e.key === 'ArrowDown') { e.preventDefault(); bs[(i + 1) % bs.length].focus(); } else if (e.key === 'ArrowUp') { e.preventDefault(); bs[(i - 1 + bs.length) % bs.length].focus(); }
     });
     function closeWindow() {
-      dialog('¿Cerrar el portfolio?', 'Hay cambios sin guardar en tu carrera: todavía no me has escrito.', [
-        { label: 'Escribirme', primary: true, run: function () { openFile('contacto.json'); } },
-        { label: 'Cerrar igualmente', run: function () { toast('Las webs no se cierran desde dentro. Pero gracias por intentarlo.'); } },
-        { label: 'Cancelar' }]);
+      dialog('Close the portfolio?', 'You have unsaved changes in your career: you have not written to me yet.', [
+        { label: 'Write to me', primary: true, run: function () { openFile('contact.json'); } },
+        { label: 'Close anyway', run: function () { toast('Websites don’t close from the inside. But thanks for trying.'); } },
+        { label: 'Cancel' }]);
     }
 
     // —— clics ——
@@ -1438,16 +1438,16 @@ No hay premio, pero hay truco. En cualquier parte de la página:
         case 'panel-max': S.panelOpen = true; S.panel = S.panel > main.offsetHeight - 140 ? S.lastPanel : main.offsetHeight - 90; layout(); return;
         case 'scm': return setView('scm', true);
         case 'problems': return openPanel('problems');
-        case 'lang': return toast('Modo de lenguaje: <b>' + esc(LANG_NAME[langOf(S.active)]) + '</b>. Lo detecto yo solo, no hace falta tocarlo.');
+        case 'lang': return toast('Language mode: <b>' + esc(LANG_NAME[langOf(S.active)]) + '</b>. Detected automatically, nothing to change.');
         case 'settings': return themePicker();
-        case 'account': return toast('Sesión iniciada como <b>visitante</b>. Para algo más, ' + '<a href="#" class="vs-link" data-open="contacto.json">escríbeme</a>.');
-        case 'bell': return toast('No hay notificaciones nuevas. Disfruta del silencio.');
+        case 'account': return toast('Signed in as <b>guest</b>. For anything else, <a href="#" class="vs-link" data-open="contact.json">write to me</a>.');
+        case 'bell': return toast('No new notifications. Enjoy the silence.');
         case 'md-toggle': S.source[S.active] = !S.source[S.active]; renderTabs(); return renderEditor();
         case 'toggle-hidden': S.hidden = !S.hidden; exp.setHidden(S.hidden); return renderSide();
         case 'collapse': return exp.collapse();
         case 'commit': return commit();
-        case 'win-min': return toast('Minimizar no está disponible: este portfolio quiere que lo leas.');
-        case 'win-max': if (root.requestFullscreen && !document.fullscreenElement) root.requestFullscreen().catch(function () { toast('Tu navegador no deja ponerlo a pantalla completa aquí.'); }); else if (document.exitFullscreen && document.fullscreenElement) document.exitFullscreen(); return;
+        case 'win-min': return toast('Minimize is not available: this portfolio wants to be read.');
+        case 'win-max': if (root.requestFullscreen && !document.fullscreenElement) root.requestFullscreen().catch(function () { toast('Your browser does not allow full screen here.'); }); else if (document.exitFullscreen && document.fullscreenElement) document.exitFullscreen(); return;
         case 'win-close': return closeWindow();
       }
     });
@@ -1462,10 +1462,10 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     // —— teclado global + Konami ——
     var KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'], kpos = 0;
     function konami() {
-      var prev = S.theme === 'placa' ? 'noche' : S.theme;
-      setTheme('placa');
+      var prev = S.theme === 'pcb' ? 'night' : S.theme;
+      setTheme('pcb');
       var inp = root.querySelector('.vs-term-in'); if (inp) inp.value = '';
-      toast('<b>Modo placa activado.</b> Firmware incluido. Para volver: <code>theme ' + prev + '</code> en la terminal.', [{ label: 'Volver a ' + THEME_NAME[prev], run: function () { setTheme(prev); } }]);
+      toast('<b>PCB mode on.</b> Firmware included. To go back: <code>theme ' + prev + '</code> in the terminal.', [{ label: 'Back to ' + THEME_NAME[prev], run: function () { setTheme(prev); } }]);
     }
     (opts.keyTarget || document).addEventListener('keydown', function (e) {
       var k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
@@ -1481,9 +1481,9 @@ No hay premio, pero hay truco. En cualquier parte de la página:
     });
 
     // —— panel: contenidos ——
-    root.querySelector('[data-pview="problems"]').innerHTML = '<div class="vs-prow">' + ico('warn', 16) + '<span>El café se está acabando.</span><span class="vs-sr-dir">portfolio · Ln 1, Col 1</span></div><div class="vs-prow muted">' + ico('info', 16) + '<span>0 errores. Todo compila, al menos aquí.</span></div>';
-    root.querySelector('[data-pview="output"]').innerHTML = ['[info] Iniciando portfolio-sh 1.0', '[info] ' + Object.keys(FILES).length + ' archivos indexados en ' + Object.keys(DIRS).length + ' carpetas', '[info] Tema: ' + THEME_NAME[S.theme], '[info] Listo. Escribe help en la terminal.'].map(function (l) { return '<div>' + esc(l) + '</div>'; }).join('');
-    root.querySelector('[data-pview="ports"]').innerHTML = '<p class="vs-hint">No hay puertos reenviados. Mejor así.</p>';
+    root.querySelector('[data-pview="problems"]').innerHTML = '<div class="vs-prow">' + ico('warn', 16) + '<span>Running low on coffee.</span><span class="vs-sr-dir">portfolio · Ln 1, Col 1</span></div><div class="vs-prow muted">' + ico('info', 16) + '<span>0 errors. Everything compiles, at least here.</span></div>';
+    root.querySelector('[data-pview="output"]').innerHTML = ['[info] Starting portfolio-sh 1.0', '[info] ' + Object.keys(FILES).length + ' files indexed in ' + Object.keys(DIRS).length + ' folders', '[info] Theme: ' + THEME_NAME[S.theme], '[info] Ready. Type help in the terminal.'].map(function (l) { return '<div>' + esc(l) + '</div>'; }).join('');
+    root.querySelector('[data-pview="ports"]').innerHTML = '<p class="vs-hint">No forwarded ports. Better that way.</p>';
     term = terminal(root.querySelector('[data-pview="terminal"]'), {
       open: function (p) { openFile(p, { keepFocus: true }); }, reveal: reveal, close: closePanel, toast: toast,
       setTheme: setTheme, theme: function () { return S.theme; }, themes: THEMES
